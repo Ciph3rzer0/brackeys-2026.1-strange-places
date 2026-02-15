@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://do02er7me81ue"]
+
+[ext_resource type="Texture2D" uid="uid://by4c0mn1n21up" path="res://addons/brackeys_vfx_bundle/particles/alpha/flame_02_a.png" id="1_067iu"]
+
+[sub_resource type="Curve" id="Curve_rrxl2"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.65125245, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wfoe5"]
+curve = SubResource("Curve_rrxl2")
+
+[sub_resource type="Curve" id="Curve_067iu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.29896623), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rrxl2"]
+curve = SubResource("Curve_067iu")
+
+[sub_resource type="Curve" id="Curve_b8r8p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51830447, 0.77479744), -1.3394592, -1.3394592, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ileh"]
+curve = SubResource("Curve_b8r8p")
+
+[sub_resource type="Curve" id="Curve_mxsq0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.17183572), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_067iu"]
+curve = SubResource("Curve_mxsq0")
+
+[sub_resource type="Curve" id="Curve_gh6kh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pro5g"]
+curve = SubResource("Curve_gh6kh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rrxl2"]
+lifetime_randomness = 0.22
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -29.99999
+angle_max = 30.000011
+angle_curve = SubResource("CurveTexture_wfoe5")
+gravity = Vector3(0, 3, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_067iu")
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_pro5g")
+color = Color(0.9100806, 0.17570218, 0, 1)
+emission_curve = SubResource("CurveTexture_8ileh")
+anim_speed_max = 5.0
+anim_speed_curve = SubResource("CurveTexture_rrxl2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8a0i"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6153104, 0.24216002, 0, 1)
+albedo_texture = ExtResource("1_067iu")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_wfoe5"]
+material = SubResource("StandardMaterial3D_k8a0i")
+
+[sub_resource type="Animation" id="Animation_wfoe5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.65439504, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_b8r8p"]
+resource_name = "noise"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.31, 4.9666667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 2.5, -0.385, -0.051666662, 0, 0, 1.565, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.31, 4.9666667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.31, 4.9666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ileh"]
+_data = {
+&"RESET": SubResource("Animation_wfoe5"),
+&"noise": SubResource("Animation_b8r8p")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pay1w"]
+albedo_color = Color(0.2065543, 0.2065543, 0.20655426, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_d1i4r"]
+material = SubResource("StandardMaterial3D_pay1w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4da8"]
+albedo_color = Color(0.1660141, 0.062195994, 0.02732145, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pay1w"]
+material = SubResource("StandardMaterial3D_v4da8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh6kh"]
+albedo_color = Color(0.2966023, 0.2966023, 0.2966023, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pro5g"]
+material = SubResource("StandardMaterial3D_gh6kh")
+radius = 0.689
+radial_segments = 8
+rings = 8
+
+[node name="Node3D" type="Node3D" unique_id=1837487766]
+
+[node name="Smoke_GPUParticle" type="GPUParticles3D" parent="." unique_id=1753552170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5323842, 0)
+visible = false
+amount = 16
+lifetime = 1.5
+randomness = 0.05
+fixed_fps = 12
+process_material = SubResource("ParticleProcessMaterial_rrxl2")
+draw_pass_1 = SubResource("QuadMesh_wfoe5")
+
+[node name="Fire_GPUParticle" type="GPUParticles3D" parent="." unique_id=2034063614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7661921, 0)
+amount = 16
+lifetime = 1.5
+randomness = 0.05
+fixed_fps = 12
+process_material = SubResource("ParticleProcessMaterial_rrxl2")
+draw_pass_1 = SubResource("QuadMesh_wfoe5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1092845995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65439504, 0)
+light_color = Color(0.81886154, 0.26920894, 0.19883135, 1)
+omni_range = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1635124694]
+libraries/ = SubResource("AnimationLibrary_8ileh")
+
+[node name="test_floor" type="MeshInstance3D" parent="." unique_id=907995952]
+transform = Transform3D(6.3174257, 0, 0, 0, -2.7786143e-07, 0.9999999, 0, -6.3567286, -4.3711392e-08, 0, -0.10953319, 0)
+visible = false
+mesh = SubResource("QuadMesh_d1i4r")
+
+[node name="Logs" type="Node3D" parent="." unique_id=1941789832]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Logs" unique_id=292444514]
+transform = Transform3D(-1.4932102e-08, -1, 0, 0.34160668, -4.371139e-08, 0, 0, 0, 0.34160668, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pay1w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Logs" unique_id=393252110]
+transform = Transform3D(-1.05585904e-08, -0.70710677, -0.2415524, 0.34160668, -4.3711385e-08, 0, -1.055859e-08, -0.70710677, 0.2415524, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pay1w")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Logs" unique_id=1650805778]
+transform = Transform3D(-5.609278e-16, 4.371139e-08, -0.34160668, 0.34160668, -4.3711385e-08, 0, -1.49321e-08, -1, -1.4932102e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pay1w")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Logs" unique_id=1163001444]
+transform = Transform3D(1.0558591e-08, 0.7071068, -0.24155238, 0.34160668, -4.3711385e-08, 0, -1.055859e-08, -0.70710677, -0.2415524, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pay1w")
+
+[node name="Rocks" type="Node3D" parent="." unique_id=1019609946]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rocks" unique_id=1382547495]
+transform = Transform3D(0.87303627, 0, 0, 0, 0.87303627, 0, 0, 0, 0.87303627, 0.84554434, 0, -0.38250256)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Rocks" unique_id=531025568]
+transform = Transform3D(0.6010637, 0, 0, 0, 0.6010637, 0, 0, 0, 0.6010637, 0.18753105, 0, -0.89189845)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Rocks" unique_id=142551005]
+transform = Transform3D(-0.74532247, -0.395001, -0.23653832, -0.3815677, 0.7818091, -0.10325746, 0.25764737, 0.015176208, -0.8371791, -1.0590006, -0.016642014, 0.58916956)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Rocks" unique_id=1663028347]
+transform = Transform3D(-0.5231104, -0.030812787, -0.16154918, -0.03224382, 0.5474052, 0, 0.16126966, 0.0094992705, -0.52401704, -0.47911263, 0.016642014, 0.99031)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Rocks" unique_id=367824938]
+transform = Transform3D(-0.059985887, 0, 0.7371839, 0.056222502, 0.73746645, 0.0045749187, -0.73503685, 0.056408327, -0.05981118, -0.5831846, 0.053185716, -0.7394216)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Rocks" unique_id=739232418]
+transform = Transform3D(-0.041298795, 0, 0.50753284, 0.038707793, 0.5077273, 0.0031497178, -0.50605464, 0.038835734, -0.041178513, -1.0836911, 0.018566431, -0.20188095)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Rocks" unique_id=1019258010]
+transform = Transform3D(0.18140183, 0.010685118, -0.45464498, -0.06332028, 0.48530537, -0.013858875, 0.45034075, 0.06393242, 0.18118697, 0.449956, -0.19960663, 0.8807218)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Rocks" unique_id=1509043287]
+transform = Transform3D(0.18140183, 0.010685118, -0.45464498, -0.06332028, 0.48530537, -0.013858875, 0.45034075, 0.06393242, 0.18118697, 0.014920503, 0.084576815, 0.8807218)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Rocks" unique_id=1870568743]
+transform = Transform3D(0.1510502, 0.010634366, -0.726596, -0.05272571, 0.4830003, -0.022148717, 0.37499103, 0.063628756, 0.289566, -0.04748115, -0.15454361, 1.0775183)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Rocks" unique_id=1793204836]
+transform = Transform3D(0.18140183, 0.010685118, -0.45464498, -0.06332028, 0.48530537, -0.013858875, 0.45034075, 0.06393242, 0.18118697, 0.7972959, -0.1061016, 0.49083877)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Rocks" unique_id=116107575]
+transform = Transform3D(0.18140183, 0.010685118, -0.45464498, -0.06332028, 0.48530537, -0.013858875, 0.45034075, 0.06393242, 0.18118697, 0.6375515, 0.026558071, 0.7436297)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Rocks" unique_id=1947806639]
+transform = Transform3D(-0.01152694, 0.107586645, -0.2790475, -0.23620097, 0.1680146, 0.074535, 0.18344349, 0.2230952, 0.078436546, -1.038476, 0.20502105, -0.4853109)
+mesh = SubResource("SphereMesh_pro5g")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Rocks" unique_id=2015811492]
+transform = Transform3D(0.17211734, 0.010138232, -0.43137532, -0.060079418, 0.4604665, -0.013149552, 0.42729142, 0.060660236, 0.17191347, 0.8126788, -0.002120005, 0.2534299)
+mesh = SubResource("SphereMesh_pro5g")
