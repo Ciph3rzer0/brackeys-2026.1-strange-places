@@ -27,6 +27,8 @@ var ground_height := 0.0
 var _gravity := -30.0
 var _was_on_floor_last_frame := true
 var _camera_input_direction := Vector2.ZERO
+var _look_mode := false
+@onready var _original_spring_arm_length = %SpringArm.spring_length
 
 ## The last movement or aim direction input by the player. We use this to orient
 ## the character model.
@@ -61,6 +63,9 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	elif event.is_action_pressed("pc_look"):
+		print("Toggling look mode. Current: ", _look_mode)
+		_set_look_mode(!_look_mode)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -71,6 +76,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_camera_input_direction.x = -event.relative.x * mouse_sensitivity
 		_camera_input_direction.y = event.relative.y * mouse_sensitivity
 
+func _set_look_mode(enabled: bool) -> void:
+	_look_mode = enabled
+	%SophiaSkin.visible = not enabled
+	if _look_mode:
+		%SpringArm.spring_length = 0.0
+	else:
+		%SpringArm.spring_length = _original_spring_arm_length
 
 func _physics_process(delta: float) -> void:
 	_camera_pivot.rotation.x += _camera_input_direction.y * delta
