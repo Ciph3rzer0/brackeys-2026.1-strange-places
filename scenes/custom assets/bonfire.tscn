@@ -70,7 +70,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_k8a0i")
 
 [sub_resource type="Animation" id="Animation_wfoe5"]
-length = 0.001
+length = 0.26666668
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -127,9 +127,9 @@ tracks/0/path = NodePath("OmniLight3D:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(15, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(15, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.3, 5)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -140,7 +140,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(2, 2, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 4.9666667)
+"times": PackedFloat32Array(0, 2.31, 5)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -150,8 +150,8 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 2, 0),
-"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 2.5, -0.385, -0.051666662, 0, 0, 1.565, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 4.9666667)
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 2.5, -0.385, -0.051666662, 0, 0, 1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.31, 5)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -162,7 +162,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(2, 2, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 4.9666667)
+"times": PackedFloat32Array(0, 2.31, 5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ileh"]

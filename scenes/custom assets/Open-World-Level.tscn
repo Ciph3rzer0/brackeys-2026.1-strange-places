@@ -10,11 +10,31 @@
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
 [ext_resource type="PackedScene" uid="uid://cumht2xi4dbdp" path="res://scenes/custom assets/player.tscn" id="6_8sv6m"]
-[ext_resource type="PackedScene" uid="uid://dv5vqg71dgyej" path="res://assets/environment/trophy.glb" id="7_bgsw1"]
 [ext_resource type="AudioStream" uid="uid://i0vqws24yg2j" path="res://assets/audio/some 80s prog bullshit that DOESNT FIT WITH THE GAME.mp3" id="9_iisry"]
 [ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
-[ext_resource type="PackedScene" uid="uid://3nal2hu3onav" path="res://assets/environment/rock-large.glb" id="14_1csix"]
-[ext_resource type="PackedScene" uid="uid://c5u2ui7ngfvxi" path="res://assets/environment/rock-small.glb" id="15_78gt3"]
+[ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
+sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
+sky_horizon_color = Color(0.20444065, 0.21058941, 0.21465209, 1)
+sky_curve = 0.13058291
+sky_energy_multiplier = 3.7
+ground_bottom_color = Color(0.11833314, 0.41265365, 0.47700155, 1)
+
+[sub_resource type="Sky" id="Sky_2gwnt"]
+sky_material = SubResource("ProceduralSkyMaterial_2ui33")
+
+[sub_resource type="Environment" id="Environment_lny1m"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_2gwnt")
+tonemap_mode = 4
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
+fog_density = 1.0
+fog_height_density = 0.02
+fog_depth_curve = 0.5358867
 
 [sub_resource type="Gradient" id="Gradient_ii8ra"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -96,51 +116,40 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_hu0nc"]
+name = "bush"
+id = 4
+scene_file = ExtResource("13_cg6i3")
+density = 2.9799893
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a20u7"]
 name = "rock023_alb_ht"
 albedo_texture = ExtResource("1_d53ne")
 normal_texture = ExtResource("2_bgsw1")
+roughness = 0.218
+detiling_rotation = 0.033
+detiling_shift = 0.018
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4860x"]
 name = "ground037_alb_ht"
 id = 1
 albedo_texture = ExtResource("3_xo2ap")
 normal_texture = ExtResource("4_iisry")
+normal_depth = 0.904
+ao_strength = 0.342
+roughness = 0.075
+uv_scale = 0.53
+detiling_rotation = 0.028
+detiling_shift = 0.028
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_1qyed"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_tq23v"), SubResource("Terrain3DMeshAsset_cg6i3"), SubResource("Terrain3DMeshAsset_1csix"), SubResource("Terrain3DMeshAsset_78gt3")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_tq23v"), SubResource("Terrain3DMeshAsset_cg6i3"), SubResource("Terrain3DMeshAsset_1csix"), SubResource("Terrain3DMeshAsset_78gt3"), SubResource("Terrain3DMeshAsset_hu0nc")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_a20u7"), SubResource("Terrain3DTextureAsset_4860x")])
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
-sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
-sky_horizon_color = Color(0.20444065, 0.21058941, 0.21465209, 1)
-sky_curve = 0.13058291
-sky_energy_multiplier = 3.7
-ground_bottom_color = Color(0.11833314, 0.41265365, 0.47700155, 1)
-
-[sub_resource type="Sky" id="Sky_2gwnt"]
-sky_material = SubResource("ProceduralSkyMaterial_2ui33")
-
-[sub_resource type="Environment" id="Environment_lny1m"]
-background_mode = 2
-background_energy_multiplier = 0.5
-sky = SubResource("Sky_2gwnt")
-tonemap_mode = 4
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
-fog_density = 0.757
-fog_height_density = -0.0541
-fog_depth_curve = 0.5358867
-
 [node name="Node3D" type="Node3D" unique_id=1764087103]
-
-[node name="Terrain3D" type="Terrain3D" parent="." unique_id=29175791]
-data_directory = "res://addons/terrain_3d/data_dir"
-material = SubResource("Terrain3DMaterial_3q875")
-assets = SubResource("Terrain3DAssets_1qyed")
-top_level = true
-metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
 environment = SubResource("Environment_lny1m")
@@ -150,14 +159,18 @@ transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9
 light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.4
 
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=29175791]
+data_directory = "res://addons/terrain_3d/data_dir"
+material = SubResource("Terrain3DMaterial_3q875")
+assets = SubResource("Terrain3DAssets_1qyed")
+top_level = true
+metadata/_edit_lock_ = true
+
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(1.5995977, 0, 0, 0, 1.5995977, 0, 0, 0, 1.5995977, 4.6786575, 0.05110407, 26.670143)
 
 [node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
-
-[node name="trophy2" parent="." unique_id=832667399 instance=ExtResource("7_bgsw1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.460856, 0, -5.1194954)
 
 [node name="Some80sProgBullshitThatDoesntFitWithTheGame" type="AudioStreamPlayer3D" parent="." unique_id=1261972223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4569173, 20.736904, 7.807192)
@@ -167,17 +180,6 @@ autoplay = true
 bus = &"Music"
 attenuation_filter_cutoff_hz = 20500.0
 
-[node name="bush2" parent="." unique_id=399229075 instance=ExtResource("13_cg6i3")]
-transform = Transform3D(2.102274, 0, 0, 0, 2.102274, 0, 0, 0, 2.102274, 11.8353, 0, -2.2365208)
-
-[node name="rock-large2" parent="." unique_id=869792224 instance=ExtResource("14_1csix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.941883, 0, -10.309481)
-
-[node name="rock-medium_12" parent="." unique_id=144088518 instance=ExtResource("2_hu0nc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.559488, 0, -12.130657)
-
-[node name="rock-medium_22" parent="." unique_id=1895718540 instance=ExtResource("3_fsif2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.41065, 0, -12.982822)
-
-[node name="rock-small2" parent="." unique_id=990821880 instance=ExtResource("15_78gt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.426521, 0, -12.766301)
+[node name="Node3D" parent="." unique_id=1956852423 instance=ExtResource("13_fsif2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.957174, 0, -6.730322)
+speed = -0.05
