@@ -15,3 +15,7 @@ func _on_sphere_mover_trigger_body_exited(_body: Node3D) -> void:
 		print("Removing the ball!")
 		%BallMover.run()
 		%BallMoverTrigger.set_active(false)
+
+
+func _on_lift_switch_switched(active: bool) -> void:
+	$LiftMover.run()

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="3_u5jnr"]
 [ext_resource type="PackedScene" uid="uid://dwsrmlfdfrji" path="res://levels/widgets/act_pressure_plate.tscn" id="4_u5jnr"]
 [ext_resource type="Script" uid="uid://d1v5txjtg3i6n" path="res://levels/widgets/act_pressure_plate.gd" id="5_fj1wo"]
+[ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="6_fj1wo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -48,6 +49,13 @@ height = 2.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_7ef1m"]
 radius = 1.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_fj1wo"]
+material = SubResource("StandardMaterial3D_5emr2")
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jt580"]
+size = Vector3(4, 0.25, 2)
+
 [node name="PcPlayground" type="Node3D" unique_id=497528762]
 script = ExtResource("1_pl6dj")
 
@@ -59,6 +67,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=251754396]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=2122502940]
 shape = SubResource("BoxShape3D_nqthn")
@@ -111,5 +121,34 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 4)
 script = ExtResource("5_fj1wo")
 
+[node name="WALL" type="StaticBody3D" parent="." unique_id=1459423841]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 2, 1.5, 2.5, -11.5)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL" unique_id=848894604]
+mesh = SubResource("BoxMesh_cdid1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL" unique_id=445167064]
+shape = SubResource("BoxShape3D_7gwhv")
+
+[node name="LiftSwitch" parent="." unique_id=1306449308 instance=ExtResource("6_fj1wo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.4, -10.5)
+
+[node name="LiftMover" parent="." unique_id=1946744826 instance=ExtResource("3_u5jnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -9.5)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -9.5)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.3752627, -9.5)
+
+[node name="Lift" type="CharacterBody3D" parent="LiftMover" unique_id=151253002]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LiftMover/Lift" unique_id=2042814424]
+mesh = SubResource("BoxMesh_fj1wo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LiftMover/Lift" unique_id=2082864298]
+shape = SubResource("BoxShape3D_jt580")
+
 [connection signal="body_entered" from="BallMoverTrigger" to="." method="_on_move_the_ball_body_entered"]
 [connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]
+[connection signal="switched_off" from="LiftSwitch" to="." method="_on_lift_switch_switched" binds= [false]]
+[connection signal="switched_on" from="LiftSwitch" to="." method="_on_lift_switch_switched" binds= [true]]
