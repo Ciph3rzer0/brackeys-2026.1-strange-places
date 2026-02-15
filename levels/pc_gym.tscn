@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dijjlut0br7bs"]
 
-[ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="1_7ef1m"]
+[ext_resource type="Script" uid="uid://cs822b2vy4ry4" path="res://levels/pc_gym.gd" id="1_pl6dj"]
+[ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="2_445kh"]
+[ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="3_u5jnr"]
+[ext_resource type="PackedScene" uid="uid://dwsrmlfdfrji" path="res://levels/widgets/act_pressure_plate.tscn" id="4_u5jnr"]
+[ext_resource type="Script" uid="uid://d1v5txjtg3i6n" path="res://levels/widgets/act_pressure_plate.gd" id="5_fj1wo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,6 +49,7 @@ height = 2.0
 radius = 1.0
 
 [node name="PcPlayground" type="Node3D" unique_id=497528762]
+script = ExtResource("1_pl6dj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1858346393]
 environment = SubResource("Environment_5emr2")
@@ -61,7 +66,8 @@ shape = SubResource("BoxShape3D_nqthn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=222863568]
 mesh = SubResource("BoxMesh_5emr2")
 
-[node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("1_7ef1m")]
+[node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("2_445kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
 
 [node name="Box" type="StaticBody3D" parent="." unique_id=454036252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
@@ -83,12 +89,27 @@ mesh = SubResource("BoxMesh_cdid1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box2" unique_id=4085208]
 shape = SubResource("BoxShape3D_7gwhv")
 
-[node name="Ball" type="RigidBody3D" parent="." unique_id=799985290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4644833, 1.5, -1.5)
+[node name="BallMover" parent="." unique_id=1731256292 instance=ExtResource("3_u5jnr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 5)
+duration = 2.0
+transition = 0
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 5)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -5)
+
+[node name="Ball" type="RigidBody3D" parent="BallMover" unique_id=799985290]
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball" unique_id=241494142]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallMover/Ball" unique_id=241494142]
 mesh = SubResource("SphereMesh_7gwhv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=1265592579]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallMover/Ball" unique_id=1265592579]
 shape = SubResource("SphereShape3D_7ef1m")
+
+[node name="BallMoverTrigger" parent="." unique_id=795092059 instance=ExtResource("4_u5jnr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 4)
+script = ExtResource("5_fj1wo")
+
+[connection signal="body_entered" from="BallMoverTrigger" to="." method="_on_move_the_ball_body_entered"]
+[connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]
