@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bkqdelq0ggow3"]
+
+[ext_resource type="Script" uid="uid://c2lxk48hcu1k1" path="res://levels/widgets/thing_mover.gd" id="1_gxsef"]
+
+[node name="ThingMover" type="Node3D" unique_id=1946744826]
+script = ExtResource("1_gxsef")
