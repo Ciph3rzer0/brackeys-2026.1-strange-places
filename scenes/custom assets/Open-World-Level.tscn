@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cnovwqlh5c8x"]
+
+[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="1_d53ne"]
+[ext_resource type="PackedScene" uid="uid://coj88accdxgn8" path="res://assets/environment/conical-tree.glb" id="1_xo2ap"]
+[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="2_bgsw1"]
+[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="3_xo2ap"]
+[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
+[ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
+[ext_resource type="PackedScene" uid="uid://cumht2xi4dbdp" path="res://scenes/custom assets/player.tscn" id="6_8sv6m"]
+[ext_resource type="PackedScene" uid="uid://dv5vqg71dgyej" path="res://assets/environment/trophy.glb" id="7_bgsw1"]
+
+[sub_resource type="Gradient" id="Gradient_ii8ra"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bbj6j"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_43n7g"]
+noise = SubResource("FastNoiseLite_bbj6j")
+color_ramp = SubResource("Gradient_ii8ra")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_3q875"]
+_shader_parameters = {
+&"auto_base_texture": 0,
+&"auto_height_reduction": 0.1,
+&"auto_overlay_texture": 1,
+&"auto_slope": 1.0,
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_43n7g"),
+&"projection_threshold": 0.8
+}
+auto_shader = true
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_tq23v"]
+name = "conical-tree"
+scene_file = ExtResource("1_xo2ap")
+density = 0.103913434
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a20u7"]
+name = "rock023_alb_ht"
+albedo_texture = ExtResource("1_d53ne")
+normal_texture = ExtResource("2_bgsw1")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4860x"]
+name = "ground037_alb_ht"
+id = 1
+albedo_texture = ExtResource("3_xo2ap")
+normal_texture = ExtResource("4_iisry")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_1qyed"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_tq23v")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_a20u7"), SubResource("Terrain3DTextureAsset_4860x")])
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
+sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
+sky_horizon_color = Color(0.20444065, 0.21058941, 0.21465209, 1)
+sky_curve = 0.13058291
+sky_energy_multiplier = 3.7
+ground_bottom_color = Color(0.11833314, 0.41265365, 0.47700155, 1)
+
+[sub_resource type="Sky" id="Sky_2gwnt"]
+sky_material = SubResource("ProceduralSkyMaterial_2ui33")
+
+[sub_resource type="Environment" id="Environment_lny1m"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_2gwnt")
+tonemap_mode = 4
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
+fog_density = 0.757
+fog_height_density = -0.0541
+fog_depth_curve = 0.5358867
+
+[node name="Node3D" type="Node3D" unique_id=1764087103]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=29175791]
+data_directory = "res://addons/terrain_3d/data_dir"
+material = SubResource("Terrain3DMaterial_3q875")
+assets = SubResource("Terrain3DAssets_1qyed")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
+environment = SubResource("Environment_lny1m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=333657164]
+transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9976041, 0, 0, 0)
+light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
+light_energy = 0.4
+
+[node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
+transform = Transform3D(1.5995977, 0, 0, 0, 1.5995977, 0, 0, 0, 1.5995977, 4.6786575, 0.05110407, 26.670143)
+
+[node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
+
+[node name="trophy2" parent="." unique_id=2114063673 instance=ExtResource("7_bgsw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7507486, 0, 26.792526)
