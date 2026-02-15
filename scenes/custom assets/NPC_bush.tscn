@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://do2wxuxl4hon1"]
+
+[ext_resource type="Script" uid="uid://b1fusx7ij70hu" path="res://scripts/NPC_bush.gd" id="1_hmgwx"]
+[ext_resource type="PackedScene" uid="uid://f54vgqi7juwk" path="res://assets/NPCs/NPC_bush.glb" id="2_xgesp"]
+
+[node name="Node3D" type="Node3D" unique_id=1956852423]
+script = ExtResource("1_hmgwx")
+
+[node name="NPC_bush" parent="." unique_id=1233690644 instance=ExtResource("2_xgesp")]
+
+[node name="Skeleton3D" parent="NPC_bush/Armature" parent_id_path=PackedInt32Array(1233690644, 820302357) index="0" unique_id=972016743]
+bones/0/rotation = Quaternion(0.7038952, 0.0070134527, -0.0018206602, 0.71026695)
+bones/0/scale = Vector3(0.99999994, 0.9999993, 0.99999994)
+bones/1/rotation = Quaternion(0.0071703587, 0.0003553406, -0.017411554, 0.9998227)
+bones/1/scale = Vector3(1, 0.9999998, 1)
+bones/2/rotation = Quaternion(-0.00079850055, 4.3336186e-05, 6.251005e-05, 0.9999997)
+bones/3/rotation = Quaternion(0.7030249, -0.009550389, 0.007890665, 0.7110573)
+bones/4/rotation = Quaternion(0.10927671, -0.0010195384, 0.0030635474, 0.99400616)
+bones/5/rotation = Quaternion(0.50570405, -0.015272612, 0.009454367, 0.86252)
+bones/6/rotation = Quaternion(0.50695485, -0.0032436857, 0.011203608, 0.8618938)
+bones/7/rotation = Quaternion(0.49955302, -0.011920118, 0.0073418943, 0.8661702)
+bones/8/rotation = Quaternion(0.54023004, -0.00267736, 0.008089385, 0.84147435)
+bones/9/rotation = Quaternion(0.71342486, -0.014278967, 0.012235809, 0.7004793)
+bones/10/rotation = Quaternion(0.09307915, -0.0011203641, 0.005907758, 0.9956406)
+bones/11/position = Vector3(0.4104538, 0.65452695, -0.6079962)
+bones/11/rotation = Quaternion(0.9604962, 0.0005434835, 0.00015443187, 0.27829263)
+bones/12/rotation = Quaternion(0.5550986, 6.494058e-05, -0.0005755855, 0.83178437)
+bones/13/position = Vector3(0.41136694, 0.101965256, -0.5646336)
+bones/13/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
+bones/14/position = Vector3(0.41136694, 0.009929152, 0.011581361)
+bones/14/rotation = Quaternion(0.7071065, -5.3385083e-08, -5.3385083e-08, 0.7071072)
+bones/15/position = Vector3(0.41136694, 0.10146446, 0.7708136)
+bones/15/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
+bones/16/position = Vector3(-0.41946125, 0.65452695, -0.6079962)
+bones/16/rotation = Quaternion(0.9983199, -0.0006098237, -2.6913385e-05, 0.05794084)
+bones/17/rotation = Quaternion(0.22577101, -5.948171e-05, 0.00021975666, 0.9741804)
+bones/18/position = Vector3(-0.4203744, 0.010255488, -0.65704864)
+bones/18/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
+bones/19/position = Vector3(-0.4203744, 0.10163892, 0.103996396)
+bones/19/rotation = Quaternion(0.7071065, -5.3385083e-08, -5.3385083e-08, 0.7071072)
+bones/20/position = Vector3(-0.4203744, 0.009754689, 0.67839855)
+bones/20/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
+bones/21/position = Vector3(0.071919404, 0.93379205, 1.1955823)
+bones/21/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
+
+[editable path="NPC_bush"]
