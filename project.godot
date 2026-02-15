@@ -118,6 +118,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 
 3d_physics/layer_1="Terrain"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="Strange Things"
 
 [maaacks_game_template]
 

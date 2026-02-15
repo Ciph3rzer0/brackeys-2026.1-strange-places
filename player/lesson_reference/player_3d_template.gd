@@ -79,12 +79,18 @@ func _unhandled_input(event: InputEvent) -> void:
 func _set_look_mode(enabled: bool) -> void:
 	_look_mode = enabled
 	%SophiaSkin.visible = not enabled
+	%StrangeThingRay.enabled = enabled
 	if _look_mode:
 		%SpringArm.spring_length = 0.0
 	else:
 		%SpringArm.spring_length = _original_spring_arm_length
 
 func _physics_process(delta: float) -> void:
+	if %StrangeThingRay.is_colliding():
+		var collider = %StrangeThingRay.get_collider()
+		collider.get_parent().find_child('Pulsar').get_stranger(delta)
+		print("Ray hit: ", collider.name if collider else "null")
+
 	_camera_pivot.rotation.x += _camera_input_direction.y * delta
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
 	_camera_pivot.rotation.y += _camera_input_direction.x * delta
@@ -93,12 +99,13 @@ func _physics_process(delta: float) -> void:
 
 	# Calculate movement input and align it to the camera's direction.
 	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.4)
+
 	# Should be projected onto the ground plane.
 	var forward := _camera.global_basis.z
 	var right := _camera.global_basis.x
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized()
+	move_direction = move_direction.normalized() * (0.1 if _look_mode else 1)
 
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized
@@ -119,7 +126,7 @@ func _physics_process(delta: float) -> void:
 
 	# Character animations and visual effects.
 	var ground_speed := Vector2(velocity.x, velocity.z).length()
-	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
+	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor() and not _look_mode
 	if is_just_jumping:
 		velocity.y += jump_impulse
 		_skin.jump()
