@@ -79,6 +79,35 @@ stencil_outline_thickness = 0.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jt580"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kyid"]
+albedo_color = Color(0.21258989, 0.10979425, 0.23466522, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_btobd"]
+material = SubResource("StandardMaterial3D_1kyid")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btobd"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(0.5294118, 0.8117647, 0.40784314, 0)
+stencil_mode = 3
+stencil_flags = 2
+stencil_reference = 23
+
+[sub_resource type="SphereMesh" id="SphereMesh_2uai0"]
+material = SubResource("StandardMaterial3D_btobd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoq3x"]
+depth_draw_mode = 2
+albedo_color = Color(0.31052488, 0.29785553, 0.3760252, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 4
+stencil_reference = 23
+
+[sub_resource type="SphereMesh" id="SphereMesh_wsvqa"]
+material = SubResource("StandardMaterial3D_qoq3x")
+
 [node name="PcPlayground" type="Node3D" unique_id=497528762]
 script = ExtResource("1_pl6dj")
 
@@ -175,6 +204,7 @@ shape = SubResource("BoxShape3D_jt580")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.594048, 0)
 collision_layer = 4
 collision_mask = 3
+mass = 50.0
 
 [node name="StrangeMesh" type="MeshInstance3D" parent="StrangeThing" unique_id=1895174569]
 mesh = SubResource("CylinderMesh_fj1wo")
@@ -186,6 +216,28 @@ shape = SubResource("CylinderShape3D_jt580")
 [node name="Pulsar" type="Node3D" parent="StrangeThing" unique_id=1504455943 node_paths=PackedStringArray("mesh")]
 script = ExtResource("7_jt580")
 mesh = NodePath("../StrangeMesh")
+
+[node name="Mirror" type="Node3D" parent="." unique_id=2044552223]
+
+[node name="Ground2" type="StaticBody3D" parent="Mirror" unique_id=172137201]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/Ground2" unique_id=1698941622]
+shape = SubResource("BoxShape3D_nqthn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mirror/Ground2" unique_id=1845946903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013784885, 0)
+layers = 32
+mesh = SubResource("BoxMesh_btobd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1517292293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76888, 1.415595, 7.899948)
+mesh = SubResource("SphereMesh_2uai0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1937125942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.483342, 1.5944095, 7.865284)
+mesh = SubResource("SphereMesh_wsvqa")
 
 [connection signal="body_entered" from="BallMoverTrigger" to="." method="_on_move_the_ball_body_entered"]
 [connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]

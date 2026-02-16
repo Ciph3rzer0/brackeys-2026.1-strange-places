@@ -116,9 +116,13 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 
 [layer_names]
 
+3d_render/layer_1="Normal"
+3d_render/layer_6="Mirror"
 3d_physics/layer_1="Terrain"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Strange Things"
+3d_physics/layer_6="Mirror Terrain"
+3d_physics/layer_8="Mirror Strange Things"
 
 [maaacks_game_template]
 
