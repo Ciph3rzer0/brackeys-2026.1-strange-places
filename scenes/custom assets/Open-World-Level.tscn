@@ -167,7 +167,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
-transform = Transform3D(1.5995977, 0, 0, 0, 1.5995977, 0, 0, 0, 1.5995977, 4.6786575, 0.05110407, 26.670143)
+transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022, 0, 1.5994691, 4.6786575, 0.05110407, 26.670143)
 
 [node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
@@ -180,6 +180,7 @@ autoplay = true
 bus = &"Music"
 attenuation_filter_cutoff_hz = 20500.0
 
-[node name="Node3D" parent="." unique_id=1956852423 instance=ExtResource("13_fsif2")]
+[node name="NPC_Bush" parent="." unique_id=1956852423 instance=ExtResource("13_fsif2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.957174, 0, -6.730322)
-speed = -0.05
+radius = 2.0
+speed = -0.2
