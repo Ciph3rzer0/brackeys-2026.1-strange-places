@@ -20,7 +20,7 @@ func get_stranger(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	_set_strangeness(max(0, _strangeness - delta * 0.5))
-	print("Setting strangeness to: ", _strangeness)
+	# print("Setting strangeness to: ", _strangeness)
 
 
 func _set_strangeness(value: float) -> void:
@@ -43,9 +43,7 @@ func _set_strangeness(value: float) -> void:
 
 		var stencil_thickness = _strangeness * 0.02 + (c + x) / 4 - 0.034
 		material.set("stencil_outline_thickness", max(0, stencil_thickness))
-		print("Setting stencil outline thickness to: ", stencil_thickness)
 		material.grow_amount = 0 + cos(Time.get_ticks_msec() * 0.0031) * _strangeness / 140
-		print("Setting grow amount to: ", material.grow_amount)
 
 	# # Update the mesh outline based on the new strangeness value.
 	# if mesh and mesh.material_override:
