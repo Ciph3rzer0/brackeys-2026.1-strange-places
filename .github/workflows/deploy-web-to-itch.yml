@@ -1,0 +1,44 @@
+name: "Deploy Web Build to Itch.io"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Itch.io
+    runs-on: ubuntu-latest
+    
+    env:
+      BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+      ITCH_USERNAME: ${{ vars.ITCH_USERNAME }}
+      ITCH_GAME: ${{ vars.ITCH_GAME }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Archive Web Build
+        run: |
+          if [ -d "WebBuild" ]; then
+            cd WebBuild
+            zip -r ../web-build.zip .
+            cd ..
+          else
+            echo "Error: WebBuild directory not found."
+            exit 1
+          fi
+        shell: bash
+
+      - name: Install Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+
+      - name: Deploy to Itch.io
+        run: |
+          ./butler push web-build.zip ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME }}:html5 --userversion "${{ github.ref_name }}-${{ github.run_number }}"
