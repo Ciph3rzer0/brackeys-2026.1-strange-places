@@ -14,4 +14,3 @@ func _process(_delta: float) -> void:
 	if source_camera and has_node("Camera3D"):
 		var viewport_camera = get_node("Camera3D")
 		viewport_camera.global_transform = source_camera.global_transform
-	print(get_node("Camera3D").position)

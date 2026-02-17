@@ -4,7 +4,7 @@ var _open_portal_progress := 0.0
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("pc_open_portal"):
-		_open_portal_progress += delta
+		_open_portal_progress = min(3, _open_portal_progress + delta)
 	else:
 		_open_portal_progress = max(0, _open_portal_progress - delta * 2.0)
 	
