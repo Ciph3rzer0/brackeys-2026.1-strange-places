@@ -172,7 +172,7 @@ transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022
 [node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
 
-[node name="Some80sProgBullshitThatDoesntFitWithTheGame" type="AudioStreamPlayer3D" parent="." unique_id=1261972223]
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="." unique_id=1261972223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4569173, 20.736904, 7.807192)
 stream = ExtResource("9_iisry")
 attenuation_model = 3

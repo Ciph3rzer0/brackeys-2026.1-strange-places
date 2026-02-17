@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3wuj20dfnyus"]
+
+[ext_resource type="Shader" uid="uid://bmu2d5t22cpko" path="res://assets/new_shader.gdshader" id="1_iehdg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d1jcy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iehdg"]
+render_priority = 0
+shader = ExtResource("1_iehdg")
+shader_parameter/slosh_intensity = 0.2
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/surface_band = 0.1
+shader_parameter/fluid_color = Color(0.2, 0.5, 0.8, 0.8)
+shader_parameter/surface_color = Color(0.8, 0.9, 1, 0.9)
+shader_parameter/sphere_radius = 1.0
+shader_parameter/fill_level = 1.0
+shader_parameter/wave_frequency = 1.0
+shader_parameter/wave_speed = 100.0
+shader_parameter/slosh_direction = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=25138726]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=660013433]
+transform = Transform3D(0.57476234, -0.8183205, 0, 0.8183205, 0.57476234, 0, 0, 0, 1, -0.029509395, 0.010426745, 0.001857996)
+mesh = SubResource("SphereMesh_d1jcy")
+surface_material_override/0 = SubResource("ShaderMaterial_iehdg")
