@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do02er7me81ue"]
 
-[ext_resource type="Texture2D" uid="uid://by4c0mn1n21up" path="res://addons/brackeys_vfx_bundle/particles/alpha/flame_02_a.png" id="1_067iu"]
+[ext_resource type="Texture2D" uid="uid://g6sm7yu42qhv" path="res://addons/brackeys_vfx_bundle/particles/alpha/flame_04_a.png" id="1_pro5g"]
+[ext_resource type="Texture2D" uid="uid://cu7lxqxj2jvw6" path="res://addons/brackeys_vfx_bundle/particles/alpha/smoke_07_a.png" id="2_5i7wn"]
 
 [sub_resource type="Curve" id="Curve_rrxl2"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -45,22 +46,80 @@ emission_sphere_radius = 1.0
 angle_min = -29.99999
 angle_max = 30.000011
 angle_curve = SubResource("CurveTexture_wfoe5")
-gravity = Vector3(0, 3, 0)
+gravity = Vector3(0, 5, 0)
 scale_min = 0.0
 scale_curve = SubResource("CurveTexture_067iu")
 scale_over_velocity_max = 1.0
 scale_over_velocity_curve = SubResource("CurveTexture_pro5g")
-color = Color(0.9100806, 0.17570218, 0, 1)
+color = Color(0.20829657, 0.21752802, 0.2171464, 1)
 emission_curve = SubResource("CurveTexture_8ileh")
 anim_speed_max = 5.0
 anim_speed_curve = SubResource("CurveTexture_rrxl2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c185"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.42822343, 0.43590322, 0.41564754, 1)
+albedo_texture = ExtResource("1_pro5g")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_24la2"]
+material = SubResource("StandardMaterial3D_4c185")
+
+[sub_resource type="Curve" id="Curve_r6ys6"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.65125245, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aoc57"]
+curve = SubResource("Curve_r6ys6")
+
+[sub_resource type="Curve" id="Curve_hukll"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.29896623), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ptn30"]
+curve = SubResource("Curve_hukll")
+
+[sub_resource type="Curve" id="Curve_albsf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51830447, 0.77479744), -1.3394592, -1.3394592, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_te2id"]
+curve = SubResource("Curve_albsf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tyfxb"]
+lifetime_randomness = 0.15
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -29.99999
+angle_max = 30.000011
+angle_curve = SubResource("CurveTexture_aoc57")
+gravity = Vector3(0, 1, 0)
+scale_min = 0.0
+scale_max = 10.0
+scale_over_velocity_max = 10.0
+color = Color(1, 0.32893425, 0.20940557, 1)
+emission_curve = SubResource("CurveTexture_te2id")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+anim_speed_max = 5.0
+anim_speed_curve = SubResource("CurveTexture_ptn30")
+turbulence_enabled = true
+turbulence_noise_strength = 2.86
+turbulence_noise_scale = 6.151
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8a0i"]
 transparency = 1
 blend_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.6153104, 0.24216002, 0, 1)
-albedo_texture = ExtResource("1_067iu")
+albedo_texture = ExtResource("2_5i7wn")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -196,21 +255,20 @@ rings = 8
 
 [node name="Smoke_GPUParticle" type="GPUParticles3D" parent="." unique_id=1753552170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5323842, 0)
-visible = false
 amount = 16
 lifetime = 1.5
 randomness = 0.05
 fixed_fps = 12
 process_material = SubResource("ParticleProcessMaterial_rrxl2")
-draw_pass_1 = SubResource("QuadMesh_wfoe5")
+draw_pass_1 = SubResource("QuadMesh_24la2")
 
 [node name="Fire_GPUParticle" type="GPUParticles3D" parent="." unique_id=2034063614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7661921, 0)
 amount = 16
 lifetime = 1.5
 randomness = 0.05
-fixed_fps = 12
-process_material = SubResource("ParticleProcessMaterial_rrxl2")
+fixed_fps = 24
+process_material = SubResource("ParticleProcessMaterial_tyfxb")
 draw_pass_1 = SubResource("QuadMesh_wfoe5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1092845995]
