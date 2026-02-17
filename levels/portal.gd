@@ -67,12 +67,8 @@ func _on_player_detect_b_body_exited(_body: Node3D) -> void:
 func _teleport_player() -> void:
 	# This is where you'd implement the actual teleportation logic.
 	# For example, you might want to move the player to a specific location,
-	# or swap their position with another portal.;$PortalHole/PortalActivateExplosion
+	# or swap their position with another portal.
 	%PortalAnimationPlayer.play(&"explode")
-	# %PortalAnimationPlayer.connect("
-	%PortalAnimationPlayer.connect("animation_finished", Callable(self, "_on_portal_explosion_finished"), CONNECT_ONE_SHOT)
-	pass
-
 func _on_portal_expansion_finished() -> void:
 	print("Portal expansion finished. Now switching cameras.")
 	DarkWorldView.switch_cameras()

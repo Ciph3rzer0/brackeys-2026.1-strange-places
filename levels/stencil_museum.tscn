@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxusuhcosbtfs" path="res://levels/stencil_museum.gd" id="1_qqxvy"]
 [ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="2_q31mr"]
+[ext_resource type="Environment" uid="uid://cnavn10ijgbut" path="res://main_world_environment.tres" id="3_0rv3t"]
 [ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="3_205wp"]
 [ext_resource type="PackedScene" uid="uid://dwsrmlfdfrji" path="res://levels/widgets/act_pressure_plate.tscn" id="4_qqxvy"]
 [ext_resource type="Script" uid="uid://d1v5txjtg3i6n" path="res://levels/widgets/act_pressure_plate.gd" id="5_0rv3t"]
@@ -10,18 +11,6 @@
 [ext_resource type="Script" uid="uid://cat1v4hffc6n2" path="res://levels/widgets/pulsar.gd" id="7_o6sjm"]
 [ext_resource type="Material" uid="uid://dubx8b1mnerum" path="res://levels/PortalObjectMaterial.tres" id="8_q31mr"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="11_0rv3t"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_205wp"]
-sky_material = SubResource("ProceduralSkyMaterial_nqthn")
-
-[sub_resource type="Environment" id="Environment_5emr2"]
-background_mode = 2
-sky = SubResource("Sky_205wp")
-tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqthn"]
 size = Vector3(100, 1, 100)
@@ -189,9 +178,6 @@ albedo_color = Color(0.38373995, 0.1489527, 0.253286, 1)
 [node name="Stencil Museum" type="Node3D" unique_id=497528762]
 script = ExtResource("1_qqxvy")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1858346393]
-environment = SubResource("Environment_5emr2")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1412396106]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
@@ -208,6 +194,9 @@ mesh = SubResource("BoxMesh_5emr2")
 
 [node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("2_q31mr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
+
+[node name="MainCamera3D" parent="Player3DTemplate/CameraPivot/SpringArm" parent_id_path=PackedInt32Array(297006876, 760809364) index="0" unique_id=114910413]
+environment = ExtResource("3_0rv3t")
 
 [node name="Box" type="StaticBody3D" parent="." unique_id=454036252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
