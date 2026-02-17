@@ -21,7 +21,7 @@ AppConfig="*res://addons/maaacks_game_template/base/nodes/autoloads/app_config/a
 SceneLoader="*res://addons/maaacks_game_template/base/nodes/autoloads/scene_loader/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/nodes/autoloads/music_controller/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/project_ui_sound_controller.tscn"
-DarkWorldView="*res://levels/dark_world_view.tscn"
+DarkWorldView="*res://autoloads/dark_world_view.tscn"
 
 [display]
 
@@ -133,7 +133,9 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Strange Things"
 3d_physics/layer_5="Mirror Terrain"
+3d_physics/layer_6="Mirror Terrain"
 3d_physics/layer_7="Mirror Strange Things"
+3d_physics/layer_8="Mirror Strange Things"
 
 [maaacks_game_template]
 
