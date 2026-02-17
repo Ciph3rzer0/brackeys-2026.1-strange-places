@@ -1,21 +1,29 @@
 extends Node3D
 
-@export var billboard_y_only: bool = true
-
 var _player: Node3D
+var _camera: Camera3D
 
 var _front_portal_contact: bool = false
 var _back_portal_contact: bool = false
+var _is_animating: bool = false
+var _original_fade_position: Vector3
+var _original_fade_rotation: Vector3
+
+@onready var _portal_screen_fade: Node3D = %PortalScreenFade
 
 func set_portal_open_progress(val: float):
 	var size =  Vector3.ONE * max(0.001, val)
 	$PortalHole.scale = size
 
 func _ready() -> void:
-	# _find_player()
-	pass
-	# Pattern:
-	# Player enters F, Player enters B, Player leaves F, -> portal transfer
+	_find_player()
+	_find_camera()
+
+func _find_camera() -> void:
+	# Find the main camera
+	var camera_node = get_tree().root.find_child("MainCamera3D", true, false)
+	if camera_node and camera_node is Camera3D:
+		_camera = camera_node
 
 func _find_player() -> void:
 	# Try to find player by group or common name
@@ -27,15 +35,25 @@ func _find_player() -> void:
 		_player = get_tree().root.find_child("Player*", true, false)
 
 func _process(_delta: float) -> void:
-	if _player:
-		if billboard_y_only:
-			# Only rotate on Y axis (keep portal upright)
-			var target_pos = _player.global_position
-			target_pos.y = global_position.y
-			look_at(target_pos, Vector3.UP)
-		else:
-			# Full billboard (faces player completely)
-			look_at(_player.global_position, Vector3.UP)
+	# During animation, position PortalScreenFade in front of camera
+	if _is_animating and _camera and _portal_screen_fade:
+		# Get animation progress
+		var anim_player = %PortalAnimationPlayer
+		var progress = 0.0
+		if anim_player.is_playing():
+			var current_time = anim_player.current_animation_position
+			var total_time = anim_player.current_animation_length / 2
+			progress = clamp(current_time / total_time, 0.0, 1.0)
+		
+		# Lerp between portal position and camera position
+		var distance_from_camera = 4.0  # Distance in front of camera at full progress
+		var camera_forward = -_camera.global_transform.basis.z
+		var target_position = _camera.global_position + camera_forward * distance_from_camera
+		
+		# Use global_position for interpolation
+		var portal_world_pos = _portal_screen_fade.get_parent().global_position + _original_fade_position
+		_portal_screen_fade.global_position = portal_world_pos.lerp(target_position, progress)
+		_portal_screen_fade.look_at(_camera.global_position, Vector3.UP)
 
 
 func _on_player_detect_f_body_entered(_body: Node3D) -> void:
@@ -65,10 +83,19 @@ func _on_player_detect_b_body_exited(_body: Node3D) -> void:
 
 
 func _teleport_player() -> void:
-	# This is where you'd implement the actual teleportation logic.
-	# For example, you might want to move the player to a specific location,
-	# or swap their position with another portal.
+	# Store original PortalScreenFade transform
+	if _portal_screen_fade:
+		_original_fade_position = _portal_screen_fade.position
+		_original_fade_rotation = _portal_screen_fade.rotation
+	# Make PortalScreenFade follow camera during animation
+	_is_animating = true
 	%PortalAnimationPlayer.play(&"explode")
+
 func _on_portal_expansion_finished() -> void:
 	print("Portal expansion finished. Now switching cameras.")
+	_is_animating = false
+	# Reset PortalScreenFade to original transform
+	if _portal_screen_fade:
+		_portal_screen_fade.position = _original_fade_position
+		_portal_screen_fade.rotation = _original_fade_rotation
 	DarkWorldView.switch_cameras()
