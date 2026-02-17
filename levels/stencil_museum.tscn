@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bftaflqy202x"]
 
+[ext_resource type="Script" uid="uid://dxusuhcosbtfs" path="res://levels/stencil_museum.gd" id="1_qqxvy"]
 [ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="2_q31mr"]
 [ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="3_205wp"]
 [ext_resource type="PackedScene" uid="uid://dwsrmlfdfrji" path="res://levels/widgets/act_pressure_plate.tscn" id="4_qqxvy"]
@@ -8,7 +9,8 @@
 [ext_resource type="Material" uid="uid://ln7tc6rg01dl" path="res://levels/PortalPlaneMaterial.tres" id="7_lshjd"]
 [ext_resource type="Script" uid="uid://cat1v4hffc6n2" path="res://levels/widgets/pulsar.gd" id="7_o6sjm"]
 [ext_resource type="Material" uid="uid://dubx8b1mnerum" path="res://levels/PortalObjectMaterial.tres" id="8_q31mr"]
-[ext_resource type="Shader" uid="uid://cscpy5rh3x7x4" path="res://levels/portal_canvas_shader.gdshader" id="9_205wp"]
+[ext_resource type="Material" uid="uid://clvehvoe1cp42" path="res://portal_shader_material.tres" id="10_0rv3t"]
+[ext_resource type="PackedScene" uid="uid://dy0rmhwq4osx6" path="res://levels/portal.tscn" id="11_0rv3t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,16 +33,6 @@ albedo_color = Color(0.12854064, 0.17730355, 0.031165106, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_5emr2"]
 material = SubResource("StandardMaterial3D_7ef1m")
 size = Vector3(100, 1, 100)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_205wp"]
-viewport_path = NodePath("CameraPivot/SpringArm/SubViewportContainer/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6sjm"]
-resource_local_to_scene = true
-depth_draw_mode = 2
-no_depth_test = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_205wp")
 
 [sub_resource type="BoxMesh" id="BoxMesh_cdid1"]
 
@@ -192,34 +184,13 @@ material = SubResource("StandardMaterial3D_0rv3t")
 radius = 1.0
 height = 2.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0rv3t"]
-viewport_path = NodePath("Player3DTemplate/CameraPivot/SpringArm/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w68nl"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("9_205wp")
-shader_parameter/mirror_texture = SubResource("ViewportTexture_0rv3t")
-
 [sub_resource type="QuadMesh" id="QuadMesh_teg34"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_205wp"]
-radius = 1.0
-height = 2.0
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qqxvy"]
-viewport_path = NodePath("Player3DTemplate/CameraPivot/SpringArm/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rv3t"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("9_205wp")
-shader_parameter/mirror_texture = SubResource("ViewportTexture_qqxvy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88pgb"]
 albedo_color = Color(0.38373995, 0.1489527, 0.253286, 1)
 
-[node name="PcPlayground" type="Node3D" unique_id=497528762]
+[node name="Stencil Museum" type="Node3D" unique_id=497528762]
+script = ExtResource("1_qqxvy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1858346393]
 environment = SubResource("Environment_5emr2")
@@ -240,18 +211,6 @@ mesh = SubResource("BoxMesh_5emr2")
 
 [node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("2_q31mr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
-
-[node name="MeshInstance3D" parent="Player3DTemplate/CameraPivot/SpringArm/Camera3D" parent_id_path=PackedInt32Array(297006876, 114910413) index="1" unique_id=2081609726]
-material_override = SubResource("StandardMaterial3D_o6sjm")
-
-[node name="SubViewport" parent="Player3DTemplate/CameraPivot/SpringArm" parent_id_path=PackedInt32Array(297006876, 760809364) index="2" unique_id=699257127]
-render_target_update_mode = 4
-
-[node name="Camera3D_Dark" parent="Player3DTemplate/CameraPivot/SpringArm/SubViewport" index="0" unique_id=1983448384]
-transform = Transform3D(-1, 2.1051996e-08, -1.4027898e-07, -3.23484e-08, 0.929023, 0.370022, 1.38112e-07, 0.370022, -0.929023, 0, 2.6075616, 0)
-
-[node name="SubViewportContainer" parent="Player3DTemplate/CameraPivot/SpringArm" parent_id_path=PackedInt32Array(297006876, 760809364) index="3" unique_id=991833036]
-visible = true
 
 [node name="Box" type="StaticBody3D" parent="." unique_id=454036252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
@@ -342,7 +301,6 @@ mesh = NodePath("../StrangeMesh")
 [node name="Mirror" type="Node3D" parent="." unique_id=2044552223]
 
 [node name="Ground2" type="StaticBody3D" parent="Mirror" unique_id=172137201]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/Ground2" unique_id=1698941622]
@@ -350,7 +308,7 @@ shape = SubResource("BoxShape3D_nqthn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mirror/Ground2" unique_id=1845946903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013784885, 0)
-layers = 32
+layers = 33
 mesh = SubResource("BoxMesh_btobd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1517292293]
@@ -421,26 +379,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.399615, 1.1241724, -6.7030
 mesh = SubResource("SphereMesh_w68nl")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=127260729]
-transform = Transform3D(-0.41075072, 0, 0.9117477, 0, 1, 0, -0.9117477, 0, -0.41075072, -1.7449808, 5.762059, -10.066824)
-material_override = SubResource("ShaderMaterial_w68nl")
+transform = Transform3D(0.68613577, 0, 0.7274735, 0, 1, 0, -0.7274735, 0, 0.68613577, -0.4589423, 3.575745, -7.2121906)
+material_override = ExtResource("10_0rv3t")
 mesh = SubResource("QuadMesh_teg34")
 
-[node name="Portal" type="MeshInstance3D" parent="." unique_id=688646495]
-transform = Transform3D(-0.41075072, 0, 0.9117477, 0, 1, 0, -0.9117477, 0, -0.41075072, -1.449357, 2.813042, -2.7030792)
-mesh = SubResource("SphereMesh_205wp")
-surface_material_override/0 = SubResource("ShaderMaterial_0rv3t")
+[node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("11_0rv3t")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449357, 1.6858017, -2.7030792)
 
 [node name="MirrorWorld2" type="Node3D" parent="." unique_id=364565113]
 
 [node name="MirrorDirectionalLighting" type="DirectionalLight3D" parent="MirrorWorld2" unique_id=1219026223]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
 layers = 32
 light_color = Color(0.88789386, 0.931227, 0.9956561, 1)
 shadow_enabled = true
 
 [node name="MirrorBox3" type="StaticBody3D" parent="MirrorWorld2" unique_id=908800364]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.5, 2.5, -4.5)
+collision_layer = 17
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MirrorWorld2/MirrorBox3" unique_id=322220487]
