@@ -16,4 +16,3 @@ background_mode = 2
 sky = SubResource("Sky_8tmv2")
 ambient_light_source = 2
 ambient_light_color = Color(0.20374396, 0.21405032, 0.72366613, 1)
-tonemap_mode = 2
