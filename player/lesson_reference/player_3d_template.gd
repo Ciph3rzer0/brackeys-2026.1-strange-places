@@ -44,7 +44,8 @@ var _look_mode := false
 @onready var _dust_particles: GPUParticles3D = %DustParticles
 
 
-#func _ready() -> void:
+func _ready() -> void:
+	_setup_shared_viewport()
 	#Events.kill_plane_touched.connect(func on_kill_plane_touched() -> void:
 		#global_position = _start_position
 		#velocity = Vector3.ZERO
@@ -56,6 +57,11 @@ var _look_mode := false
 		#_skin.idle()
 		#_dust_particles.emitting = false
 	#)
+
+func _setup_shared_viewport() -> void:
+	var dark_world_view = get_node_or_null("/root/DarkWorldView")
+	if dark_world_view and dark_world_view.has_method("set_source_camera"):
+		dark_world_view.set_source_camera(_camera)
 
 
 func _input(event: InputEvent) -> void:

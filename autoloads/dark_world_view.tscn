@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://njj7j5kmcmwq"]
+
+[ext_resource type="Environment" uid="uid://b38rdxc2j2u2f" path="res://levels/dark_world_environment.tres" id="1_s4yyg"]
+
+[node name="SubViewportDarkWorld" type="SubViewport" unique_id=1963001237 groups=["SubViewport"]]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 0
+
+[node name="Camera3D_Dark" type="Camera3D" parent="." unique_id=2138023371]
+unique_name_in_owner = true
+transform = Transform3D(-1, 2.1051996e-08, -1.4027898e-07, -3.23484e-08, 0.929023, 0.370022, 1.38112e-07, 0.370022, -0.929023, 0, 1.43385, 0)
+cull_mask = 32
+environment = ExtResource("1_s4yyg")
+fov = 50.0

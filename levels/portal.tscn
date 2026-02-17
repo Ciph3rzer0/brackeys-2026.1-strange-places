@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dy0rmhwq4osx6"]
+
+[ext_resource type="Script" uid="uid://x462mjrl62de" path="res://levels/portal.gd" id="1_13t6x"]
+[ext_resource type="Material" uid="uid://clvehvoe1cp42" path="res://portal_shader_material.tres" id="2_13t6x"]
+[ext_resource type="Script" uid="uid://bm8cwkaxuppqx" path="res://levels/portal_ring_collision.gd" id="3_7b6cc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_205wp"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0rv3t"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w68nl"]
+height = 1.0
+radius = 0.8
+
+[node name="Portal" type="Node3D" unique_id=1880855438]
+script = ExtResource("1_13t6x")
+
+[node name="PortalHole" type="StaticBody3D" parent="." unique_id=762694627]
+collision_layer = 0
+
+[node name="PortalMesh" type="MeshInstance3D" parent="PortalHole" unique_id=625196468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("2_13t6x")
+mesh = SubResource("SphereMesh_205wp")
+
+[node name="PortalCollision" type="CollisionShape3D" parent="PortalHole" unique_id=2032591647]
+shape = SubResource("SphereShape3D_0rv3t")
+debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
+
+[node name="PortalRingCollider" type="StaticBody3D" parent="PortalHole" unique_id=647584065]
+
+[node name="PortalRingCollision" type="CollisionShape3D" parent="PortalHole/PortalRingCollider" unique_id=1900523620]
+shape = SubResource("SphereShape3D_0rv3t")
+debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
+script = ExtResource("3_7b6cc")
+inner_radius = 0.1
+
+[node name="PlayerDetectF" type="Area3D" parent="PortalHole" unique_id=146974296]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectF" unique_id=1535284848]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+shape = SubResource("CylinderShape3D_w68nl")
+debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
+
+[node name="PlayerDetectB" type="Area3D" parent="PortalHole" unique_id=1555348347]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectB" unique_id=1395033902]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+shape = SubResource("CylinderShape3D_w68nl")
+debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
+
+[connection signal="body_entered" from="PortalHole/PlayerDetectF" to="." method="_on_player_detect_f_body_entered"]
+[connection signal="body_exited" from="PortalHole/PlayerDetectF" to="." method="_on_player_detect_f_body_exited"]
+[connection signal="body_entered" from="PortalHole/PlayerDetectB" to="." method="_on_player_detect_b_body_entered"]
+[connection signal="body_exited" from="PortalHole/PlayerDetectB" to="." method="_on_player_detect_b_body_exited"]
