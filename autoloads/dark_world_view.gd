@@ -22,6 +22,11 @@ func switch_cameras() -> void:
 		primary_camera.cull_mask = mirror_camera.cull_mask
 		mirror_camera.cull_mask = temp_mask
 
+		# Swap camera environments
+		var temp_environment = primary_camera.environment
+		primary_camera.environment = mirror_camera.environment
+		mirror_camera.environment = temp_environment
+
 		# XOR to flip layer 15.  Which displays the portal
 		var layer_15_mask = 1 << 14  # Layer 15 (0-indexed as bit 14)
 		primary_camera.cull_mask ^= layer_15_mask

@@ -37,7 +37,7 @@ var _look_mode := false
 @onready var _start_position := global_position
 
 @onready var _camera_pivot: Node3D = %CameraPivot
-@onready var _camera: Camera3D = %Camera3D
+@onready var _camera: Camera3D = %MainCamera3D
 @onready var _skin: SophiaSkin = %SophiaSkin
 @onready var _landing_sound: AudioStreamPlayer3D = %LandingSound
 @onready var _jump_sound: AudioStreamPlayer3D = %JumpSound
