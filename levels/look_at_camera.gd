@@ -23,6 +23,9 @@ func _find_camera() -> void:
 	
 func _process(_delta: float) -> void:
 	if _camera:
+		# Preserve current scale
+		var current_scale = scale
+		
 		# Calculate direction from object to camera
 		var direction = (_camera.global_position - global_position).normalized()
 		
@@ -47,6 +50,7 @@ func _process(_delta: float) -> void:
 					up = Vector3.UP
 					forward = target_axis.cross(up).normalized()
 				global_transform.basis = Basis(target_axis, up, forward)
+				scale = current_scale
 			FaceAxis.NEGATIVE_X:
 				target_axis = -direction
 				var forward = target_axis.cross(Vector3.UP)
@@ -58,6 +62,7 @@ func _process(_delta: float) -> void:
 					up = Vector3.UP
 					forward = target_axis.cross(up).normalized()
 				global_transform.basis = Basis(target_axis, up, forward)
+				scale = current_scale
 			FaceAxis.POSITIVE_Y:
 				target_axis = direction
 				var right = target_axis.cross(Vector3.FORWARD)
@@ -73,6 +78,7 @@ func _process(_delta: float) -> void:
 						right = Vector3.RIGHT
 					forward = target_axis.cross(right).normalized()
 				global_transform.basis = Basis(right, target_axis, forward)
+				scale = current_scale
 			FaceAxis.NEGATIVE_Y:
 				target_axis = -direction
 				var right = target_axis.cross(Vector3.FORWARD)
@@ -86,6 +92,7 @@ func _process(_delta: float) -> void:
 						right = Vector3.RIGHT
 					forward = target_axis.cross(right).normalized()
 				global_transform.basis = Basis(right, target_axis, forward)
+				scale = current_scale
 			FaceAxis.POSITIVE_Z:
 				target_axis = direction
 				var right = Vector3.UP.cross(target_axis)
@@ -97,6 +104,7 @@ func _process(_delta: float) -> void:
 					up = Vector3.UP
 					right = up.cross(target_axis).normalized()
 				global_transform.basis = Basis(right, up, target_axis)
+				scale = current_scale
 			FaceAxis.NEGATIVE_Z:
 				target_axis = -direction
 				var right = Vector3.UP.cross(target_axis)
@@ -108,5 +116,6 @@ func _process(_delta: float) -> void:
 					up = Vector3.UP
 					right = up.cross(target_axis).normalized()
 				global_transform.basis = Basis(right, up, target_axis)
+				scale = current_scale
 	else:
 		print("No player found for portal to billboard towards.")
