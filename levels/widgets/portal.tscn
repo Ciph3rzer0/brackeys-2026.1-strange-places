@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqm8x7y5k8h3p"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_portal"]
+size = Vector2(2, 3)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_portal"]
+viewport_path = NodePath("/root/Player3DTemplate/CameraPivot/SpringArm/SubViewportContainer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_portal"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_portal")
+
+[node name="Portal" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_portal")
+surface_material_override/0 = SubResource("StandardMaterial3D_portal")

@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://dijjlut0br7bs"]
+
+[ext_resource type="Script" uid="uid://cs822b2vy4ry4" path="res://levels/pc_gym.gd" id="1_pl6dj"]
+[ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="2_445kh"]
+[ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="3_u5jnr"]
+[ext_resource type="PackedScene" uid="uid://dwsrmlfdfrji" path="res://levels/widgets/act_pressure_plate.tscn" id="4_u5jnr"]
+[ext_resource type="Script" uid="uid://d1v5txjtg3i6n" path="res://levels/widgets/act_pressure_plate.gd" id="5_fj1wo"]
+[ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="6_fj1wo"]
+[ext_resource type="Script" uid="uid://cat1v4hffc6n2" path="res://levels/widgets/pulsar.gd" id="7_jt580"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7ef1m"]
+sky_material = SubResource("ProceduralSkyMaterial_nqthn")
+
+[sub_resource type="Environment" id="Environment_5emr2"]
+background_mode = 2
+sky = SubResource("Sky_7ef1m")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nqthn"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ef1m"]
+albedo_color = Color(0.12854064, 0.17730355, 0.031165106, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5emr2"]
+material = SubResource("StandardMaterial3D_7ef1m")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5emr2"]
+albedo_color = Color(0.5743603, 0.5678333, 0.46531856, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cdid1"]
+material = SubResource("StandardMaterial3D_5emr2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gwhv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdid1"]
+albedo_color = Color(0.29411766, 1, 1, 1)
+metallic = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_7gwhv"]
+material = SubResource("StandardMaterial3D_cdid1")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ef1m"]
+radius = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj1wo"]
+material = SubResource("StandardMaterial3D_5emr2")
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jt580"]
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fj1wo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ko8bl"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.15991482, 0.2117821, 0.27802792, 1)
+grow = true
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt580"]
+next_pass = SubResource("StandardMaterial3D_ko8bl")
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(0.15991482, 0.2117821, 0.27802792, 1)
+stencil_outline_thickness = 0.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jt580"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kyid"]
+albedo_color = Color(0.21258989, 0.10979425, 0.23466522, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_btobd"]
+material = SubResource("StandardMaterial3D_1kyid")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btobd"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(0.5294118, 0.8117647, 0.40784314, 0)
+stencil_mode = 3
+stencil_flags = 2
+stencil_reference = 23
+
+[sub_resource type="SphereMesh" id="SphereMesh_2uai0"]
+material = SubResource("StandardMaterial3D_btobd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoq3x"]
+depth_draw_mode = 2
+albedo_color = Color(0.31052488, 0.29785553, 0.3760252, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 4
+stencil_reference = 23
+
+[sub_resource type="SphereMesh" id="SphereMesh_wsvqa"]
+material = SubResource("StandardMaterial3D_qoq3x")
+
+[node name="PcPlayground" type="Node3D" unique_id=497528762]
+script = ExtResource("1_pl6dj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1858346393]
+environment = SubResource("Environment_5emr2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1412396106]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=251754396]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=2122502940]
+shape = SubResource("BoxShape3D_nqthn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=222863568]
+mesh = SubResource("BoxMesh_5emr2")
+
+[node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("2_445kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
+
+[node name="Box" type="StaticBody3D" parent="." unique_id=454036252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=407997981]
+mesh = SubResource("BoxMesh_cdid1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=100961838]
+shape = SubResource("BoxShape3D_7gwhv")
+
+[node name="Box2" type="StaticBody3D" parent="." unique_id=1439882415]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.5, 1.5, -1.5)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box2" unique_id=158217786]
+mesh = SubResource("BoxMesh_cdid1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2" unique_id=4085208]
+shape = SubResource("BoxShape3D_7gwhv")
+
+[node name="BallMover" parent="." unique_id=1731256292 instance=ExtResource("3_u5jnr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 5)
+duration = 2.0
+transition = 0
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 5)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -5)
+
+[node name="Ball" type="RigidBody3D" parent="BallMover" unique_id=799985290]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallMover/Ball" unique_id=241494142]
+mesh = SubResource("SphereMesh_7gwhv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallMover/Ball" unique_id=1265592579]
+shape = SubResource("SphereShape3D_7ef1m")
+
+[node name="BallMoverTrigger" parent="." unique_id=795092059 instance=ExtResource("4_u5jnr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 4)
+script = ExtResource("5_fj1wo")
+
+[node name="WALL" type="StaticBody3D" parent="." unique_id=1459423841]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 2, 1.5, 2.5, -11.5)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL" unique_id=848894604]
+mesh = SubResource("BoxMesh_cdid1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL" unique_id=445167064]
+shape = SubResource("BoxShape3D_7gwhv")
+
+[node name="LiftSwitch" parent="." unique_id=1306449308 instance=ExtResource("6_fj1wo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.4, -10.5)
+
+[node name="LiftMover" parent="." unique_id=1946744826 instance=ExtResource("3_u5jnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -9.5)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -9.5)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.3752627, -9.5)
+
+[node name="Lift" type="CharacterBody3D" parent="LiftMover" unique_id=151253002]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LiftMover/Lift" unique_id=2042814424]
+mesh = SubResource("BoxMesh_fj1wo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LiftMover/Lift" unique_id=2082864298]
+shape = SubResource("BoxShape3D_jt580")
+
+[node name="StrangeThing" type="RigidBody3D" parent="." unique_id=304883346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.594048, 0)
+collision_layer = 4
+collision_mask = 3
+mass = 50.0
+
+[node name="StrangeMesh" type="MeshInstance3D" parent="StrangeThing" unique_id=1895174569]
+mesh = SubResource("CylinderMesh_fj1wo")
+surface_material_override/0 = SubResource("StandardMaterial3D_jt580")
+
+[node name="StrangeCollider" type="CollisionShape3D" parent="StrangeThing" unique_id=1962743610]
+shape = SubResource("CylinderShape3D_jt580")
+
+[node name="Pulsar" type="Node3D" parent="StrangeThing" unique_id=1504455943 node_paths=PackedStringArray("mesh")]
+script = ExtResource("7_jt580")
+mesh = NodePath("../StrangeMesh")
+
+[node name="Mirror" type="Node3D" parent="." unique_id=2044552223]
+
+[node name="Ground2" type="StaticBody3D" parent="Mirror" unique_id=172137201]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/Ground2" unique_id=1698941622]
+shape = SubResource("BoxShape3D_nqthn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mirror/Ground2" unique_id=1845946903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013784885, 0)
+layers = 32
+mesh = SubResource("BoxMesh_btobd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1517292293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76888, 1.415595, 7.899948)
+mesh = SubResource("SphereMesh_2uai0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1937125942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.483342, 1.5944095, 7.865284)
+mesh = SubResource("SphereMesh_wsvqa")
+
+[connection signal="body_entered" from="BallMoverTrigger" to="." method="_on_move_the_ball_body_entered"]
+[connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]
+[connection signal="switched_off" from="LiftSwitch" to="." method="_on_lift_switch_switched" binds= [false]]
+[connection signal="switched_on" from="LiftSwitch" to="." method="_on_lift_switch_switched" binds= [true]]
