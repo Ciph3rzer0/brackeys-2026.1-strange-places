@@ -10,6 +10,14 @@ func _ready() -> void:
 		var viewport_env = mirror_camera.environment.duplicate()
 		viewport_env.tonemap_mode = Environment.TONE_MAPPER_LINEAR
 		mirror_camera.environment = viewport_env
+	
+	# Match SubViewport size to main viewport
+	_update_viewport_size()
+
+func _update_viewport_size() -> void:
+	var main_viewport = get_tree().root
+	if main_viewport:
+		size = main_viewport.size
 
 func set_primary_camera(camera: Camera3D) -> void:
 	primary_camera = camera
@@ -21,6 +29,11 @@ func set_primary_camera(camera: Camera3D) -> void:
 func _process(_delta: float) -> void:
 	if primary_camera and mirror_camera:
 		mirror_camera.global_transform = primary_camera.global_transform
+		
+		# Update SubViewport size if main viewport changed (for web/window resizing)
+		var main_viewport = get_tree().root
+		if main_viewport and size != main_viewport.size:
+			size = main_viewport.size
 
 func switch_cameras() -> void:
 	if primary_camera and mirror_camera:
