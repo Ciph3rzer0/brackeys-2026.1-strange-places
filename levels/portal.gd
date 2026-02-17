@@ -10,7 +10,6 @@ var _back_portal_contact: bool = false
 func set_portal_open_progress(val: float):
 	var size =  Vector3.ONE * max(0.001, val)
 	$PortalHole.scale = size
-	#$PortalHole.
 
 func _ready() -> void:
 	# _find_player()
