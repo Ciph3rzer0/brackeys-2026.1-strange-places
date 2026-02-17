@@ -59,9 +59,7 @@ func _ready() -> void:
 	#)
 
 func _setup_shared_viewport() -> void:
-	var dark_world_view = get_node_or_null("/root/DarkWorldView")
-	if dark_world_view and dark_world_view.has_method("set_source_camera"):
-		dark_world_view.set_source_camera(_camera)
+	DarkWorldView.set_primary_camera(_camera)
 
 
 func _input(event: InputEvent) -> void:
@@ -111,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	var right := _camera.global_basis.x
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized() * (0.1 if _look_mode else 1)
+	move_direction = move_direction.normalized() * (0.91 if _look_mode else 1)
 
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized

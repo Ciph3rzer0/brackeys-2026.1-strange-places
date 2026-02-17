@@ -9,8 +9,7 @@
 [ext_resource type="Material" uid="uid://ln7tc6rg01dl" path="res://levels/PortalPlaneMaterial.tres" id="7_lshjd"]
 [ext_resource type="Script" uid="uid://cat1v4hffc6n2" path="res://levels/widgets/pulsar.gd" id="7_o6sjm"]
 [ext_resource type="Material" uid="uid://dubx8b1mnerum" path="res://levels/PortalObjectMaterial.tres" id="8_q31mr"]
-[ext_resource type="Material" uid="uid://clvehvoe1cp42" path="res://portal_shader_material.tres" id="10_0rv3t"]
-[ext_resource type="PackedScene" uid="uid://dy0rmhwq4osx6" path="res://levels/portal.tscn" id="11_0rv3t"]
+[ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="11_0rv3t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqthn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -183,8 +182,6 @@ stencil_reference = 128
 material = SubResource("StandardMaterial3D_0rv3t")
 radius = 1.0
 height = 2.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_teg34"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88pgb"]
 albedo_color = Color(0.38373995, 0.1489527, 0.253286, 1)
@@ -377,11 +374,6 @@ mesh = SubResource("PrismMesh_205wp")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3DPortal" unique_id=422983428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.399615, 1.1241724, -6.703079)
 mesh = SubResource("SphereMesh_w68nl")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=127260729]
-transform = Transform3D(0.68613577, 0, 0.7274735, 0, 1, 0, -0.7274735, 0, 0.68613577, -0.4589423, 3.575745, -7.2121906)
-material_override = ExtResource("10_0rv3t")
-mesh = SubResource("QuadMesh_teg34")
 
 [node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("11_0rv3t")]
 unique_name_in_owner = true

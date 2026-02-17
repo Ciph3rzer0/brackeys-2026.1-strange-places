@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dy0rmhwq4osx6"]
+[gd_scene format=3 uid="uid://cu1hypoa4fiqw"]
 
 [ext_resource type="Script" uid="uid://x462mjrl62de" path="res://levels/portal.gd" id="1_13t6x"]
 [ext_resource type="Material" uid="uid://clvehvoe1cp42" path="res://portal_shader_material.tres" id="2_13t6x"]
-[ext_resource type="Script" uid="uid://bm8cwkaxuppqx" path="res://levels/portal_ring_collision.gd" id="3_7b6cc"]
+[ext_resource type="Script" path="res://levels/portal_ring_collision.gd" id="3_7b6cc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_205wp"]
 radius = 1.0
@@ -22,7 +22,8 @@ script = ExtResource("1_13t6x")
 collision_layer = 0
 
 [node name="PortalMesh" type="MeshInstance3D" parent="PortalHole" unique_id=625196468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+layers = 16384
 material_override = ExtResource("2_13t6x")
 mesh = SubResource("SphereMesh_205wp")
 
@@ -31,6 +32,8 @@ shape = SubResource("SphereShape3D_0rv3t")
 debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
 
 [node name="PortalRingCollider" type="StaticBody3D" parent="PortalHole" unique_id=647584065]
+collision_layer = 2
+collision_mask = 0
 
 [node name="PortalRingCollision" type="CollisionShape3D" parent="PortalHole/PortalRingCollider" unique_id=1900523620]
 shape = SubResource("SphereShape3D_0rv3t")
@@ -44,7 +47,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectF" unique_id=1535284848]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4.371139e-09, 0.6)
 shape = SubResource("CylinderShape3D_w68nl")
 debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
 
@@ -55,7 +58,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectB" unique_id=1395033902]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4.371139e-09, 0.6)
 shape = SubResource("CylinderShape3D_w68nl")
 debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
 
