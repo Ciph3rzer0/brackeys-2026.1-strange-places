@@ -48,6 +48,7 @@ func _on_player_detect_f_body_exited(_body: Node3D) -> void:
 	_front_portal_contact = false
 	if _back_portal_contact:
 		print("Player should be teleported now! (Entered F, then B)")
+		_teleport_player()
 
 
 func _on_player_detect_b_body_entered(_body: Node3D) -> void:
@@ -60,3 +61,12 @@ func _on_player_detect_b_body_exited(_body: Node3D) -> void:
 	_back_portal_contact = false
 	if _front_portal_contact:
 		print("Player should be teleported now! (Entered B, then F)")
+		_teleport_player()
+
+
+func _teleport_player() -> void:
+	# This is where you'd implement the actual teleportation logic.
+	# For example, you might want to move the player to a specific location,
+	# or swap their position with another portal.;
+	DarkWorldView.switch_cameras()
+	pass
