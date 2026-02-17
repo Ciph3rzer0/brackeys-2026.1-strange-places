@@ -53,6 +53,7 @@ func _process(_delta: float) -> void:
 		# Use global_position for interpolation
 		var portal_world_pos = _portal_screen_fade.get_parent().global_position + _original_fade_position
 		_portal_screen_fade.global_position = portal_world_pos.lerp(target_position, progress)
+		# _portal_screen_fade.global_position = target_position
 		_portal_screen_fade.look_at(_camera.global_position, Vector3.UP)
 
 
