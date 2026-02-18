@@ -52,7 +52,7 @@ func _ready() -> void:
 	_setup_shared_viewport()
 
 	GameWorld.set_player(self)
-	GameWorld.portal_activated.connect(_traverse_worlds)
+	GameWorld.portal_traversal_started.connect(_traverse_worlds)
 	_traverse_worlds(GameWorld._in_mirror_world)
 
 	#Events.kill_plane_touched.connect(func on_kill_plane_touched() -> void:
