@@ -20,6 +20,9 @@ extends CharacterBody3D
 @export var tilt_upper_limit := PI / 3.0
 @export var tilt_lower_limit := -PI / 8.0
 
+@export_flags_3d_physics var main_world_collision: int = 1
+@export_flags_3d_physics var dark_world_collision: int = 1
+
 ## Each frame, we find the height of the ground below the player and store it here.
 ## The camera uses this to keep a fixed height while the player jumps, for example.
 var ground_height := 0.0
@@ -46,6 +49,10 @@ var _look_mode := false
 
 func _ready() -> void:
 	_setup_shared_viewport()
+
+	GameWorld.portal_activated.connect(_traverse_worlds)
+	_traverse_worlds(GameWorld._in_mirror_world)
+
 	#Events.kill_plane_touched.connect(func on_kill_plane_touched() -> void:
 		#global_position = _start_position
 		#velocity = Vector3.ZERO
@@ -57,6 +64,10 @@ func _ready() -> void:
 		#_skin.idle()
 		#_dust_particles.emitting = false
 	#)
+
+func _traverse_worlds(_mirror_world: bool) -> void:
+	collision_mask = dark_world_collision if _mirror_world else main_world_collision
+	%SpringArm.collision_mask = dark_world_collision if _mirror_world else main_world_collision
 
 func _setup_shared_viewport() -> void:
 	DarkWorldView.set_primary_camera(_camera)
