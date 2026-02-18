@@ -122,7 +122,7 @@ func _physics_process(delta: float) -> void:
 	var right := _camera.global_basis.x
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized() * (0.91 if _look_mode else 1)
+	move_direction = move_direction.normalized() * (0.35 if _look_mode else 1.0)
 
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized
