@@ -17,11 +17,13 @@ var _last_collision_enabled: bool = true
 func set_portal_open_progress(val: float):
 	var size =  Vector3.ONE * max(0.001, val)
 	$PortalHole.scale = size
+	%TraversalDetectors.scale = Vector3(size.x, size.y, 1.0)
 	# Only update collision when state changes
 	var should_enable = val > 0.001
 	if should_enable != _last_collision_enabled:
 		_last_collision_enabled = should_enable
 		_set_collision_recursive($PortalHole, should_enable)
+		_set_collision_recursive($TraversalDetectors, should_enable)
 		%RingParticles.emitting = should_enable
 		GameWorld.set_active_portal(self, should_enable)
 
