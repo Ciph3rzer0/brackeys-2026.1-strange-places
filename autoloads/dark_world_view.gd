@@ -14,6 +14,8 @@ func _ready() -> void:
 	# Match SubViewport size to main viewport
 	_update_viewport_size()
 
+	GameWorld.portal_activated.connect(switch_cameras)
+
 func _update_viewport_size() -> void:
 	var main_viewport = get_tree().root
 	if main_viewport:
@@ -35,7 +37,7 @@ func _process(_delta: float) -> void:
 		if main_viewport and size != main_viewport.size:
 			size = main_viewport.size
 
-func switch_cameras() -> void:
+func switch_cameras(_mirror_world) -> void:
 	if primary_camera and mirror_camera:
 		# Swap camera cull masks
 		var temp_mask = primary_camera.cull_mask

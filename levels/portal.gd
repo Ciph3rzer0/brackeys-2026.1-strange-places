@@ -99,4 +99,4 @@ func _on_portal_expansion_finished() -> void:
 	if _portal_screen_fade:
 		_portal_screen_fade.position = _original_fade_position
 		_portal_screen_fade.rotation = _original_fade_rotation
-	DarkWorldView.switch_cameras()
+	GameWorld.activate_portal()
