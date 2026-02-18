@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://ln7tc6rg01dl" path="res://levels/PortalPlaneMaterial.tres" id="7_lshjd"]
 [ext_resource type="Script" uid="uid://cat1v4hffc6n2" path="res://levels/widgets/pulsar.gd" id="7_o6sjm"]
 [ext_resource type="Material" uid="uid://dubx8b1mnerum" path="res://levels/PortalObjectMaterial.tres" id="8_q31mr"]
+[ext_resource type="PackedScene" uid="uid://dv5vqg71dgyej" path="res://assets/environment/trophy.glb" id="8_w68nl"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="11_0rv3t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqthn"]
@@ -47,26 +48,6 @@ size = Vector3(4, 0.25, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jt580"]
 size = Vector3(4, 0.25, 2)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_fj1wo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ko8bl"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.15991482, 0.2117821, 0.27802792, 1)
-grow = true
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt580"]
-next_pass = SubResource("StandardMaterial3D_ko8bl")
-stencil_mode = 1
-stencil_flags = 2
-stencil_color = Color(0.15991482, 0.2117821, 0.27802792, 1)
-stencil_outline_thickness = 0.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jt580"]
 
@@ -273,16 +254,16 @@ collision_layer = 4
 collision_mask = 3
 mass = 50.0
 
-[node name="StrangeMesh" type="MeshInstance3D" parent="StrangeThing" unique_id=1895174569]
-mesh = SubResource("CylinderMesh_fj1wo")
-surface_material_override/0 = SubResource("StandardMaterial3D_jt580")
+[node name="trophy" parent="StrangeThing" unique_id=1351297564 instance=ExtResource("8_w68nl")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -1, 0)
 
 [node name="StrangeCollider" type="CollisionShape3D" parent="StrangeThing" unique_id=1962743610]
 shape = SubResource("CylinderShape3D_jt580")
 
 [node name="Pulsar" type="Node3D" parent="StrangeThing" unique_id=1504455943 node_paths=PackedStringArray("mesh")]
 script = ExtResource("7_o6sjm")
-mesh = NodePath("../StrangeMesh")
+mesh = NodePath("../trophy/trophy")
+outline_color = Color(0.6862745, 0.6862745, 0, 0.41568628)
 
 [node name="Mirror" type="Node3D" parent="." unique_id=2044552223]
 
@@ -407,3 +388,4 @@ shape = SubResource("BoxShape3D_7gwhv")
 [connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]
 
 [editable path="Player3DTemplate"]
+[editable path="StrangeThing/trophy"]
