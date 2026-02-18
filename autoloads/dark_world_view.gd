@@ -3,6 +3,8 @@ extends SubViewport
 var primary_camera: Camera3D
 @onready var mirror_camera: Camera3D = $MirrorCamera3D
 
+var _portal_animating: bool = false
+
 func _ready() -> void:
 	# Disable tonemapping in SubViewport to prevent double tonemapping
 	# The SubViewport should output linear HDR, then the main viewport applies tonemapping
@@ -14,7 +16,16 @@ func _ready() -> void:
 	# Match SubViewport size to main viewport
 	_update_viewport_size()
 
-	GameWorld.portal_activated.connect(switch_cameras)
+	GameWorld.portal_traversal_started.connect(_on_portal_traversal_started)
+	GameWorld.portal_traversal_finished.connect(_on_portal_traversal_finished)
+
+func _on_portal_traversal_started(mirror_world: bool) -> void:
+	_portal_animating = true
+	print("Portal traversal started. Mirror world: ", mirror_world)
+
+func _on_portal_traversal_finished(_mirror_world) -> void:
+	_portal_animating = false
+	_switch_cameras()
 
 func _update_viewport_size() -> void:
 	var main_viewport = get_tree().root
@@ -37,7 +48,7 @@ func _process(_delta: float) -> void:
 		if main_viewport and size != main_viewport.size:
 			size = main_viewport.size
 
-func switch_cameras(_mirror_world) -> void:
+func _switch_cameras() -> void:
 	if primary_camera and mirror_camera:
 		# Swap camera cull masks
 		var temp_mask = primary_camera.cull_mask

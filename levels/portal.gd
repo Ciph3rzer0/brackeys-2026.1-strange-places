@@ -98,6 +98,7 @@ func _on_player_detect_b_body_exited(_body: Node3D) -> void:
 
 
 func _teleport_player() -> void:
+	GameWorld.start_portal_traversal()
 	# Store original PortalScreenFade transform
 	if _portal_screen_fade:
 		_original_fade_position = _portal_screen_fade.position
@@ -107,10 +108,10 @@ func _teleport_player() -> void:
 	%PortalAnimationPlayer.play(&"explode")
 
 func _on_portal_expansion_finished() -> void:
+	GameWorld.finish_portal_traversal()
 	print("Portal expansion finished. Now switching cameras.")
 	_is_animating = false
 	# Reset PortalScreenFade to original transform
 	if _portal_screen_fade:
 		_portal_screen_fade.position = _original_fade_position
 		_portal_screen_fade.rotation = _original_fade_rotation
-	GameWorld.activate_portal()
