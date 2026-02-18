@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export_group("Movement")
 ## Character maximum run speed on the ground in meters per second.
@@ -50,6 +51,7 @@ var _look_mode := false
 func _ready() -> void:
 	_setup_shared_viewport()
 
+	GameWorld.set_player(self)
 	GameWorld.portal_activated.connect(_traverse_worlds)
 	_traverse_worlds(GameWorld._in_mirror_world)
 

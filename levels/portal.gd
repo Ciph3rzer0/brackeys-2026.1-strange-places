@@ -21,6 +21,7 @@ func set_portal_open_progress(val: float):
 		_last_collision_enabled = should_enable
 		_set_collision_recursive($PortalHole, should_enable)
 		%RingParticles.emitting = should_enable
+		GameWorld.set_active_portal(self, should_enable)
 
 func _set_collision_recursive(node: Node, enabled: bool) -> void:
 	if node is CollisionShape3D:
