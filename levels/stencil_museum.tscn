@@ -287,7 +287,9 @@ mesh = NodePath("../StrangeMesh")
 [node name="Mirror" type="Node3D" parent="." unique_id=2044552223]
 
 [node name="Ground2" type="StaticBody3D" parent="Mirror" unique_id=172137201]
+collision_layer = 16
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/Ground2" unique_id=1698941622]
 shape = SubResource("BoxShape3D_nqthn")
@@ -378,7 +380,7 @@ shadow_enabled = true
 
 [node name="MirrorBox3" type="StaticBody3D" parent="MirrorWorld2" unique_id=908800364]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.5, 2.5, -4.5)
-collision_layer = 17
+collision_layer = 16
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MirrorWorld2/MirrorBox3" unique_id=322220487]

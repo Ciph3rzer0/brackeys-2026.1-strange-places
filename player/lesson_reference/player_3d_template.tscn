@@ -55,6 +55,8 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_dpokc")
 acceleration = 30.0
+main_world_collision = 5
+dark_world_collision = 240
 
 [node name="CharacterCollisionShape" type="CollisionShape3D" parent="." unique_id=1153825377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
