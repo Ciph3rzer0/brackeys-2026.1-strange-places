@@ -2,6 +2,7 @@ extends Node
 
 var _in_mirror_world: bool = false
 var _active_portal: Node3D = null
+var _portal_traversal_in_progress: bool = false
 var _player: Player = null
 
 @warning_ignore_start("unused_signal")
@@ -9,12 +10,14 @@ signal portal_traversal_started(mirror_world: bool)
 signal portal_traversal_finished(mirror_world: bool)
 
 func start_portal_traversal():
-	print("Activating portal. Emitting signal.")
+	print("Start Portal Traversal --- Emitting signal.")
 	_in_mirror_world = !_in_mirror_world
+	_portal_traversal_in_progress = true
 	portal_traversal_started.emit(_in_mirror_world)
 
 func finish_portal_traversal():
-	print("Finishing portal traversal. Emitting signal.")
+	print("Finishing Portal Traversal --- Emitting signal.")
+	_portal_traversal_in_progress = false
 	portal_traversal_finished.emit(_in_mirror_world)
 
 func set_active_portal(node: Node3D, should_enable: bool):
