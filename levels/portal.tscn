@@ -145,6 +145,7 @@ mesh = SubResource("CylinderMesh_13t6x")
 script = ExtResource("3_bi5mn")
 
 [node name="PortalHole" type="StaticBody3D" parent="." unique_id=762694627]
+unique_name_in_owner = true
 collision_layer = 0
 
 [node name="PortalMesh" type="MeshInstance3D" parent="PortalHole" unique_id=625196468]
@@ -159,6 +160,7 @@ shape = SubResource("SphereShape3D_0rv3t")
 debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
 
 [node name="PortalRingCollider" type="StaticBody3D" parent="PortalHole" unique_id=647584065]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 0
 
@@ -189,7 +191,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 shape = SubResource("CylinderShape3D_w68nl")
 debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="PortalHole" unique_id=1973163491]
+[node name="RingParticles" type="GPUParticles3D" parent="PortalHole" unique_id=1973163491]
+unique_name_in_owner = true
 layers = 33
 amount = 128
 lifetime = 0.3
