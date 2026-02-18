@@ -40,4 +40,3 @@ func _process(_delta: float) -> void:
 		DarkWorldView.mirror_camera.near = max(0.05, distance - 2)
 		if DarkWorldView._portal_animating:
 			DarkWorldView.mirror_camera.near = 0.05
-		print("Updating mirror camera near plane. Distance to portal: ", distance, " New near: ", DarkWorldView.mirror_camera.near)
