@@ -195,6 +195,12 @@ mesh = SubResource("BoxMesh_5emr2")
 [node name="Player3DTemplate" parent="." unique_id=297006876 instance=ExtResource("2_q31mr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
 
+[node name="CharacterCollisionShape" parent="Player3DTemplate" index="0" unique_id=1153825377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0644531, 0)
+
+[node name="SophiaSkin" parent="Player3DTemplate" index="1" unique_id=161573376]
+transform = Transform3D(0.99998003, 0, 0.00631805, 0, 1, 0, -0.00631805, 0, 0.99998003, 0, 0, 0)
+
 [node name="MainCamera3D" parent="Player3DTemplate/CameraPivot/SpringArm" parent_id_path=PackedInt32Array(297006876, 760809364) index="0" unique_id=114910413]
 environment = ExtResource("3_0rv3t")
 
