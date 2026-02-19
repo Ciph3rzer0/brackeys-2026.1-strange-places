@@ -96,6 +96,8 @@ _data = {
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrrdc"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
 emission_shape_scale = Vector3(1, 1, 0.15)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
@@ -107,6 +109,8 @@ angle_min = 1.0728835e-05
 angle_max = 360.00003
 inherit_velocity_ratio = 0.31
 spread = 45.875
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 0.9999839
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 2.9999976
 radial_accel_max = 4.9999976
@@ -122,7 +126,6 @@ blend_mode = 1
 no_depth_test = true
 albedo_color = Color(0.47311467, 0.5359659, 0.88067156, 1)
 albedo_texture = ExtResource("6_ohfhw")
-billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_870uh"]
 material = SubResource("StandardMaterial3D_k7fq7")
