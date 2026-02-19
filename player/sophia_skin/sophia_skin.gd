@@ -1,6 +1,6 @@
 class_name SophiaSkin extends Node3D
 
-@onready var animation_tree = %AnimationTree2
+@onready var animation_tree = %Capy_AnimationTree
 @onready var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 @onready var move_tilt_path : String = "parameters/StateMachine/Move/tilt/add_amount"
 
@@ -36,10 +36,10 @@ func _set_run_tilt(value : float):
 	animation_tree.set(move_tilt_path, run_tilt)
 
 func idle():
-	state_machine.travel("Idle")
+	state_machine.travel("Idle_001")
 
 func move():
-	state_machine.travel("Move")
+	state_machine.travel("Run")
 
 func fall():
 	state_machine.travel("Fall")
