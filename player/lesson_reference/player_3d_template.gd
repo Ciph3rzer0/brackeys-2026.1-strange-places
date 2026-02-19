@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export_group("Movement")
 ## Character maximum run speed on the ground in meters per second.
@@ -19,6 +20,9 @@ extends CharacterBody3D
 @export_range(0.0, 1.0) var mouse_sensitivity := 0.25
 @export var tilt_upper_limit := PI / 3.0
 @export var tilt_lower_limit := -PI / 8.0
+
+@export_flags_3d_physics var main_world_collision: int = 1
+@export_flags_3d_physics var dark_world_collision: int = 1
 
 ## Each frame, we find the height of the ground below the player and store it here.
 ## The camera uses this to keep a fixed height while the player jumps, for example.
@@ -46,6 +50,11 @@ var _look_mode := false
 
 func _ready() -> void:
 	_setup_shared_viewport()
+
+	GameWorld.set_player(self)
+	GameWorld.portal_traversal_started.connect(_traverse_worlds)
+	_traverse_worlds(GameWorld._in_mirror_world)
+
 	#Events.kill_plane_touched.connect(func on_kill_plane_touched() -> void:
 		#global_position = _start_position
 		#velocity = Vector3.ZERO
@@ -57,6 +66,10 @@ func _ready() -> void:
 		#_skin.idle()
 		#_dust_particles.emitting = false
 	#)
+
+func _traverse_worlds(_mirror_world: bool) -> void:
+	collision_mask = dark_world_collision if _mirror_world else main_world_collision
+	%SpringArm.collision_mask = dark_world_collision if _mirror_world else main_world_collision
 
 func _setup_shared_viewport() -> void:
 	DarkWorldView.set_primary_camera(_camera)
@@ -109,7 +122,7 @@ func _physics_process(delta: float) -> void:
 	var right := _camera.global_basis.x
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized() * (0.91 if _look_mode else 1)
+	move_direction = move_direction.normalized() * (0.35 if _look_mode else 1.0)
 
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized
