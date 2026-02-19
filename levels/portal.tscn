@@ -35,8 +35,8 @@ tracks/0/path = NodePath("PortalScreenFade:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.46666667, 0.5),
-"transitions": PackedFloat32Array(0.5, 1, 1),
+"times": PackedFloat32Array(0, 0.46666667, 0.49914446),
+"transitions": PackedFloat32Array(0.5, 1, 0.5),
 "update": 0,
 "values": [Vector3(0.001, 0.001, 0.001), Vector3(10, 1, 10), Vector3(0.001, 0.001, 0.001)]
 }
@@ -128,6 +128,7 @@ script = ExtResource("3_bi5mn")
 unique_name_in_owner = true
 root_node = NodePath("../..")
 callback_mode_process = 0
+callback_mode_method = 1
 libraries/ = SubResource("AnimationLibrary_bi5mn")
 
 [node name="PortalHole" type="StaticBody3D" parent="." unique_id=762694627]

@@ -63,7 +63,7 @@ func _process(_delta: float) -> void:
 			progress = clamp(current_time / total_time, 0.0, 1.0)
 		
 		# Lerp between portal position and camera position
-		var distance_from_camera = 4.0  # Distance in front of camera at full progress
+		var distance_from_camera = 2.0  # Distance in front of camera at full progress
 		var camera_forward = -_camera.global_transform.basis.z
 		var target_position = _camera.global_position + camera_forward * distance_from_camera
 		
@@ -118,3 +118,4 @@ func _on_portal_expansion_finished() -> void:
 	if _portal_screen_fade:
 		_portal_screen_fade.position = _original_fade_position
 		_portal_screen_fade.rotation = _original_fade_rotation
+	_portal_screen_fade_anim_player.play(&"RESET")

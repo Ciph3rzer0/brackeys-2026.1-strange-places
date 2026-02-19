@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bbgyyp8owtc25" path="res://assets/environment/round-tree.glb" id="4_b81o8"]
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
-[ext_resource type="PackedScene" uid="uid://cumht2xi4dbdp" path="res://scenes/custom assets/player.tscn" id="6_8sv6m"]
 [ext_resource type="AudioStream" uid="uid://i0vqws24yg2j" path="res://assets/audio/some 80s prog bullshit that DOESNT FIT WITH THE GAME.mp3" id="9_iisry"]
+[ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="10_b81o8"]
+[ext_resource type="Script" uid="uid://ckvojrwlotpfb" path="res://player/skills/skill_open_portal.gd" id="11_b81o8"]
 [ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 
@@ -163,14 +164,19 @@ light_energy = 0.4
 data_directory = "res://addons/terrain_3d/data_dir"
 material = SubResource("Terrain3DMaterial_3q875")
 assets = SubResource("Terrain3DAssets_1qyed")
+collision_layer = 17
+render_layers = 2147483681
 top_level = true
 metadata/_edit_lock_ = true
 
+[node name="Player3DTemplate" parent="." unique_id=1826751568 instance=ExtResource("10_b81o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
+
+[node name="Node3D" type="Node3D" parent="Player3DTemplate" unique_id=1783832009]
+script = ExtResource("11_b81o8")
+
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022, 0, 1.5994691, 4.6786575, 0.05110407, 26.670143)
-
-[node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="." unique_id=1261972223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4569173, 20.736904, 7.807192)
@@ -184,3 +190,5 @@ attenuation_filter_cutoff_hz = 20500.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.957174, 0, -6.730322)
 radius = 2.0
 speed = -0.2
+
+[editable path="Player3DTemplate"]
