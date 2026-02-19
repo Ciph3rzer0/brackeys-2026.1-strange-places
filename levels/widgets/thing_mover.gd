@@ -54,6 +54,8 @@ var _spent: bool = false
 var _is_moving: bool = false
 
 func _set_start():
+	if not Engine.is_editor_hint():
+		return
 	var undo = EditorInterface.get_editor_undo_redo()
 	undo.create_action("Set start")
 	undo.add_do_property(self, "start_transform", transform)
@@ -62,6 +64,8 @@ func _set_start():
 		
 	
 func _set_end():
+	if not Engine.is_editor_hint():
+		return
 	var undo = EditorInterface.get_editor_undo_redo()
 	undo.create_action("Set end")
 	undo.add_do_property(self, "end_transform", transform)
