@@ -16,6 +16,12 @@ class_name Player
 ## animation tree changes between the idle and running states.
 @export var stopping_speed := 1.0
 
+@export_group("Glide")
+## Maximum downward speed while gliding (holding jump in the air).
+@export var glide_max_fall_speed := 3.0
+## Horizontal velocity multiplier each frame while gliding, for a floaty feel.
+@export var glide_horizontal_drag := 0.98
+
 @export_group("Camera")
 @export_range(0.0, 1.0) var mouse_sensitivity := 0.25
 @export var tilt_upper_limit := PI / 3.0
@@ -32,6 +38,7 @@ var _gravity := -30.0
 var _was_on_floor_last_frame := true
 var _camera_input_direction := Vector2.ZERO
 var _look_mode := false
+var _is_gliding := false
 @onready var _original_spring_arm_length = %SpringArm.spring_length
 
 ## The last movement or aim direction input by the player. We use this to orient
@@ -46,6 +53,8 @@ var _look_mode := false
 @onready var _landing_sound: AudioStreamPlayer3D = %LandingSound
 @onready var _jump_sound: AudioStreamPlayer3D = %JumpSound
 @onready var _dust_particles: GPUParticles3D = %DustParticles
+@onready var _glide_particles: GPUParticles3D = %GlideParticles
+@onready var _glide_sound: AudioStreamPlayer3D = %GlideSound
 
 
 func _ready() -> void:
@@ -90,7 +99,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	)
 	if player_is_using_mouse:
-		_camera_input_direction.x = -event.relative.x * mouse_sensitivity
+		_camera_input_direction.x = - event.relative.x * mouse_sensitivity
 		_camera_input_direction.y = event.relative.y * mouse_sensitivity
 
 func _set_look_mode(enabled: bool) -> void:
@@ -140,6 +149,27 @@ func _physics_process(delta: float) -> void:
 	if is_equal_approx(move_direction.length_squared(), 0.0) and velocity.length_squared() < stopping_speed:
 		velocity = Vector3.ZERO
 	velocity.y = y_velocity + _gravity * delta
+
+	# Glide: limit fall speed while holding jump in the air.
+	var wants_to_glide := (
+		not is_on_floor()
+		and velocity.y < 0.0
+		and Input.is_action_pressed("jump")
+		and not _look_mode
+	)
+	if wants_to_glide:
+		velocity.y = max(velocity.y, -glide_max_fall_speed)
+		velocity.x *= glide_horizontal_drag
+		velocity.z *= glide_horizontal_drag
+		if not _is_gliding:
+			_is_gliding = true
+			_glide_particles.emitting = true
+			_glide_sound.play()
+	else:
+		if _is_gliding:
+			_is_gliding = false
+			_glide_particles.emitting = false
+			_glide_sound.stop()
 
 	# Character animations and visual effects.
 	var ground_speed := Vector2(velocity.x, velocity.z).length()

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cpf40g30nrwma"]
+
+[ext_resource type="Texture2D" uid="uid://g6sm7yu42qhv" path="res://addons/brackeys_vfx_bundle/particles/alpha/flame_04_a.png" id="1_c6fcj"]
+
+[sub_resource type="Curve" id="Curve_rrxl2"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.65125245, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wfoe5"]
+curve = SubResource("Curve_rrxl2")
+
+[sub_resource type="Curve" id="Curve_067iu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.29896623), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rrxl2"]
+curve = SubResource("Curve_067iu")
+
+[sub_resource type="Curve" id="Curve_b8r8p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51830447, 0.77479744), -1.3394592, -1.3394592, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ileh"]
+curve = SubResource("Curve_b8r8p")
+
+[sub_resource type="Curve" id="Curve_mxsq0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.17183572), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_067iu"]
+curve = SubResource("Curve_mxsq0")
+
+[sub_resource type="Curve" id="Curve_gh6kh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pro5g"]
+curve = SubResource("Curve_gh6kh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rrxl2"]
+lifetime_randomness = 0.22
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -29.99999
+angle_max = 30.000011
+angle_curve = SubResource("CurveTexture_wfoe5")
+gravity = Vector3(0, 5, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_067iu")
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_pro5g")
+color = Color(0.20829657, 0.21752802, 0.2171464, 1)
+emission_curve = SubResource("CurveTexture_8ileh")
+anim_speed_max = 5.0
+anim_speed_curve = SubResource("CurveTexture_rrxl2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c185"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.42822343, 0.43590322, 0.41564754, 1)
+albedo_texture = ExtResource("1_c6fcj")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_24la2"]
+material = SubResource("StandardMaterial3D_4c185")
+
+[node name="Smoke_GPUParticle" type="GPUParticles3D" unique_id=1193199880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06351316, 0)
+amount = 32
+lifetime = 1.5
+randomness = 0.05
+fixed_fps = 12
+process_material = SubResource("ParticleProcessMaterial_rrxl2")
+draw_pass_1 = SubResource("QuadMesh_24la2")

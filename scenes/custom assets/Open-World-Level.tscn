@@ -10,9 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
 [ext_resource type="PackedScene" uid="uid://cumht2xi4dbdp" path="res://scenes/custom assets/player.tscn" id="6_8sv6m"]
-[ext_resource type="AudioStream" uid="uid://i0vqws24yg2j" path="res://assets/audio/some 80s prog bullshit that DOESNT FIT WITH THE GAME.mp3" id="9_iisry"]
+[ext_resource type="AudioStream" uid="uid://cn02q3pnrl3em" path="res://assets/audio/music/micahs grove-loop.wav" id="13_b81o8"]
 [ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
+[ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="14_b81o8"]
+[ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="15_cg6i3"]
+[ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin.glb" id="16_1csix"]
+[ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="17_78gt3"]
+[ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="18_0mevk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
 sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
@@ -26,10 +31,11 @@ sky_material = SubResource("ProceduralSkyMaterial_2ui33")
 
 [sub_resource type="Environment" id="Environment_lny1m"]
 background_mode = 2
-background_energy_multiplier = 0.2
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_2gwnt")
 tonemap_mode = 4
-fog_enabled = true
+glow_intensity = 1.03
+glow_bloom = 0.54
 fog_mode = 1
 fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
 fog_density = 1.0
@@ -157,7 +163,7 @@ environment = SubResource("Environment_lny1m")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=333657164]
 transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9976041, 0, 16.250614, 0)
 light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
-light_energy = 0.4
+light_energy = 0.3
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=29175791]
 data_directory = "res://addons/terrain_3d/data_dir"
@@ -166,21 +172,39 @@ assets = SubResource("Terrain3DAssets_1qyed")
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
-transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022, 0, 1.5994691, 4.6786575, 0.05110407, 26.670143)
-
 [node name="Player" parent="." unique_id=1059240609 instance=ExtResource("6_8sv6m")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.584424, 0, -12.765113)
+visible = false
 
-[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="." unique_id=1261972223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4569173, 20.736904, 7.807192)
-stream = ExtResource("9_iisry")
+[node name="Player2" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5643, -3.8146973e-06, 97.951096)
+
+[node name="MicahsGroveLoop" type="AudioStreamPlayer3D" parent="." unique_id=948532338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1091866, 9.732551, 25.731316)
+stream = ExtResource("13_b81o8")
 attenuation_model = 3
+volume_db = -10.0
 autoplay = true
+panning_strength = 0.0
 bus = &"Music"
 attenuation_filter_cutoff_hz = 20500.0
+
+[node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
+transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022, 0, 1.5994691, 4.6786575, 0.05110407, 26.670143)
 
 [node name="NPC_Bush" parent="." unique_id=1956852423 instance=ExtResource("13_fsif2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.957174, 0, -6.730322)
 radius = 2.0
 speed = -0.2
+
+[node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.773346, 4.932514, 90.82488)
+
+[node name="StrangeThing" parent="." unique_id=609394392 instance=ExtResource("17_78gt3")]
+transform = Transform3D(1.402884, 0, 0, 0, 1.402884, 0, 0, 0, 1.402884, 108.77711, 5.514741, 73.86045)
+
+[node name="cabin" parent="." unique_id=1775995212 instance=ExtResource("16_1csix")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 101.24944, 6.2679863, 101.34529)
+
+[node name="Smoke_GPUParticle" parent="cabin" unique_id=1193199880 instance=ExtResource("18_0mevk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.449028, 17.785711, -7.4931183)
