@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bbgyyp8owtc25" path="res://assets/environment/round-tree.glb" id="4_b81o8"]
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
-[ext_resource type="AudioStream" uid="uid://cn02q3pnrl3em" path="res://assets/audio/music/micahs grove-loop.wav" id="13_b81o8"]
+[ext_resource type="AudioStream" uid="uid://4vpjsuc3vtj3" path="res://assets/audio/music/micahs-grove.mp3" id="11_78gt3"]
 [ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 [ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="14_b81o8"]
@@ -179,15 +179,14 @@ light_energy = 0.3
 data_directory = "res://addons/terrain_3d/data_dir"
 material = SubResource("Terrain3DMaterial_3q875")
 assets = SubResource("Terrain3DAssets_1qyed")
+collision_layer = 17
+render_layers = 2147483681
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(-0.78851545, 0, -0.615015, 0, 1, 0, 0.615015, 0, -0.78851545, 103.89598, 8.504796, 107.29957)
-
-[node name="MicahsGroveLoop" type="AudioStreamPlayer3D" parent="." unique_id=948532338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1091866, 9.732551, 25.731316)
-stream = ExtResource("13_b81o8")
+[node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
+stream = ExtResource("11_78gt3")
 attenuation_model = 3
 volume_db = -10.0
 autoplay = true
@@ -207,7 +206,7 @@ speed = -0.2
 transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 91.30406, 9.951484, 74.94601)
 
 [node name="cabin" parent="." unique_id=1764870705 instance=ExtResource("16_1csix")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 101.2533, 6.2804585, 101.34228)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 101.42167, 6.295086, 101.342514)
 
 [node name="box" type="MeshInstance3D" parent="cabin" unique_id=2100469462]
 transform = Transform3D(3.025059, 0, 0.4323074, 0, 3.0557933, 0, -0.4323074, 0, 3.025059, -20.543152, -1.00878, -6.585739)
@@ -240,7 +239,7 @@ transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.55271
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="box2" type="MeshInstance3D" parent="cabin" unique_id=2059610240]
-transform = Transform3D(3.0557933, 0, -1.4210855e-14, 0, 3.0557933, 0, 1.4210855e-14, 0, 3.0557933, -20.956566, 2.1094704, -7.065735)
+transform = Transform3D(3.0557933, 0, -1.4210855e-14, 0, 3.0557933, 0, 1.4210855e-14, 0, 3.0557933, -20.956566, 2.0400524, -7.065727)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cabin/box2" unique_id=2006915318]
@@ -293,7 +292,7 @@ transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.55271
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="box7" type="MeshInstance3D" parent="cabin" unique_id=510946630]
-transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 4.3115673, -8.027023)
+transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 4.2421494, -8.027016)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cabin/box7" unique_id=697596610]
@@ -303,7 +302,7 @@ transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.55271
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="box8" type="MeshInstance3D" parent="cabin" unique_id=673837767]
-transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 5.522189, -8.027016)
+transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 5.452771, -8.027008)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cabin/box8" unique_id=1321740687]
@@ -337,3 +336,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.
 
 [node name="StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("17_78gt3")]
 transform = Transform3D(-5.809227e-08, 0, 1.3289962, 0, 1.3289962, 0, -1.3289962, 0, -5.809227e-08, -25.796135, -0.78649664, -2.059082)
+
+[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.07645, 13.540833, 75.30536)
