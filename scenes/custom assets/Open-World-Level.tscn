@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnovwqlh5c8x"]
 
 [ext_resource type="Texture2D" uid="uid://cun7fm03002md" path="res://assets/kenney_particle/circle_02.png" id="1_0mevk"]
+[ext_resource type="Script" uid="uid://bdg14esfnahjk" path="res://fps-label.gd" id="1_3c8je"]
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="1_d53ne"]
 [ext_resource type="Script" uid="uid://bnffvc4kw0okx" path="res://scenes/crosshairs.gd" id="1_myc21"]
 [ext_resource type="PackedScene" uid="uid://coj88accdxgn8" path="res://assets/environment/conical-tree.glb" id="1_xo2ap"]
@@ -42,6 +43,9 @@ fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
 fog_density = 1.0
 fog_height_density = 0.02
 fog_depth_curve = 0.5358867
+
+[sub_resource type="LabelSettings" id="LabelSettings_3c8je"]
+font_size = 32
 
 [sub_resource type="Gradient" id="Gradient_ii8ra"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -171,6 +175,16 @@ albedo_color = Color(0.6947733, 0.00011498437, 0.44543064, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
 environment = SubResource("Environment_lny1m")
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=1538049836]
+
+[node name="Label" type="Label" parent="Debug" unique_id=753108204]
+offset_left = 14.0
+offset_right = 213.0
+offset_bottom = 109.0
+text = "FPS Label"
+label_settings = SubResource("LabelSettings_3c8je")
+script = ExtResource("1_3c8je")
 
 [node name="Crosshairs" type="CanvasLayer" parent="." unique_id=149603598]
 script = ExtResource("1_myc21")
