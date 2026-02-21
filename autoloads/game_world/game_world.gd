@@ -1,11 +1,14 @@
 extends Node
 
+const BACKGROUND_MUSIC_FADE_DISTANCE := 7.0
+
 var _all_portals: Array = []
 
 var _in_mirror_world: bool = false
 var _active_portal: Node3D = null
 var _portal_traversal_in_progress: bool = false
 var _player: Player = null
+var _background_music_player: Node = null
 
 @warning_ignore_start("unused_signal")
 signal camera_mode_changed(look: bool)
@@ -44,29 +47,39 @@ func set_active_portal(node: Node3D, should_enable: bool):
 func set_player(player: Player):
 	_player = player
 
+func set_background_music_player(music: Node):
+	_background_music_player = music
+
 
 func _process(_delta: float) -> void:
-	if _player and _active_portal:
-		var pre_active_portal = _active_portal
-		_active_portal = _find_closest_portal_to_player()
-		if pre_active_portal != _active_portal:
-			print("Active portal changed to: ", (str(_active_portal.name) if _active_portal else "null"))
-		
-		var portal_to_player = DarkWorldView.mirror_camera.global_position - _active_portal.global_position
-		var distance = portal_to_player.length()
-		# Set the near frustum of DarkWorldView.mirror_camera to distance
-		# This prevents objects between the camera and the portal
-		# from rendering in the portal.
-		DarkWorldView.mirror_camera.near = max(0.05, distance - 2)
-		if DarkWorldView._portal_animating:
-			DarkWorldView.mirror_camera.near = 0.05
-	else:
+	if !(_player and _active_portal):
 		if !_player:
 			print("game_world.gd: No player set.")
 		if !_active_portal:
 			print("game_world.gd: No active portal.")
+		return
 
-func _find_closest_portal_to_player() -> Node3D:
+	var pre_active_portal = _active_portal
+	_active_portal = _find_closest_portal_to_camera()
+	if pre_active_portal != _active_portal:
+		print("Active portal changed to: ", (str(_active_portal.name) if _active_portal else "null"))
+	
+	var portal_to_camera = DarkWorldView.mirror_camera.global_position - _active_portal.global_position
+	var distance = portal_to_camera.length()
+	# Set the near frustum of DarkWorldView.mirror_camera to distance
+	# This prevents objects between the camera and the portal
+	# from rendering in the portal.
+	DarkWorldView.mirror_camera.near = max(0.05, distance - 2)
+	if DarkWorldView._portal_animating:
+		DarkWorldView.mirror_camera.near = 0.05
+	
+	var portal_to_player_distance = (_player.global_position - _active_portal.global_position).length()
+	var fade = clampf(1 - (portal_to_player_distance / BACKGROUND_MUSIC_FADE_DISTANCE), 0, 0.5)
+	if _in_mirror_world:
+		fade = 1 - fade
+	_background_music_player.track_fade = fade
+
+func _find_closest_portal_to_camera() -> Node3D:
 	if not _player:
 		return null
 	var closest_portal: Node3D = null

@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://cnovwqlh5c8x"]
 
 [ext_resource type="Texture2D" uid="uid://cun7fm03002md" path="res://assets/kenney_particle/circle_02.png" id="1_0mevk"]
+[ext_resource type="Script" uid="uid://bdg14esfnahjk" path="res://fps-label.gd" id="1_3c8je"]
+[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="1_d53ne"]
 [ext_resource type="Script" uid="uid://bnffvc4kw0okx" path="res://scenes/crosshairs.gd" id="1_myc21"]
+[ext_resource type="Script" uid="uid://fv0bvgfbafgf" path="res://scenes/background_music.gd" id="1_scb53"]
+[ext_resource type="PackedScene" uid="uid://coj88accdxgn8" path="res://assets/environment/conical-tree.glb" id="1_xo2ap"]
+[ext_resource type="AudioStream" uid="uid://dw84ihy4n6oiu" path="res://assets/audio/music/mirror.mp3" id="2_4fnnd"]
+[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="2_bgsw1"]
+[ext_resource type="PackedScene" uid="uid://be1v12u2bp4fy" path="res://assets/environment/rock-medium_1.glb" id="2_hu0nc"]
+[ext_resource type="PackedScene" uid="uid://d60giwad12ss" path="res://assets/environment/rock-medium_2.glb" id="3_fsif2"]
+[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="3_xo2ap"]
+[ext_resource type="PackedScene" uid="uid://bbgyyp8owtc25" path="res://assets/environment/round-tree.glb" id="4_b81o8"]
+[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
 [ext_resource type="AudioStream" uid="uid://4vpjsuc3vtj3" path="res://assets/audio/music/micahs-grove.mp3" id="11_78gt3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
@@ -17,6 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://d0e71emmc740b" path="res://assets/shack/shack.glb" id="22_v38h5"]
 [ext_resource type="PackedScene" uid="uid://bk2qflu7wb2x8" path="res://chandalier.tscn" id="23_g3cd4"]
 [ext_resource type="Script" path="res://mesh_scatter.gd" id="24_scatter"]
+
+[sub_resource type="Curve" id="Curve_scb53"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.35559565, 0.5165747), 2.3976057, 2.3976057, 0, 0, Vector2(0.99819493, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
 sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
@@ -41,6 +56,9 @@ fog_density = 1.0
 fog_height_density = 0.02
 fog_depth_curve = 0.5358867
 
+[sub_resource type="LabelSettings" id="LabelSettings_3c8je"]
+font_size = 32
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mevk"]
 albedo_color = Color(0.50654787, 0.402873, 0.33417, 1)
 
@@ -54,8 +72,33 @@ albedo_color = Color(0.6947733, 0.00011498437, 0.44543064, 1)
 
 [node name="Node3D" type="Node3D" unique_id=1764087103]
 
+[node name="BackgroundMusic" type="Node" parent="." unique_id=977668485]
+script = ExtResource("1_scb53")
+track_fade = 1.0
+track_fade_curve = SubResource("Curve_scb53")
+
+[node name="BackgroundMusicMainWorld" type="AudioStreamPlayer" parent="BackgroundMusic" unique_id=1812676622]
+stream = ExtResource("11_78gt3")
+volume_db = -10.338
+autoplay = true
+bus = &"Music"
+
+[node name="BackgroundMusicDarkWorld" type="AudioStreamPlayer" parent="BackgroundMusic" unique_id=1194908260]
+stream = ExtResource("2_4fnnd")
+autoplay = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
 environment = SubResource("Environment_lny1m")
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=1538049836]
+
+[node name="Label" type="Label" parent="Debug" unique_id=753108204]
+offset_left = 14.0
+offset_right = 213.0
+offset_bottom = 109.0
+text = "FPS Label"
+label_settings = SubResource("LabelSettings_3c8je")
+script = ExtResource("1_3c8je")
 
 [node name="Crosshairs" type="CanvasLayer" parent="." unique_id=149603598]
 script = ExtResource("1_myc21")
@@ -88,7 +131,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.29391
 stream = ExtResource("11_78gt3")
 attenuation_model = 3
 volume_db = -10.0
-autoplay = true
 panning_strength = 0.0
 bus = &"Music"
 attenuation_filter_cutoff_hz = 20500.0
