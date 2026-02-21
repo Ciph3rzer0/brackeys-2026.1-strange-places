@@ -225,6 +225,18 @@ speed = -0.2
 [node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 91.30406, 9.951484, 74.94601)
 
+[node name="Portal2" parent="." unique_id=1143058973 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 90.48373, 4.8250647, 83.27882)
+
+[node name="Portal3" parent="." unique_id=830755206 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 80.5172, 1.2006457, 84.09629)
+
+[node name="Portal4" parent="." unique_id=630165375 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 86.497116, 1.2006457, 83.605804)
+
+[node name="Portal5" parent="." unique_id=1054371744 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.9966531, 0.057804022, -0.057804026, -3.7252903e-09, 0.70710677, 0.70710677, 0.081747234, 0.70474017, -0.70474017, 84.407364, 1.2006457, 87.77721)
+
 [node name="cabin" parent="." unique_id=1764870705 instance=ExtResource("16_1csix")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 101.42167, 6.295086, 101.342514)
 
@@ -358,4 +370,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.
 transform = Transform3D(-5.809227e-08, 0, 1.3289962, 0, 1.3289962, 0, -1.3289962, 0, -5.809227e-08, -25.796135, -0.78649664, -2.059082)
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.07645, 13.540833, 75.30536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.429405, 1.5408335, 79.3125)

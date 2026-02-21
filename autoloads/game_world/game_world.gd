@@ -1,5 +1,7 @@
 extends Node
 
+var _all_portals: Array = []
+
 var _in_mirror_world: bool = false
 var _active_portal: Node3D = null
 var _portal_traversal_in_progress: bool = false
@@ -29,9 +31,13 @@ func finish_portal_traversal():
 func set_active_portal(node: Node3D, should_enable: bool):
 	if should_enable:
 		print("Setting active portal to: ", node.name)
+		assert(node not in _all_portals, "Trying to activate a portal that is already active.")
+		_all_portals.append(node)
 		_active_portal = node
 	else:
 		print("Deactivating portal: ", node.name)
+		assert(node in _all_portals, "Trying to deactivate a portal that is not in the list of active portals.")
+		_all_portals.erase(node)
 		if _active_portal == node:
 			_active_portal = null
 
@@ -41,6 +47,11 @@ func set_player(player: Player):
 
 func _process(_delta: float) -> void:
 	if _player and _active_portal:
+		var pre_active_portal = _active_portal
+		_active_portal = _find_closest_portal_to_player()
+		if pre_active_portal != _active_portal:
+			print("Active portal changed to: ", (str(_active_portal.name) if _active_portal else "null"))
+		
 		var portal_to_player = DarkWorldView.mirror_camera.global_position - _active_portal.global_position
 		var distance = portal_to_player.length()
 		# Set the near frustum of DarkWorldView.mirror_camera to distance
@@ -54,3 +65,15 @@ func _process(_delta: float) -> void:
 			print("game_world.gd: No player set.")
 		if !_active_portal:
 			print("game_world.gd: No active portal.")
+
+func _find_closest_portal_to_player() -> Node3D:
+	if not _player:
+		return null
+	var closest_portal: Node3D = null
+	var closest_distance: float = INF
+	for portal in _all_portals:
+		var distance = portal.global_position.distance_to(_player.global_position)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_portal = portal
+	return closest_portal
