@@ -17,9 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 [ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="14_b81o8"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="15_cg6i3"]
-[ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin.glb" id="16_1csix"]
 [ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="17_78gt3"]
 [ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="18_0mevk"]
+[ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin/cabin.glb" id="20_v38h5"]
+[ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="21_6d0qa"]
+[ext_resource type="PackedScene" uid="uid://cntgyoidl5p00" path="res://assets/cathedral/cathedral.glb" id="22_g3cd4"]
+[ext_resource type="PackedScene" uid="uid://d0e71emmc740b" path="res://assets/shack/shack.glb" id="22_v38h5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
 sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
@@ -218,6 +221,14 @@ render_layers = 2147483681
 top_level = true
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.45418, 2.0248709, 251.62428)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=1095379996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15535545, -0.7934356, -18.45504)
+light_color = Color(0.9966646, 0.9502514, 0.93811697, 1)
+light_energy = 3.0
+
 [node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
 stream = ExtResource("11_78gt3")
@@ -232,156 +243,173 @@ attenuation_filter_cutoff_hz = 20500.0
 transform = Transform3D(1.5994691, 0, 0.020296022, 0, 1.5995979, 0, -0.020296022, 0, 1.5994691, 62.9874, 0.051105976, 102.18856)
 
 [node name="NPC_Bush" parent="." unique_id=1956852423 instance=ExtResource("13_fsif2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.957174, 0, -6.730322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13261, 3.8146973e-06, 51.564274)
 radius = 2.0
 speed = -0.2
 
 [node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 91.30406, 9.951484, 74.94601)
+transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 91.30406, 31.08606, 74.94601)
 
 [node name="Portal2" parent="." unique_id=1143058973 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 90.48373, 4.8250647, 83.27882)
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 90.48373, 25.95964, 83.27882)
 
 [node name="Portal3" parent="." unique_id=830755206 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 80.5172, 1.2006457, 84.09629)
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 80.5172, 22.335222, 84.09629)
 
 [node name="Portal4" parent="." unique_id=630165375 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 86.497116, 1.2006457, 83.605804)
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 86.497116, 22.335222, 83.605804)
 
 [node name="Portal5" parent="." unique_id=1054371744 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.9966531, 0.057804022, -0.057804026, -3.7252903e-09, 0.70710677, 0.70710677, 0.081747234, 0.70474017, -0.70474017, 84.407364, 1.2006457, 87.77721)
+transform = Transform3D(-0.9966531, 0.057804022, -0.057804026, -3.7252903e-09, 0.70710677, 0.70710677, 0.081747234, 0.70474017, -0.70474017, 84.407364, 22.335222, 87.77721)
 
-[node name="cabin" parent="." unique_id=1764870705 instance=ExtResource("16_1csix")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 101.42167, 6.295086, 101.342514)
+[node name="tv2" parent="." unique_id=247881811 instance=ExtResource("21_6d0qa")]
+transform = Transform3D(-0.023995414, 0, -0.24349883, 0, 0.24467827, 0, 0.24349883, 0, -0.023995414, -2.535497, 2.954043, -9.331912)
 
-[node name="box" type="MeshInstance3D" parent="cabin" unique_id=2100469462]
-transform = Transform3D(3.025059, 0, 0.4323074, 0, 3.0557933, 0, -0.4323074, 0, 3.025059, -20.543152, -1.00878, -6.585739)
+[node name="shack" parent="." unique_id=986757192 instance=ExtResource("22_v38h5")]
+transform = Transform3D(-1.1563079e-08, 0, -0.26453242, 0, 0.26453242, 0, 0.26453242, 0, -1.1563079e-08, -6.140105, 1.3224753, -12.884933)
+
+[node name="cathedral" parent="." unique_id=962320876 instance=ExtResource("22_g3cd4")]
+transform = Transform3D(0.26539662, 0, 0, 0, 0.26539662, 0, 0, 0, 0.26539662, -124.085526, 0.9512205, 252.05956)
+
+[node name="cabin" parent="." unique_id=1148901433 instance=ExtResource("20_v38h5")]
+transform = Transform3D(-3.1933993e-08, 0, -0.73056465, 0, 0.73056465, 0, 0.73056465, 0, -3.1933993e-08, 106.83536, 4.2692595, 82.4856)
+
+[node name="cabin#box" type="MeshInstance3D" parent="cabin" unique_id=2100469462]
+transform = Transform3D(-0.5917447, 0, 4.1407137, 0, 4.1827836, 0, -4.1407137, 0, -0.5917447, -29.439507, 20.340858, 8.021622)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box" unique_id=695567051]
+[node name="cabin_box#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=695567051]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box/StaticBody3D" unique_id=1724663633]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1724663633]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box11" type="MeshInstance3D" parent="cabin" unique_id=1134907254]
-transform = Transform3D(3.025059, 0, 0.4323074, 0, 3.0557933, 0, -0.4323074, 0, 3.025059, -26.713928, -0.9740696, 10.61235)
+[node name="cabin#box11" type="MeshInstance3D" parent="cabin" unique_id=1134907254]
+transform = Transform3D(-0.5917447, 0, 4.1407137, 0, 4.1827836, 0, -4.1407137, 0, -0.5917447, -5.8986893, 20.38836, 16.468246)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box11" unique_id=378666401]
+[node name="cabin_box11#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=378666401]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box11/StaticBody3D" unique_id=1384003114]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box11_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1384003114]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box12" type="MeshInstance3D" parent="cabin" unique_id=1379890707]
-transform = Transform3D(3.0322216, 0, -0.37881163, 0, 3.0557938, 0, 0.37881163, 0, 3.0322216, -26.713425, -1.0087805, 5.992119)
+[node name="cabin#box12" type="MeshInstance3D" parent="cabin" unique_id=1379890707]
+transform = Transform3D(0.5185188, 0, 4.15052, 0, 4.1827836, 0, -4.15052, 0, 0.5185188, -12.22287, 20.340858, 16.46759)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box12" unique_id=922981658]
+[node name="cabin_box12#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=922981658]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box12/StaticBody3D" unique_id=511216149]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box12_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=511216149]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box2" type="MeshInstance3D" parent="cabin" unique_id=2059610240]
-transform = Transform3D(3.0557933, 0, -1.4210855e-14, 0, 3.0557933, 0, 1.4210855e-14, 0, 3.0557933, -20.956566, 2.0400524, -7.065727)
+[node name="cabin#box2" type="MeshInstance3D" parent="cabin" unique_id=2059610240]
+transform = Transform3D(-1.8283525e-07, 0, 4.1827836, 0, 4.1827836, 0, -4.1827836, 0, -1.8283525e-07, -30.096527, 24.514101, 8.587494)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box2" unique_id=2006915318]
+[node name="cabin_box2#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=2006915318]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box2/StaticBody3D" unique_id=1868600876]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box2_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1868600876]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box3" type="MeshInstance3D" parent="cabin" unique_id=5095965]
-transform = Transform3D(2.9795828, 0, -0.6782025, 0, 3.0557933, 0, 0.6782025, 0, 2.9795828, -17.346909, -0.9701538, -7.0657196)
+[node name="cabin#box3" type="MeshInstance3D" parent="cabin" unique_id=5095965]
+transform = Transform3D(0.9283264, 0, 4.078466, 0, 4.1827836, 0, -4.078466, 0, 0.9283264, -30.096497, 20.393724, 3.6466217)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box3" unique_id=448124372]
+[node name="cabin_box3#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=448124372]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box3/StaticBody3D" unique_id=851447063]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box3_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=851447063]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="cabin" unique_id=1848455972]
-transform = Transform3D(0.8760047, -0.010939377, -0.29063463, 0.005494077, 0.9228284, -0.018174877, 0.29078823, 0.015519109, 0.87588483, -13.363861, 4.7612762, -7.3692245)
+[node name="cabin#RigidBody3D" type="RigidBody3D" parent="cabin" unique_id=1848455972]
+transform = Transform3D(0.39803213, 0.021242622, 1.1989155, 0.00752032, 1.2631714, -0.024877856, -1.1990794, 0.014973872, 0.39782187, -30.511955, 28.238934, -1.8054352)
 mass = 0.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/RigidBody3D" unique_id=1222898477]
-transform = Transform3D(1, 4.656613e-10, 0, -9.313226e-10, 1, 2.590241e-09, 1.4901161e-08, -3.085006e-09, 1, 0, 0, 0)
+[node name="cabin_RigidBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1222898477]
+transform = Transform3D(-3.9435555e-08, -4.222772e-09, 1.3688045, -1.2747985e-09, 1.3688045, 3.5455332e-09, -1.3688045, -6.373991e-10, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box16" type="MeshInstance3D" parent="cabin/RigidBody3D" unique_id=2037175122]
-transform = Transform3D(0.99999976, 0, -5.9604645e-08, -9.313226e-10, 0.9999999, 1.1641532e-09, -2.9802322e-08, -1.6298145e-09, 0.99999976, 0, -4.7683716e-07, 0)
+[node name="cabin_RigidBody3D#box16" type="MeshInstance3D" parent="cabin" unique_id=2037175122]
+transform = Transform3D(-1.0062588e-07, -2.2308977e-09, 1.3688045, -1.2747985e-09, 1.3688045, 1.5934982e-09, -1.3688045, 9.75156e-17, 2.1754794e-08, -20.424911, 21.72168, -20.097946)
 mesh = SubResource("BoxMesh_0mevk")
 surface_material_override/0 = SubResource("StandardMaterial3D_myc21")
 
-[node name="box4" type="MeshInstance3D" parent="cabin" unique_id=1106245719]
-transform = Transform3D(2.9795828, 0, -0.6782025, 0, 3.0557933, 0, 0.6782025, 0, 2.9795828, -17.346909, -0.9701538, -7.0657196)
+[node name="cabin#box4" type="MeshInstance3D" parent="cabin" unique_id=1106245719]
+transform = Transform3D(0.9283264, 0, 4.078466, 0, 4.1827836, 0, -4.078466, 0, 0.9283264, -30.096497, 20.393724, 3.6466217)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box4" unique_id=325861365]
+[node name="cabin_box4#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=325861365]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box4/StaticBody3D" unique_id=1532959418]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box4_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1532959418]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box6" type="MeshInstance3D" parent="cabin" unique_id=6766926]
-transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -18.405403, 1.144167, -8.027061)
+[node name="cabin#box6" type="MeshInstance3D" parent="cabin" unique_id=6766926]
+transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412384, 23.28781, 5.0954742)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box6" unique_id=309469879]
+[node name="cabin_box6#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=309469879]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box6/StaticBody3D" unique_id=1958542590]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box6_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1958542590]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box7" type="MeshInstance3D" parent="cabin" unique_id=510946630]
-transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 4.2421494, -8.027016)
+[node name="cabin#box7" type="MeshInstance3D" parent="cabin" unique_id=510946630]
+transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412323, 27.528343, 9.64856)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box7" unique_id=697596610]
+[node name="cabin_box7#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=697596610]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box7/StaticBody3D" unique_id=725021403]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box7_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=725021403]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box8" type="MeshInstance3D" parent="cabin" unique_id=673837767]
-transform = Transform3D(1.1980362, 0, 0.058027856, 0, 1.1994407, 0, -0.058027856, 0, 1.1980362, -21.731728, 5.452771, -8.027008)
+[node name="cabin#box8" type="MeshInstance3D" parent="cabin" unique_id=673837767]
+transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412323, 29.185452, 9.64856)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box8" unique_id=1321740687]
+[node name="cabin_box8#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1321740687]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box8/StaticBody3D" unique_id=939878686]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box8_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=939878686]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box10" type="MeshInstance3D" parent="cabin" unique_id=1131041371]
-transform = Transform3D(5.3412333, 0, -0.21918303, 0, 0.122241005, 0, 0.08418649, 0, 13.906126, -26.076202, 5.3095274, -3.8200302)
+[node name="cabin#box10" type="MeshInstance3D" parent="cabin" unique_id=1131041371]
+transform = Transform3D(0.11523451, 0, 19.034775, 0, 0.16732402, 0, -7.3111067, 0, 0.3000179, -25.653793, 28.989376, 15.595306)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box10" unique_id=1619348926]
+[node name="cabin_box10#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1619348926]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box10/StaticBody3D" unique_id=937699771]
-transform = Transform3D(0.99999994, 0, -3.7252903e-09, 0, 0.99999994, 0, 9.313226e-10, 0, 0.99999994, -0.00013923645, 0, -0.003373146)
+[node name="cabin_box10_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=937699771]
+transform = Transform3D(-5.8557536e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.4733135e-08, -20.429527, 21.72168, -20.097763)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="box9" type="MeshInstance3D" parent="cabin" unique_id=1522780416]
-transform = Transform3D(0.115651935, -4.002595, 0.022467667, 0.26217493, 1.7659312, -0.0061598383, -0.00085587654, 0.08772806, 1.1490833, -21.728157, 4.6420984, -6.835617)
+[node name="cabin#box9" type="MeshInstance3D" parent="cabin" unique_id=1522780416]
+transform = Transform3D(-0.0011715344, 0.12008285, 1.5728703, 0.3588662, 2.4172144, -0.008431614, -0.15830489, 5.47877, -0.030753922, -29.78154, 28.075794, 9.643692)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cabin/box9" unique_id=1436100736]
+[node name="cabin_box9#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1436100736]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/box9/StaticBody3D" unique_id=1943004997]
-transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, 0, 0)
+[node name="cabin_box9_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1943004997]
+transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
 shape = SubResource("BoxShape3D_myc21")
 
-[node name="Smoke_GPUParticle" parent="cabin" unique_id=1193199880 instance=ExtResource("18_0mevk")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.449028, 17.785711, -1.7975693)
+[node name="cabin#Smoke_GPUParticle" parent="cabin" unique_id=1193199880 instance=ExtResource("18_0mevk")]
+transform = Transform3D(-1.3688045, 0, -1.1966466e-07, 0, 1.3688045, 0, 1.1966466e-07, 0, -1.3688045, -22.88543, 46.06685, 16.105621)
 
-[node name="StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("17_78gt3")]
-transform = Transform3D(-5.809227e-08, 0, 1.3289962, 0, 1.3289962, 0, -1.3289962, 0, -5.809227e-08, -25.796135, -0.78649664, -2.059082)
-
-[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.429405, 1.5408335, 79.3125)
+[node name="cabin#StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("17_78gt3")]
+transform = Transform3D(-1.819136, 0, -1.590339e-07, 0, 1.819136, 0, 1.590339e-07, 0, -1.819136, -23.243393, 20.64511, 15.21196)
