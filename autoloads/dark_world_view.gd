@@ -1,5 +1,7 @@
 extends SubViewport
 
+@export var PORTAL_RESOLUTION_SCALE: float = 0.5
+
 var primary_camera: Camera3D
 @onready var mirror_camera: Camera3D = $MirrorCamera3D
 
@@ -30,7 +32,7 @@ func _on_portal_traversal_finished(_mirror_world) -> void:
 func _update_viewport_size() -> void:
 	var main_viewport = get_tree().root
 	if main_viewport:
-		size = main_viewport.size / 2
+		size = main_viewport.size * PORTAL_RESOLUTION_SCALE
 
 func set_primary_camera(camera: Camera3D) -> void:
 	primary_camera = camera
