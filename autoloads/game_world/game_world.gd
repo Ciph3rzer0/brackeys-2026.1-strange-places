@@ -6,6 +6,12 @@ var _portal_traversal_in_progress: bool = false
 var _player: Player = null
 
 @warning_ignore_start("unused_signal")
+signal camera_mode_changed(look: bool)
+
+func set_look_mode(look: bool) -> void:
+	print("Emitting camera_mode_changed signal with look_mode: ", look)
+	emit_signal("camera_mode_changed", look)
+
 signal portal_traversal_started(mirror_world: bool)
 signal portal_traversal_finished(mirror_world: bool)
 

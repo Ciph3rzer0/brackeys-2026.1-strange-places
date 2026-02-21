@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cnovwqlh5c8x"]
 
+[ext_resource type="Texture2D" uid="uid://cun7fm03002md" path="res://assets/kenney_particle/circle_02.png" id="1_0mevk"]
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="1_d53ne"]
+[ext_resource type="Script" uid="uid://bnffvc4kw0okx" path="res://scenes/crosshairs.gd" id="1_myc21"]
 [ext_resource type="PackedScene" uid="uid://coj88accdxgn8" path="res://assets/environment/conical-tree.glb" id="1_xo2ap"]
 [ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="2_bgsw1"]
 [ext_resource type="PackedScene" uid="uid://be1v12u2bp4fy" path="res://assets/environment/rock-medium_1.glb" id="2_hu0nc"]
@@ -169,6 +171,24 @@ albedo_color = Color(0.6947733, 0.00011498437, 0.44543064, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
 environment = SubResource("Environment_lny1m")
+
+[node name="Crosshairs" type="CanvasLayer" parent="." unique_id=149603598]
+script = ExtResource("1_myc21")
+
+[node name="TextureRect" type="TextureRect" parent="Crosshairs" unique_id=233799722]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0mevk")
+expand_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=333657164]
 transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9976041, 0, 16.250614, 0)
