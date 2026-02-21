@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://g6sm7yu42qhv" path="res://addons/brackeys_vfx_bundle/particles/alpha/flame_04_a.png" id="1_pro5g"]
 [ext_resource type="Texture2D" uid="uid://cu7lxqxj2jvw6" path="res://addons/brackeys_vfx_bundle/particles/alpha/smoke_07_a.png" id="2_5i7wn"]
+[ext_resource type="AudioStream" uid="uid://80f87fwiteg" path="res://assets/audio/sfx/Kshmr_bonfire.wav" id="3_5i7wn"]
 
 [sub_resource type="Curve" id="Curve_rrxl2"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -60,6 +61,8 @@ anim_speed_curve = SubResource("CurveTexture_rrxl2")
 transparency = 1
 blend_mode = 1
 shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.42822343, 0.43590322, 0.41564754, 1)
 albedo_texture = ExtResource("1_pro5g")
@@ -80,14 +83,15 @@ point_count = 3
 curve = SubResource("Curve_r6ys6")
 
 [sub_resource type="Curve" id="Curve_hukll"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.29896623), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.48095042), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_ptn30"]
 curve = SubResource("Curve_hukll")
 
 [sub_resource type="Curve" id="Curve_albsf"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51830447, 0.77479744), -1.3394592, -1.3394592, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.3837209, 1.893013), -4.07811, -4.07811, 0, 0, Vector2(1, 0.6136651), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_te2id"]
@@ -96,7 +100,7 @@ curve = SubResource("Curve_albsf")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tyfxb"]
 lifetime_randomness = 0.15
 emission_shape = 1
-emission_sphere_radius = 1.0
+emission_sphere_radius = 0.5
 angle_min = -29.99999
 angle_max = 30.000011
 angle_curve = SubResource("CurveTexture_aoc57")
@@ -111,12 +115,15 @@ hue_variation_max = -2.2351742e-08
 anim_speed_max = 5.0
 anim_speed_curve = SubResource("CurveTexture_ptn30")
 turbulence_enabled = true
-turbulence_noise_strength = 2.86
-turbulence_noise_scale = 6.151
+turbulence_noise_strength = 2.11
+turbulence_noise_scale = 6.778
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8a0i"]
 transparency = 1
 blend_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.6153104, 0.24216002, 0, 1)
 albedo_texture = ExtResource("2_5i7wn")
@@ -128,107 +135,54 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_wfoe5"]
 material = SubResource("StandardMaterial3D_k8a0i")
 
-[sub_resource type="Animation" id="Animation_wfoe5"]
-length = 0.26666668
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OmniLight3D:light_energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.65439504, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OmniLight3D:position:z")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+[sub_resource type="Gradient" id="Gradient_5i7wn"]
+offsets = PackedFloat32Array(0, 0.30538303, 0.7960662)
+colors = PackedColorArray(0.8397301, 0, 0.15275455, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_b8r8p"]
-resource_name = "noise"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OmniLight3D:light_energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(15, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.3, 5)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 2, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 5)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(2, 2, 0),
-"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 2.5, -0.385, -0.051666662, 0, 0, 1.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 5)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OmniLight3D:position:z")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(2, 2, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.385, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.31, 5)
-}
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4c185"]
+gradient = SubResource("Gradient_5i7wn")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ileh"]
-_data = {
-&"RESET": SubResource("Animation_wfoe5"),
-&"noise": SubResource("Animation_b8r8p")
-}
+[sub_resource type="Curve" id="Curve_24la2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r6ys6"]
+curve = SubResource("Curve_24la2")
+
+[sub_resource type="Curve" id="Curve_aoc57"]
+_data = [Vector2(0, 0.40784484), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hukll"]
+curve = SubResource("Curve_aoc57")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ptn30"]
+lifetime_randomness = 0.19
+particle_flag_align_y = true
+particle_flag_damping_as_friction = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 18.764
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.009977648
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = 13.8499975
+tangential_accel_max = 13.8499975
+scale_curve = SubResource("CurveTexture_hukll")
+color_ramp = SubResource("GradientTexture1D_4c185")
+emission_curve = SubResource("CurveTexture_r6ys6")
+turbulence_enabled = true
+turbulence_noise_strength = 11.93
+turbulence_influence_max = 0.23500001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_albsf"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6887862, 0.20154446, 9.62615e-08, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_te2id"]
+material = SubResource("StandardMaterial3D_albsf")
+size = Vector3(0.125, 0.86, 0.08)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pay1w"]
 albedo_color = Color(0.2065543, 0.2065543, 0.20655426, 1)
@@ -255,7 +209,8 @@ rings = 8
 
 [node name="Smoke_GPUParticle" type="GPUParticles3D" parent="." unique_id=1753552170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5323842, 0)
-amount = 16
+cast_shadow = 0
+amount = 32
 lifetime = 1.5
 randomness = 0.05
 fixed_fps = 12
@@ -263,21 +218,27 @@ process_material = SubResource("ParticleProcessMaterial_rrxl2")
 draw_pass_1 = SubResource("QuadMesh_24la2")
 
 [node name="Fire_GPUParticle" type="GPUParticles3D" parent="." unique_id=2034063614]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7661921, 0)
-amount = 16
-lifetime = 1.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03748077, 0.37378967, 0.10451919)
+amount = 32
+lifetime = 2.0
 randomness = 0.05
 fixed_fps = 24
 process_material = SubResource("ParticleProcessMaterial_tyfxb")
 draw_pass_1 = SubResource("QuadMesh_wfoe5")
 
+[node name="Sparks_GPUParticle" type="GPUParticles3D" parent="." unique_id=149051145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7051716, 0)
+amount = 2
+speed_scale = 2.0
+randomness = 0.1
+fixed_fps = 24
+process_material = SubResource("ParticleProcessMaterial_ptn30")
+draw_pass_1 = SubResource("PrismMesh_te2id")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1092845995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65439504, 0)
 light_color = Color(0.81886154, 0.26920894, 0.19883135, 1)
 omni_range = 10.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1635124694]
-libraries/ = SubResource("AnimationLibrary_8ileh")
 
 [node name="test_floor" type="MeshInstance3D" parent="." unique_id=907995952]
 transform = Transform3D(6.3174257, 0, 0, 0, -2.7786143e-07, 0.9999999, 0, -6.3567286, -4.3711392e-08, 0, -0.10953319, 0)
@@ -355,3 +316,10 @@ mesh = SubResource("SphereMesh_pro5g")
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Rocks" unique_id=2015811492]
 transform = Transform3D(0.17211734, 0.010138232, -0.43137532, -0.060079418, 0.4604665, -0.013149552, 0.42729142, 0.060660236, 0.17191347, 0.8126788, -0.002120005, 0.2534299)
 mesh = SubResource("SphereMesh_pro5g")
+
+[node name="KshmrAmbianceScene06Fireplace" type="AudioStreamPlayer3D" parent="." unique_id=792892530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119234085, 0.70378745, 0.32977772)
+stream = ExtResource("3_5i7wn")
+volume_db = -8.0
+autoplay = true
+attenuation_filter_cutoff_hz = 14000.0

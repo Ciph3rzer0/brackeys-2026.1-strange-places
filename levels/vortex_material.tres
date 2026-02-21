@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://23qngmsg7fh1"]
+
+[ext_resource type="Shader" uid="uid://scd375l1dffi" path="res://levels/vortex_shader.gdshader" id="1_vortex"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_vortex")
+shader_parameter/swirl_speed = 0.36600001412512
+shader_parameter/swirl_arms = 3.000000095
+shader_parameter/swirl_tightness = 3.68000015105
+shader_parameter/color_inner = Color(0.3, 0.1, 0.9, 1)
+shader_parameter/color_outer = Color(0, 0.6, 1, 1)
+shader_parameter/color_highlight = Color(0.8, 0.3, 1, 1)
+shader_parameter/center_radius = 0.1090000051775
+shader_parameter/center_fade = 0.13600000576148
+shader_parameter/edge_fade = 0.07200000342
+shader_parameter/noise_scale = 3.0030000951425
+shader_parameter/distortion_strength = 1.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/brightness = 2.202000080845

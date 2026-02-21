@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://bm8cwkaxuppqx" path="res://levels/portal_ring_collision.gd" id="3_7b6cc"]
 [ext_resource type="Script" uid="uid://cxp6wsndt4rws" path="res://levels/look_at_camera.gd" id="3_bi5mn"]
 [ext_resource type="Material" uid="uid://cibawli6syppf" path="res://portal_shader_material_no_depth.tres" id="3_ohfhw"]
-[ext_resource type="Texture2D" uid="uid://kd133gvqmge3" path="res://assets/kenney_particle/symbol_02.png" id="6_ohfhw"]
+[ext_resource type="Texture2D" uid="uid://k56r6tmtgjyd" path="res://assets/kenney_particle/star_09.png" id="6_jrrdc"]
+[ext_resource type="Texture2D" uid="uid://chfo3t2m2w8gu" path="res://assets/kenney_particle/flare_01.png" id="7_k7fq7"]
+[ext_resource type="Material" uid="uid://23qngmsg7fh1" path="res://levels/vortex_material.tres" id="8_vortx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_13t6x"]
 height = 0.01
@@ -69,11 +71,28 @@ height = 2.0
 flip_faces = true
 radius = 1.0
 height = 2.0
+radial_segments = 24
+rings = 24
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vortx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0rv3t"]
 radius = 1.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w68nl"]
+height = 1.0
+radius = 0.8
+
+[sub_resource type="Curve" id="Curve_k7fq7"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jrrdc"]
+curve = SubResource("Curve_k7fq7")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrrdc"]
+lifetime_randomness = 1.0
 particle_flag_align_y = true
 particle_flag_rotate_y = true
 emission_shape_scale = Vector3(1, 1, 0.15)
@@ -90,20 +109,45 @@ spread = 45.875
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = 0.9999839
 gravity = Vector3(0, 0, 0)
-radial_accel_min = 2.9999976
-radial_accel_max = 4.9999976
-tangential_accel_min = -4.0000024
-tangential_accel_max = 3.9999976
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 0.99999774
+radial_accel_curve = SubResource("CurveTexture_jrrdc")
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 19.999998
 damping_min = 3.301
 damping_max = 4.2720003
 attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_870uh"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+no_depth_test = true
+diffuse_mode = 3
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.30192244, 0.5483758, 1, 1)
+albedo_texture = ExtResource("6_jrrdc")
+emission_enabled = true
+emission = Color(2.5990605e-06, 0.5775977, 0.72868973, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_j3fq7"]
+material = SubResource("StandardMaterial3D_870uh")
+size = Vector2(0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7fq7"]
 transparency = 1
 blend_mode = 1
 no_depth_test = true
-albedo_color = Color(0.47311467, 0.5359659, 0.88067156, 1)
-albedo_texture = ExtResource("6_ohfhw")
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.840747, 0.4515975, 3.85046e-07, 1)
+albedo_texture = ExtResource("7_k7fq7")
+billboard_mode = 1
+stencil_flags = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_870uh"]
 material = SubResource("StandardMaterial3D_k7fq7")
@@ -148,6 +192,12 @@ material_override = ExtResource("2_13t6x")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_205wp")
 
+[node name="VortexPlane" type="MeshInstance3D" parent="PortalHole" unique_id=1112480645]
+transform = Transform3D(3.212607, 0, 0, 0, 0, 3.356571, 0, -0.8854761, 0, 0, 0.0045945644, 0)
+material_override = ExtResource("8_vortx")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_vortx")
+
 [node name="PortalCollision" type="CollisionShape3D" parent="PortalHole" unique_id=2032591647]
 shape = SubResource("SphereShape3D_0rv3t")
 debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
@@ -163,11 +213,42 @@ debug_color = Color(0.886006, 0.6718162, 0, 0.41960785)
 script = ExtResource("3_7b6cc")
 inner_radius = 0.1
 
-[node name="RingParticles" type="GPUParticles3D" parent="PortalHole" unique_id=1973163491]
+[node name="PlayerDetectF" type="Area3D" parent="PortalHole" unique_id=146974296]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectF" unique_id=1535284848]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4.371139e-09, 0.6)
+shape = SubResource("CylinderShape3D_w68nl")
+debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
+
+[node name="PlayerDetectB" type="Area3D" parent="PortalHole" unique_id=1555348347]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalHole/PlayerDetectB" unique_id=1395033902]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4.371139e-09, 0.6)
+shape = SubResource("CylinderShape3D_w68nl")
+debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
+
+[node name="RingParticles" type="GPUParticles3D" parent="PortalHole" unique_id=4564535]
 unique_name_in_owner = true
+transform = Transform3D(2.2933424, 0, 0, 0, 2.2389264, 0, 0, 0, 1, 0, 0, 0)
 layers = 33
-amount = 128
+amount = 64
 lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_jrrdc")
+draw_pass_1 = SubResource("QuadMesh_j3fq7")
+
+[node name="Sparky_GPU" type="GPUParticles3D" parent="PortalHole" unique_id=1973163491]
+unique_name_in_owner = true
+transform = Transform3D(1.3356144, 0, 0, 0, 1.3153973, 0, 0, 0, 1, 0, 0, 0)
+layers = 33
+amount = 32
+lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_jrrdc")
 draw_pass_1 = SubResource("QuadMesh_870uh")
 

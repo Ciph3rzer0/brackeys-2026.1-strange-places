@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://dubx8b1mnerum" path="res://levels/PortalObjectMaterial.tres" id="8_q31mr"]
 [ext_resource type="PackedScene" uid="uid://dv5vqg71dgyej" path="res://assets/environment/trophy.glb" id="8_w68nl"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="11_0rv3t"]
+[ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="13_o6sjm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqthn"]
 size = Vector3(100, 1, 100)
@@ -175,6 +176,7 @@ mesh = SubResource("BoxMesh_5emr2")
 
 [node name="Player3DTemplate" parent="." unique_id=1826751568 instance=ExtResource("2_q31mr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
+visible = false
 
 [node name="CharacterCollisionShape" parent="Player3DTemplate" index="0" unique_id=1153825377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0100212, 0)
@@ -389,6 +391,9 @@ shape = SubResource("BoxShape3D_7gwhv")
 [node name="Node3D7" type="Node3D" parent="." unique_id=379437867]
 
 [node name="Node3D8" type="Node3D" parent="." unique_id=183717993]
+
+[node name="Player" parent="." unique_id=573945216 instance=ExtResource("13_o6sjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4219766, 0.515976, 0.4079454)
 
 [connection signal="body_entered" from="BallMoverTrigger" to="." method="_on_move_the_ball_body_entered"]
 [connection signal="body_exited" from="BallMoverTrigger" to="." method="_on_sphere_mover_trigger_body_exited"]
