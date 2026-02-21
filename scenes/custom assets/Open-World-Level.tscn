@@ -1,27 +1,22 @@
 [gd_scene format=3 uid="uid://cnovwqlh5c8x"]
 
 [ext_resource type="Texture2D" uid="uid://cun7fm03002md" path="res://assets/kenney_particle/circle_02.png" id="1_0mevk"]
-[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="1_d53ne"]
 [ext_resource type="Script" uid="uid://bnffvc4kw0okx" path="res://scenes/crosshairs.gd" id="1_myc21"]
-[ext_resource type="PackedScene" uid="uid://coj88accdxgn8" path="res://assets/environment/conical-tree.glb" id="1_xo2ap"]
-[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="2_bgsw1"]
-[ext_resource type="PackedScene" uid="uid://be1v12u2bp4fy" path="res://assets/environment/rock-medium_1.glb" id="2_hu0nc"]
-[ext_resource type="PackedScene" uid="uid://d60giwad12ss" path="res://assets/environment/rock-medium_2.glb" id="3_fsif2"]
-[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="3_xo2ap"]
-[ext_resource type="PackedScene" uid="uid://bbgyyp8owtc25" path="res://assets/environment/round-tree.glb" id="4_b81o8"]
-[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_iisry"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
 [ext_resource type="AudioStream" uid="uid://4vpjsuc3vtj3" path="res://assets/audio/music/micahs-grove.mp3" id="11_78gt3"]
-[ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 [ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="14_b81o8"]
+[ext_resource type="PackedScene" uid="uid://cy4r2hqn2kvhp" path="res://ground.tscn" id="15_1csix"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="15_cg6i3"]
+[ext_resource type="PackedScene" uid="uid://bakjadi6reff5" path="res://wall.tscn" id="16_1csix"]
 [ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="17_78gt3"]
 [ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="18_0mevk"]
 [ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin/cabin.glb" id="20_v38h5"]
 [ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="21_6d0qa"]
 [ext_resource type="PackedScene" uid="uid://cntgyoidl5p00" path="res://assets/cathedral/cathedral.glb" id="22_g3cd4"]
 [ext_resource type="PackedScene" uid="uid://d0e71emmc740b" path="res://assets/shack/shack.glb" id="22_v38h5"]
+[ext_resource type="PackedScene" uid="uid://bk2qflu7wb2x8" path="res://chandalier.tscn" id="23_g3cd4"]
+[ext_resource type="Script" path="res://mesh_scatter.gd" id="24_scatter"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
 sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
@@ -45,119 +40,6 @@ fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
 fog_density = 1.0
 fog_height_density = 0.02
 fog_depth_curve = 0.5358867
-
-[sub_resource type="Gradient" id="Gradient_ii8ra"]
-offsets = PackedFloat32Array(0.2, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bbj6j"]
-noise_type = 2
-frequency = 0.03
-cellular_jitter = 3.0
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 50.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_lacunarity = 1.5
-domain_warp_fractal_gain = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_43n7g"]
-noise = SubResource("FastNoiseLite_bbj6j")
-color_ramp = SubResource("Gradient_ii8ra")
-seamless = true
-
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_3q875"]
-_shader_parameters = {
-&"auto_base_texture": 0,
-&"auto_height_reduction": 0.1,
-&"auto_overlay_texture": 1,
-&"auto_slope": 1.0,
-&"bias_distance": 512.0,
-&"blend_sharpness": 0.5,
-&"depth_blur": 0.0,
-&"enable_macro_variation": true,
-&"enable_projection": true,
-&"flat_terrain_normals": false,
-&"macro_variation1": Color(1, 1, 1, 1),
-&"macro_variation2": Color(1, 1, 1, 1),
-&"macro_variation_slope": 0.333,
-&"mipmap_bias": 1.0,
-&"noise1_angle": 0.0,
-&"noise1_offset": Vector2(0.5, 0.5),
-&"noise1_scale": 0.04,
-&"noise2_scale": 0.076,
-&"noise_texture": SubResource("NoiseTexture2D_43n7g"),
-&"projection_threshold": 0.8
-}
-auto_shader = true
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_tq23v"]
-name = "conical-tree"
-scene_file = ExtResource("1_xo2ap")
-density = 0.103913434
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_cg6i3"]
-name = "rock-medium_1"
-id = 1
-scene_file = ExtResource("2_hu0nc")
-density = 0.1
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_1csix"]
-name = "rock-medium_2"
-id = 2
-scene_file = ExtResource("3_fsif2")
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_78gt3"]
-name = "round-tree"
-id = 3
-scene_file = ExtResource("4_b81o8")
-density = 0.053989097
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_hu0nc"]
-name = "bush"
-id = 4
-scene_file = ExtResource("13_cg6i3")
-density = 2.9799893
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a20u7"]
-name = "rock023_alb_ht"
-albedo_texture = ExtResource("1_d53ne")
-normal_texture = ExtResource("2_bgsw1")
-roughness = 0.218
-detiling_rotation = 0.033
-detiling_shift = 0.018
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4860x"]
-name = "ground037_alb_ht"
-id = 1
-albedo_texture = ExtResource("3_xo2ap")
-normal_texture = ExtResource("4_iisry")
-normal_depth = 0.904
-ao_strength = 0.342
-roughness = 0.075
-uv_scale = 0.53
-detiling_rotation = 0.028
-detiling_shift = 0.028
-
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_1qyed"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_tq23v"), SubResource("Terrain3DMeshAsset_cg6i3"), SubResource("Terrain3DMeshAsset_1csix"), SubResource("Terrain3DMeshAsset_78gt3"), SubResource("Terrain3DMeshAsset_hu0nc")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_a20u7"), SubResource("Terrain3DTextureAsset_4860x")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mevk"]
 albedo_color = Color(0.50654787, 0.402873, 0.33417, 1)
@@ -198,22 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9
 light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
-[node name="Terrain3D" type="Terrain3D" parent="." unique_id=29175791]
-data_directory = "res://addons/terrain_3d/data_dir"
-material = SubResource("Terrain3DMaterial_3q875")
-assets = SubResource("Terrain3DAssets_1qyed")
-collision_layer = 17
-render_layers = 2147483681
-top_level = true
-metadata/_edit_lock_ = true
-
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.45418, 2.0248709, 251.62428)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=1095379996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15535545, -0.7934356, -18.45504)
-light_color = Color(0.9966646, 0.9502514, 0.93811697, 1)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.97432, 2.0248785, -17.467388)
 
 [node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
@@ -233,169 +101,198 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13261, 3.8146973e-06, 51.5
 radius = 2.0
 speed = -0.2
 
-[node name="Portal" parent="." unique_id=1880855438 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 91.30406, 31.08606, 74.94601)
-
-[node name="Portal2" parent="." unique_id=1143058973 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 90.48373, 25.95964, 83.27882)
-
-[node name="Portal3" parent="." unique_id=830755206 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 80.5172, 22.335222, 84.09629)
-
-[node name="Portal4" parent="." unique_id=630165375 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 86.497116, 22.335222, 83.605804)
-
-[node name="Portal5" parent="." unique_id=1054371744 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.9966531, 0.057804022, -0.057804026, -3.7252903e-09, 0.70710677, 0.70710677, 0.081747234, 0.70474017, -0.70474017, 84.407364, 22.335222, 87.77721)
-
-[node name="tv2" parent="." unique_id=247881811 instance=ExtResource("21_6d0qa")]
-transform = Transform3D(-0.023995414, 0, -0.24349883, 0, 0.24467827, 0, 0.24349883, 0, -0.023995414, -2.535497, 2.954043, -9.331912)
-
 [node name="shack" parent="." unique_id=986757192 instance=ExtResource("22_v38h5")]
-transform = Transform3D(-1.1563079e-08, 0, -0.26453242, 0, 0.26453242, 0, 0.26453242, 0, -1.1563079e-08, -6.140105, 1.3224753, -12.884933)
+transform = Transform3D(-1.1563079e-08, 0, -0.26453242, 0, 0.26453242, 0, 0.26453242, 0, -1.1563079e-08, -6.140105, -0.11217451, -12.884933)
+
+[node name="tv2" parent="shack" unique_id=247881811 instance=ExtResource("21_6d0qa")]
+transform = Transform3D(0.9204877, 0, -0.09070875, 0, 0.9249463, 0, 0.09070875, 0, 0.9204877, 13.431328, 6.1677423, -13.626337)
 
 [node name="cathedral" parent="." unique_id=962320876 instance=ExtResource("22_g3cd4")]
 transform = Transform3D(0.26539662, 0, 0, 0, 0.26539662, 0, 0, 0, 0.26539662, -124.085526, 0.9512205, 252.05956)
 
+[node name="Chandalier" parent="cathedral" unique_id=276974892 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(3.7679453, 0, 0, 0, 5.1895843, 0, 0, 0, 3.7679453, 10.9592285, 34.64771, 25.928345)
+
+[node name="Chandalier2" parent="cathedral" unique_id=139985178 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(3.7679453, 0, 0, 0, 5.1895843, 0, 0, 0, 3.7679453, 10.9592285, 39.837296, 3.3206787)
+
+[node name="Chandalier3" parent="cathedral" unique_id=1438088076 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(-3.7679453, 0, 3.2940423e-07, 0, 5.1895843, 0, -3.2940423e-07, 0, -3.7679453, 10.9592285, 40.803535, -21.114258)
+
 [node name="cabin" parent="." unique_id=1148901433 instance=ExtResource("20_v38h5")]
-transform = Transform3D(-3.1933993e-08, 0, -0.73056465, 0, 0.73056465, 0, 0.73056465, 0, -3.1933993e-08, 106.83536, 4.2692595, 82.4856)
+transform = Transform3D(-3.5475573e-08, 0, -0.81158656, 0, 0.81158656, 0, 0.81158656, 0, -3.5475573e-08, 106.8215, 4.2814703, 82.310715)
 
 [node name="cabin#box" type="MeshInstance3D" parent="cabin" unique_id=2100469462]
-transform = Transform3D(-0.5917447, 0, 4.1407137, 0, 4.1827836, 0, -4.1407137, 0, -0.5917447, -29.439507, 20.340858, 8.021622)
+transform = Transform3D(3.3594713, 0, 0.4800983, 0, 3.393603, 0, -0.4800983, 0, 3.3594713, -20.83525, -1.6630578, -1.2012787)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=695567051]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1724663633]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box11" type="MeshInstance3D" parent="cabin" unique_id=1134907254]
-transform = Transform3D(-0.5917447, 0, 4.1407137, 0, 4.1827836, 0, -4.1407137, 0, -0.5917447, -5.8986893, 20.38836, 16.468246)
+transform = Transform3D(3.3594713, 0, 0.4800983, 0, 3.393603, 0, -0.4800983, 0, 3.3594713, -26.701973, -0.6393733, 13.212677)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box11#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=378666401]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box11_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1384003114]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box12" type="MeshInstance3D" parent="cabin" unique_id=1379890707]
-transform = Transform3D(0.5185188, 0, 4.15052, 0, 4.1827836, 0, -4.15052, 0, 0.5185188, -12.22287, 20.340858, 16.46759)
+transform = Transform3D(3.3674273, 0, -0.42068878, 0, 3.393603, 0, 0.42068878, 0, 3.3674273, -26.701431, -0.6779108, 8.081665)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box12#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=922981658]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box12_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=511216149]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box2" type="MeshInstance3D" parent="cabin" unique_id=2059610240]
-transform = Transform3D(-1.8283525e-07, 0, 4.1827836, 0, 4.1827836, 0, -4.1827836, 0, -1.8283525e-07, -30.096527, 24.514101, 8.587494)
+transform = Transform3D(3.393603, 0, -1.563194e-13, 0, 3.393603, 0, 1.563194e-13, 0, 3.393603, -21.294365, 1.7228041, -1.7343597)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box2#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=2006915318]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box2_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1868600876]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box3" type="MeshInstance3D" parent="cabin" unique_id=5095965]
-transform = Transform3D(0.9283264, 0, 4.078466, 0, 4.1827836, 0, -4.078466, 0, 0.9283264, -30.096497, 20.393724, 3.6466217)
+transform = Transform3D(3.0130026, 0, 1.5615247, 0, 3.393603, 0, -1.5615247, 0, 3.0130026, -17.700447, -1.6201663, -3.9734497)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box3#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=448124372]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box3_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=851447063]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#RigidBody3D" type="RigidBody3D" parent="cabin" unique_id=1848455972]
-transform = Transform3D(0.39803213, 0.021242622, 1.1989155, 0.00752032, 1.2631714, -0.024877856, -1.1990794, 0.014973872, 0.39782187, -30.511955, 28.238934, -1.8054352)
+transform = Transform3D(0.9728451, -0.012148712, -0.32276362, 0.006101436, 1.0248445, -0.020184068, 0.3229342, 0.017234704, 0.97271234, -12.86232, 4.744865, -5.493103)
 mass = 0.5
 
 [node name="cabin_RigidBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1222898477]
-transform = Transform3D(-3.9435555e-08, -4.222772e-09, 1.3688045, -1.2747985e-09, 1.3688045, 3.5455332e-09, -1.3688045, -6.373991e-10, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 5.171386e-10, -6.039613e-14, -1.0342779e-09, 1.1105474, 2.8765852e-09, 1.6548501e-08, -3.426048e-09, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin_RigidBody3D#box16" type="MeshInstance3D" parent="cabin" unique_id=2037175122]
-transform = Transform3D(-1.0062588e-07, -2.2308977e-09, 1.3688045, -1.2747985e-09, 1.3688045, 1.5934982e-09, -1.3688045, 9.75156e-17, 2.1754794e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, -1.0658196e-17, -6.6193806e-08, -1.0342779e-09, 1.1105474, 1.2928477e-09, -3.3096853e-08, -1.8099872e-09, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 mesh = SubResource("BoxMesh_0mevk")
 surface_material_override/0 = SubResource("StandardMaterial3D_myc21")
 
 [node name="cabin#box4" type="MeshInstance3D" parent="cabin" unique_id=1106245719]
-transform = Transform3D(0.9283264, 0, 4.078466, 0, 4.1827836, 0, -4.078466, 0, 0.9283264, -30.096497, 20.393724, 3.6466217)
+transform = Transform3D(3.3935, 0, 0.026534073, 0, 3.393603, 0, -0.026534073, 0, 3.3935, -22.953156, -0.8375888, 12.575043)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box4#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=325861365]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box4_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1532959418]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box6" type="MeshInstance3D" parent="cabin" unique_id=6766926]
-transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412384, 23.28781, 5.0954742)
+transform = Transform3D(1.3304758, 0, 0.06444278, 0, 1.3320366, 0, -0.06444278, 0, 1.3304758, -18.461182, 0.72788095, -2.8019714)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box6#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=309469879]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box6_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1958542590]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box7" type="MeshInstance3D" parent="cabin" unique_id=510946630]
-transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412323, 27.528343, 9.64856)
+transform = Transform3D(1.3304758, 0, 0.06444278, 0, 1.3320366, 0, -0.06444278, 0, 1.3304758, -22.155235, 4.168341, -2.8019104)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box7#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=697596610]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box7_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=725021403]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box8" type="MeshInstance3D" parent="cabin" unique_id=673837767]
-transform = Transform3D(-0.0794289, 0, 1.6398771, 0, 1.6417999, 0, -1.6398771, 0, -0.0794289, -31.412323, 29.185452, 9.64856)
+transform = Transform3D(1.3304758, 0, 0.06444278, 0, 1.3320366, 0, -0.06444278, 0, 1.3304758, -22.155235, 5.512796, -2.8019104)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box8#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1321740687]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box8_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=939878686]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box10" type="MeshInstance3D" parent="cabin" unique_id=1131041371]
-transform = Transform3D(0.11523451, 0, 19.034775, 0, 0.16732402, 0, -7.3111067, 0, 0.3000179, -25.653793, 28.989376, 15.595306)
+transform = Transform3D(5.931695, 0, -0.24341333, 0, 0.1357544, 0, 0.0934931, 0, 15.443425, -26.979988, 5.3537154, -1.5515747)
 mesh = SubResource("BoxMesh_0mevk")
 
-[node name="cabin_box10#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1619348926]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+[node name="cabin_box10#StaticBody3D" type="StaticBody3D" parent="cabin/cabin#box10" unique_id=1619348926]
+transform = Transform3D(0.18717612, 0, 0.0029501982, 0, 8.180563, 0, -0.0011331472, 0, 0.071892835, 4.892123, -43.43488, 0.24508476)
 
-[node name="cabin_box10_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=937699771]
-transform = Transform3D(-5.8557536e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.4733135e-08, -20.429527, 21.72168, -20.097763)
+[node name="cabin_box10_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin/cabin#box10" unique_id=937699771]
+transform = Transform3D(0.18717612, 0, 0.0029501976, 0, 8.180563, 0, -0.001133147, 0, 0.071892835, 4.892085, -43.43488, 0.24484253)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#box9" type="MeshInstance3D" parent="cabin" unique_id=1522780416]
-transform = Transform3D(-0.0011715344, 0.12008285, 1.5728703, 0.3588662, 2.4172144, -0.008431614, -0.15830489, 5.47877, -0.030753922, -29.78154, 28.075794, 9.643692)
+transform = Transform3D(0.12843698, -4.4450727, 0.024951432, 0.29115784, 1.9611512, -0.006840795, -0.0009504955, 0.09742623, 1.2761117, -22.151276, 4.6125007, -1.4788055)
 mesh = SubResource("BoxMesh_0mevk")
 
 [node name="cabin_box9#StaticBody3D" type="StaticBody3D" parent="cabin" unique_id=1436100736]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 
 [node name="cabin_box9_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="cabin" unique_id=1943004997]
-transform = Transform3D(-5.983233e-08, 0, 1.3688045, 0, 1.3688045, 0, -1.3688045, 0, -5.983233e-08, -20.424911, 21.72168, -20.097946)
+transform = Transform3D(1.1105474, 0, -6.039613e-14, 0, 1.1105474, 0, 6.039613e-14, 0, 1.1105474, 1.9789352, -0.54276085, 2.6907654)
 shape = SubResource("BoxShape3D_myc21")
 
 [node name="cabin#Smoke_GPUParticle" parent="cabin" unique_id=1193199880 instance=ExtResource("18_0mevk")]
-transform = Transform3D(-1.3688045, 0, -1.1966466e-07, 0, 1.3688045, 0, 1.1966466e-07, 0, -1.3688045, -22.88543, 46.06685, 16.105621)
+transform = Transform3D(-4.8543537e-08, 0, 1.1105474, 0, 1.1105474, 0, -1.1105474, 0, -4.8543537e-08, -27.394035, 19.209139, 0.69444275)
 
 [node name="cabin#StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("17_78gt3")]
-transform = Transform3D(-1.819136, 0, -1.590339e-07, 0, 1.819136, 0, 1.590339e-07, 0, -1.819136, -23.243393, 20.64511, 15.21196)
+transform = Transform3D(-4.9311836e-08, 0, 1.1281239, 0, 1.1281239, 0, -1.1281239, 0, -4.9311836e-08, -26.668983, -1.0684757, 0.40402222)
+
+[node name="Portals" type="Node3D" parent="." unique_id=34436433]
+
+[node name="Portal" parent="Portals" unique_id=1880855438 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.5241345, 0, -0.8516355, 0, 1, 0, 0.8516355, 0, -0.5241345, -138.3576, 10.21663, 264.82104)
+
+[node name="Portal2" parent="Portals" unique_id=1143058973 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 76.836174, 7.6387453, 78.67135)
+
+[node name="Portal3" parent="Portals" unique_id=830755206 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 66.869644, 4.014327, 79.48882)
+
+[node name="Portal4" parent="Portals" unique_id=630165375 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.08174719, 0, 0.9966531, 0, 1, 0, -0.9966531, 0, -0.08174719, 72.84956, 4.014327, 78.99834)
+
+[node name="Portal5" parent="Portals" unique_id=1054371744 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.9966531, 0.057804022, -0.057804026, -3.7252903e-09, 0.70710677, 0.70710677, 0.081747234, 0.70474017, -0.70474017, 70.75981, 4.014327, 83.16974)
+
+[node name="ground" parent="." unique_id=1535883914 instance=ExtResource("15_1csix")]
+transform = Transform3D(41.75029, 0, 0, 0, 29.499228, 0, 0, 0, 47.1495, -24.122763, -5.2900095, 91.239655)
+
+[node name="Node3D" parent="." unique_id=1391670647 instance=ExtResource("16_1csix")]
+transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
+
+[node name="Node3D4" parent="." unique_id=2123180911 instance=ExtResource("16_1csix")]
+transform = Transform3D(-3.5843215e-07, 3.5843217e-07, 36.13922, 8.199972, 0, 1.5796955e-06, 0, 8.199972, -1.5796955e-06, 34.593533, 42.27922, -32.020973)
+
+[node name="Node3D3" parent="." unique_id=263752837 instance=ExtResource("16_1csix")]
+transform = Transform3D(-3.5843215e-07, 3.5843217e-07, -30.845095, 8.199972, 0, -1.3482819e-06, 0, -8.199972, -1.3482819e-06, -1.8845356, 42.27922, 390.77585)
+
+[node name="Node3D2" parent="." unique_id=1964435203 instance=ExtResource("16_1csix")]
+transform = Transform3D(-3.5843217e-07, 8.199972, -3.1781265e-06, 8.199972, 3.5843217e-07, -1.3892032e-13, 0, -7.1686435e-07, -36.35353, -154.5107, 42.279236, 166.33907)
+
+[node name="EnvironmentProps" type="Node3D" parent="."]
+script = ExtResource("24_scatter")

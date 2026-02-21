@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bakjadi6reff5"]
+
+[ext_resource type="Shader" uid="uid://dfl05rdlbqdpj" path="res://ground_detile.gdshader" id="1_iuee5"]
+[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="2_xduj2"]
+[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="3_bbgl8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy4dl"]
+render_priority = 0
+shader = ExtResource("1_iuee5")
+shader_parameter/albedo_texture = ExtResource("2_xduj2")
+shader_parameter/normal_texture = ExtResource("3_bbgl8")
+shader_parameter/metallic_specular = 0.0
+shader_parameter/roughness = 0.138000006555
+shader_parameter/normal_scale = 0.7470001304825002
+shader_parameter/uv_scale = 25.006001184525118
+shader_parameter/detile_strength = 1.7650000838375
+shader_parameter/color_variation = 0.03200000152
+shader_parameter/brightness_variation = 0.01200000057
+
+[sub_resource type="QuadMesh" id="QuadMesh_0m056"]
+material = SubResource("ShaderMaterial_dy4dl")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ip0a1"]
+
+[node name="Node3D" type="Node3D" unique_id=1391670647]
+
+[node name="wall" type="MeshInstance3D" parent="." unique_id=781360036]
+transform = Transform3D(13.698767, 0, 0, 0, -5.987921e-07, 13.698767, 0, -13.698767, -5.987921e-07, -0.003169775, 0.16244519, 0)
+mesh = SubResource("QuadMesh_0m056")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall" unique_id=921442029]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/StaticBody3D" unique_id=1250878596]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_ip0a1")

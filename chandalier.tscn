@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bk2qflu7wb2x8"]
+
+[ext_resource type="PackedScene" uid="uid://cuyu27255ari5" path="res://assets/chandalier/chandalier.glb" id="1_urr71"]
+[ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="2_3q8xq"]
+
+[node name="Chandalier" type="Node3D" unique_id=276974892]
+
+[node name="chandalier2" parent="." unique_id=1167234320 instance=ExtResource("1_urr71")]
+transform = Transform3D(0.26180843, 0, 0, 0, 0.26180843, 0, 0, 0, 0.26180843, 1.4094337, -1.9549861, -0.1030163)
+
+[node name="Node3D" parent="." unique_id=1837487766 instance=ExtResource("2_3q8xq")]
+transform = Transform3D(0.9227945, 0, 0.69638616, 0, 1.1560725, 0, -0.69638616, 0, 0.9227945, 1.1019202, -3.3417044, -0.1908095)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=802647890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711025, 0)
+light_color = Color(0.7351563, 0.3455972, 0.26780427, 1)
+light_energy = 10.0

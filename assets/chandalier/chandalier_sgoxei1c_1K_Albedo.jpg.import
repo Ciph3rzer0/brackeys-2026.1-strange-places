@@ -2,28 +2,31 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ots7w6i0i1q"
-path.bptc="res://.godot/imported/ground037_nrm_rgh.png-02372c72ee87f1844ee708d952e43e96.bptc.ctex"
-path.astc="res://.godot/imported/ground037_nrm_rgh.png-02372c72ee87f1844ee708d952e43e96.astc.ctex"
+uid="uid://dkrf0oo3s376"
+path.s3tc="res://.godot/imported/chandalier_sgoxei1c_1K_Albedo.jpg-6e328b5056457e7c0ba9f56fd6fc7513.s3tc.ctex"
+path.etc2="res://.godot/imported/chandalier_sgoxei1c_1K_Albedo.jpg-6e328b5056457e7c0ba9f56fd6fc7513.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "0209399ffb129181ba31f78e9ccfacea"
+}
 
 [deps]
 
-source_file="res://demo/assets/textures/ground037_nrm_rgh.png"
-dest_files=["res://.godot/imported/ground037_nrm_rgh.png-02372c72ee87f1844ee708d952e43e96.bptc.ctex", "res://.godot/imported/ground037_nrm_rgh.png-02372c72ee87f1844ee708d952e43e96.astc.ctex"]
+source_file="res://assets/chandalier/chandalier_sgoxei1c_1K_Albedo.jpg"
+dest_files=["res://.godot/imported/chandalier_sgoxei1c_1K_Albedo.jpg-6e328b5056457e7c0ba9f56fd6fc7513.s3tc.ctex", "res://.godot/imported/chandalier_sgoxei1c_1K_Albedo.jpg-6e328b5056457e7c0ba9f56fd6fc7513.etc2.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
