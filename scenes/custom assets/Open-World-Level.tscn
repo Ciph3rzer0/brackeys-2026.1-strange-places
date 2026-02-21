@@ -12,30 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://i0vqws24yg2j" path="res://assets/audio/some 80s prog bullshit that DOESNT FIT WITH THE GAME.mp3" id="9_iisry"]
 [ext_resource type="PackedScene" uid="uid://b1ot6gn6tms6h" path="res://player/lesson_reference/player_3d_template.tscn" id="10_b81o8"]
 [ext_resource type="Script" uid="uid://ckvojrwlotpfb" path="res://player/skills/skill_open_portal.gd" id="11_b81o8"]
+[ext_resource type="Environment" uid="uid://dfflmbbhvl8gq" path="res://open_world_environment.tres" id="11_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://mvgikejsgvpy" path="res://assets/environment/bush.glb" id="13_cg6i3"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
-sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
-sky_horizon_color = Color(0.20444065, 0.21058941, 0.21465209, 1)
-sky_curve = 0.13058291
-sky_energy_multiplier = 3.7
-ground_bottom_color = Color(0.11833314, 0.41265365, 0.47700155, 1)
-
-[sub_resource type="Sky" id="Sky_2gwnt"]
-sky_material = SubResource("ProceduralSkyMaterial_2ui33")
-
-[sub_resource type="Environment" id="Environment_lny1m"]
-background_mode = 2
-background_energy_multiplier = 0.2
-sky = SubResource("Sky_2gwnt")
-tonemap_mode = 4
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.4957649, 0.5599525, 0.6116898, 1)
-fog_density = 1.0
-fog_height_density = 0.02
-fog_depth_curve = 0.5358867
 
 [sub_resource type="Gradient" id="Gradient_ii8ra"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -152,9 +131,6 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [node name="Node3D" type="Node3D" unique_id=1764087103]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
-environment = SubResource("Environment_lny1m")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=333657164]
 transform = Transform3D(1, 0, 0, 0, 0.9976041, 0.069181904, 0, -0.069181904, 0.9976041, 0, 16.250614, 0)
 light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
@@ -171,6 +147,9 @@ metadata/_edit_lock_ = true
 
 [node name="Player3DTemplate" parent="." unique_id=1826751568 instance=ExtResource("10_b81o8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1737115, 0)
+
+[node name="MainCamera3D" parent="Player3DTemplate/CameraPivot/SpringArm" parent_id_path=PackedInt32Array(1826751568, 760809364) index="0" unique_id=114910413]
+environment = ExtResource("11_cg6i3")
 
 [node name="Node3D" type="Node3D" parent="Player3DTemplate" unique_id=1783832009]
 script = ExtResource("11_b81o8")

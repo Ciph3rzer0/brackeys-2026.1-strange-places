@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, ambient_light_disabled, fog_disabled, cull_disabled;
 
 uniform sampler2D mirror_texture;
 

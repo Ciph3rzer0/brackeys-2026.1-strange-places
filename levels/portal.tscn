@@ -65,11 +65,6 @@ _data = {
 radius = 1.0
 height = 2.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_205wp"]
-flip_faces = true
-radius = 1.0
-height = 2.0
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_0rv3t"]
 radius = 1.0
 
@@ -141,13 +136,6 @@ layers = 16384
 material_override = ExtResource("2_13t6x")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_ohfhw")
-
-[node name="PortalMesh2" type="MeshInstance3D" parent="PortalHole" unique_id=450829648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
-layers = 16384
-material_override = ExtResource("2_13t6x")
-cast_shadow = 0
-mesh = SubResource("SphereMesh_205wp")
 
 [node name="PortalCollision" type="CollisionShape3D" parent="PortalHole" unique_id=2032591647]
 shape = SubResource("SphereShape3D_0rv3t")
