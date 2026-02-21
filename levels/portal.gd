@@ -11,15 +11,19 @@ var _original_fade_rotation: Vector3
 var _last_collision_enabled: bool = true
 
 @onready var _portal_screen_fade: Node3D = %PortalScreenFade
+@onready var _portal_screen_fade_anim_player = %PortalScreenFadeAnimationPlayer
+
 
 func set_portal_open_progress(val: float):
 	var size =  Vector3.ONE * max(0.001, val)
 	$PortalHole.scale = size
+	%TraversalDetectors.scale = Vector3(size.x, size.y, 1.0)
 	# Only update collision when state changes
 	var should_enable = val > 0.001
 	if should_enable != _last_collision_enabled:
 		_last_collision_enabled = should_enable
 		_set_collision_recursive($PortalHole, should_enable)
+		_set_collision_recursive($TraversalDetectors, should_enable)
 		%RingParticles.emitting = should_enable
 		GameWorld.set_active_portal(self, should_enable)
 
@@ -30,6 +34,7 @@ func _set_collision_recursive(node: Node, enabled: bool) -> void:
 		_set_collision_recursive(child, enabled)
 
 func _ready() -> void:
+	GameWorld.set_active_portal(self, true)
 	_find_player()
 	_find_camera()
 
@@ -52,11 +57,10 @@ func _process(_delta: float) -> void:
 	# During animation, position PortalScreenFade in front of camera
 	if _is_animating and _camera and _portal_screen_fade:
 		# Get animation progress
-		var anim_player = %PortalAnimationPlayer
 		var progress = 0.0
-		if anim_player.is_playing():
-			var current_time = anim_player.current_animation_position
-			var total_time = anim_player.current_animation_length / 2
+		if _portal_screen_fade_anim_player.is_playing():
+			var current_time = _portal_screen_fade_anim_player.current_animation_position
+			var total_time = _portal_screen_fade_anim_player.current_animation_length / 2
 			progress = clamp(current_time / total_time, 0.0, 1.0)
 		
 		# Lerp between portal position and camera position
@@ -105,7 +109,7 @@ func _teleport_player() -> void:
 		_original_fade_rotation = _portal_screen_fade.rotation
 	# Make PortalScreenFade follow camera during animation
 	_is_animating = true
-	%PortalAnimationPlayer.play(&"explode")
+	_portal_screen_fade_anim_player.play(&"expand")
 
 func _on_portal_expansion_finished() -> void:
 	GameWorld.finish_portal_traversal()

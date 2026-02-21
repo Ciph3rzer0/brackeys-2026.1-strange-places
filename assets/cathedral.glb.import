@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yo83pklyq2vh"
-path="res://.godot/imported/cathedral.glb-c340874c53421c447e8fd42bc96fabe3.scn"
+uid="uid://dnhy40uug5cqo"
+valid=false
 
 [deps]
 
 source_file="res://assets/cathedral.glb"
-dest_files=["res://.godot/imported/cathedral.glb-c340874c53421c447e8fd42bc96fabe3.scn"]
 
 [params]
 

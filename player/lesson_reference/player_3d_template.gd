@@ -90,8 +90,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("pc_look"):
-		print("Toggling look mode. Current: ", _look_mode)
 		_set_look_mode(!_look_mode)
+		GameWorld.set_look_mode(_look_mode)
 
 
 func _unhandled_input(event: InputEvent) -> void:

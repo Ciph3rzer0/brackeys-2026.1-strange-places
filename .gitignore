@@ -22,3 +22,4 @@ Exports/
 addons/script-ide/*
 
 *.dll
+web/
