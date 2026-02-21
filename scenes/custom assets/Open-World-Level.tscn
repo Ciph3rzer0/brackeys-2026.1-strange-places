@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin.glb" id="16_1csix"]
 [ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="17_78gt3"]
 [ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="18_0mevk"]
+[ext_resource type="PackedScene" uid="uid://yo83pklyq2vh" path="res://assets/cathedral.glb" id="18_myc21"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
 sky_top_color = Color(0.35221815, 0.45715666, 0.58110255, 1)
@@ -184,6 +185,9 @@ render_layers = 2147483681
 top_level = true
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.59129, 6.1862955, 254.09555)
+
 [node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
 stream = ExtResource("11_78gt3")
@@ -337,5 +341,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.
 [node name="StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("17_78gt3")]
 transform = Transform3D(-5.809227e-08, 0, 1.3289962, 0, 1.3289962, 0, -1.3289962, 0, -5.809227e-08, -25.796135, -0.78649664, -2.059082)
 
-[node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.07645, 13.540833, 75.30536)
+[node name="cathedral" parent="." unique_id=475448465 instance=ExtResource("18_myc21")]
+transform = Transform3D(0.42093974, 0, 0, 0, 0.42093974, 0, 0, 0, 0.42093974, -113.744865, 1.672081, 252.82065)
