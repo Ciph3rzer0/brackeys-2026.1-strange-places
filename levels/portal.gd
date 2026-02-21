@@ -34,6 +34,7 @@ func _set_collision_recursive(node: Node, enabled: bool) -> void:
 		_set_collision_recursive(child, enabled)
 
 func _ready() -> void:
+	GameWorld.set_active_portal(self, true)
 	_find_player()
 	_find_camera()
 

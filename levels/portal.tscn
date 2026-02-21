@@ -176,6 +176,7 @@ mesh = SubResource("SphereMesh_ohfhw")
 
 [node name="VortexPlane" type="MeshInstance3D" parent="PortalHole" unique_id=1112480645]
 transform = Transform3D(3.212607, 0, 0, 0, 0, 3.356571, 0, -0.8854761, 0, 0, 0.0045945644, 0)
+layers = 33
 material_override = ExtResource("8_vortx")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_vortx")

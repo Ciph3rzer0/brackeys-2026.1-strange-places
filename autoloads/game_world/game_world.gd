@@ -43,3 +43,8 @@ func _process(_delta: float) -> void:
 		DarkWorldView.mirror_camera.near = max(0.05, distance - 2)
 		if DarkWorldView._portal_animating:
 			DarkWorldView.mirror_camera.near = 0.05
+	else:
+		if !_player:
+			print("game_world.gd: No player set.")
+		if !_active_portal:
+			print("game_world.gd: No active portal.")
