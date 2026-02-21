@@ -104,11 +104,11 @@ void fragment() {
     // Transparent center hole
     float center_alpha = smoothstep(center_radius, center_radius + center_fade, dist);
     // Fade at edges (circular boundary)
-    float edge_alpha = smoothstep(0.5, 0.5 - edge_fade, dist);
+    float edge_alpha = smoothstep(0.5, 0.4 - edge_fade, dist);
     float alpha = center_alpha * edge_alpha;
 
     // Also fade alpha based on the swirl pattern for a more ethereal look
-    alpha *= mix(0.5, 1.0, pattern);
+    alpha *= mix(0., 1.0, pattern);
 
     ALBEDO = col;
     ALPHA = alpha;

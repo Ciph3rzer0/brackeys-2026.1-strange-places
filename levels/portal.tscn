@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://cibawli6syppf" path="res://portal_shader_material_no_depth.tres" id="3_ohfhw"]
 [ext_resource type="Texture2D" uid="uid://k56r6tmtgjyd" path="res://assets/kenney_particle/star_09.png" id="6_jrrdc"]
 [ext_resource type="Texture2D" uid="uid://chfo3t2m2w8gu" path="res://assets/kenney_particle/flare_01.png" id="7_k7fq7"]
-[ext_resource type="Material" path="res://levels/vortex_material.tres" id="8_vortx"]
+[ext_resource type="Material" uid="uid://23qngmsg7fh1" path="res://levels/vortex_material.tres" id="8_vortx"]
 
 [sub_resource type="Animation" id="Animation_bi5mn"]
 length = 0.001
@@ -89,6 +89,8 @@ height = 0.01
 [sub_resource type="SphereMesh" id="SphereMesh_205wp"]
 radius = 1.0
 height = 2.0
+radial_segments = 24
+rings = 24
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vortx"]
 
@@ -197,7 +199,7 @@ cast_shadow = 0
 mesh = SubResource("SphereMesh_205wp")
 
 [node name="VortexPlane" type="MeshInstance3D" parent="PortalHole" unique_id=1112480645]
-transform = Transform3D(2.872566, 0, 0, 0, 0, 2.805689, 0, -0.99999917, 0, 0, 0, 0)
+transform = Transform3D(3.212607, 0, 0, 0, 0, 3.356571, 0, -0.8854761, 0, 0, 0.0045945644, 0)
 material_override = ExtResource("8_vortx")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_vortx")
@@ -238,7 +240,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 shape = SubResource("CylinderShape3D_w68nl")
 debug_color = Color(0.8956008, 0.26725385, 0.44592017, 0.8392157)
 
-[node name="Stars_GPU" type="GPUParticles3D" parent="PortalHole" unique_id=4564535]
+[node name="RingParticles" type="GPUParticles3D" parent="PortalHole" unique_id=4564535]
+unique_name_in_owner = true
 transform = Transform3D(2.2933424, 0, 0, 0, 2.2389264, 0, 0, 0, 1, 0, 0, 0)
 layers = 33
 amount = 64
