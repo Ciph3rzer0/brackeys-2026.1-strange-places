@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="24_kifxf"]
 [ext_resource type="Script" uid="uid://0sq0eqjp57cn" path="res://mesh_scatter.gd" id="24_scatter"]
 [ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="25_vylct"]
+[ext_resource type="PackedScene" uid="uid://0m7jj04vra0q" path="res://assets/redbutton.glb" id="26_vylct"]
 
 [sub_resource type="Curve" id="Curve_scb53"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.35559565, 0.5165747), 2.3976057, 2.3976057, 0, 0, Vector2(0.99819493, 1), 0.0, 0.0, 0, 0]
@@ -56,11 +57,11 @@ fog_depth_curve = 0.5358867
 [sub_resource type="LabelSettings" id="LabelSettings_3c8je"]
 font_size = 32
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_to11x"]
-size = Vector3(4.658936, 4.371827, 4.6589355)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fnnd"]
 size = Vector3(1, 15.05127, 8.464447)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_to11x"]
+size = Vector3(4.658936, 4.371827, 4.6589355)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4fnnd"]
 
@@ -186,7 +187,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_to11x"]
+[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
 transform_format = 1
 instance_count = 160
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -262,7 +263,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e2h53"]
+[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -338,7 +339,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_kifxf"]
+[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_lihn7")
@@ -412,7 +413,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
+[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
 transform_format = 1
 instance_count = 80
 mesh = SubResource("ArrayMesh_7psg4")
@@ -458,7 +459,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
+[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
 transform_format = 1
 instance_count = 13
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -502,7 +503,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
+[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -548,7 +549,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
+[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -594,7 +595,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
+[sub_resource type="MultiMesh" id="MultiMesh_ynhmv"]
 transform_format = 1
 instance_count = 64
 mesh = SubResource("ArrayMesh_scirn")
@@ -609,6 +610,9 @@ size = Vector3(4, 0.25, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8xkx"]
 size = Vector3(4, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vylct"]
+size = Vector3(16.524544, 0.25, 3.0752869)
 
 [node name="Node3D" type="Node3D" unique_id=1764087103]
 script = ExtResource("1_to11x")
@@ -668,7 +672,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25774914, 2.3435657, 3.8052645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.545708, 2.5857265, 69.61208)
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -3.962234, -0.36236104, 4.32555)
@@ -718,53 +722,49 @@ layers = 33
 [node name="cabin_table" parent="shack" index="2" unique_id=2083156855]
 layers = 33
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="shack" unique_id=1470506636]
-transform = Transform3D(1.5512239, 0, 0, 0, 1, 0, 0, 0, 2.7776062, 11.667524, 2.505452, -11.706516)
-shape = SubResource("BoxShape3D_to11x")
-
-[node name="Cube_028" parent="shack" index="4" unique_id=1007735516]
+[node name="Cube_028" parent="shack" index="3" unique_id=1007735516]
 layers = 33
 
-[node name="Cube_029" parent="shack" index="5" unique_id=1872134428]
+[node name="Cube_029" parent="shack" index="4" unique_id=1872134428]
 layers = 33
 
-[node name="Cube_031" parent="shack" index="6" unique_id=2025439183]
+[node name="Cube_031" parent="shack" index="5" unique_id=2025439183]
 layers = 33
 
-[node name="Cube_034" parent="shack" index="7" unique_id=449020154]
+[node name="Cube_034" parent="shack" index="6" unique_id=449020154]
 layers = 33
 
-[node name="Cube_035" parent="shack" index="8" unique_id=1981206121]
+[node name="Cube_035" parent="shack" index="7" unique_id=1981206121]
 layers = 33
 
-[node name="Cube_036" parent="shack" index="9" unique_id=273690409]
+[node name="Cube_036" parent="shack" index="8" unique_id=273690409]
 layers = 33
 
-[node name="Cube_037" parent="shack" index="10" unique_id=637960385]
+[node name="Cube_037" parent="shack" index="9" unique_id=637960385]
 layers = 33
 
-[node name="Cube_038" parent="shack" index="11" unique_id=1601251359]
+[node name="Cube_038" parent="shack" index="10" unique_id=1601251359]
 layers = 33
 
-[node name="Cube_039" parent="shack" index="12" unique_id=1780291747]
+[node name="Cube_039" parent="shack" index="11" unique_id=1780291747]
 layers = 33
 
-[node name="Cube_040" parent="shack" index="13" unique_id=535171079]
+[node name="Cube_040" parent="shack" index="12" unique_id=535171079]
 layers = 33
 
-[node name="Cube_041" parent="shack" index="14" unique_id=810557207]
+[node name="Cube_041" parent="shack" index="13" unique_id=810557207]
 layers = 33
 
-[node name="Cube_042" parent="shack" index="15" unique_id=709954438]
+[node name="Cube_042" parent="shack" index="14" unique_id=709954438]
 layers = 33
 
-[node name="Cube_043" parent="shack" index="16" unique_id=1314928810]
+[node name="Cube_043" parent="shack" index="15" unique_id=1314928810]
 layers = 33
 
-[node name="Cube_044" parent="shack" index="17" unique_id=1927239133]
+[node name="Cube_044" parent="shack" index="16" unique_id=1927239133]
 layers = 33
 
-[node name="Cube_045" parent="shack" index="18" unique_id=1193795095]
+[node name="Cube_045" parent="shack" index="17" unique_id=1193795095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.480518, 8.485352, 4.770109)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="shack/Cube_045" index="2" unique_id=1504627356]
@@ -773,16 +773,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.480518, 8.485352, 4.770109
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77319527, 0.042215347)
 shape = SubResource("BoxShape3D_4fnnd")
 
-[node name="Cube_047" parent="shack" index="19" unique_id=344044489]
+[node name="Cube_047" parent="shack" index="18" unique_id=344044489]
 layers = 33
 
-[node name="Cube_048" parent="shack" index="20" unique_id=1123565850]
+[node name="Cube_048" parent="shack" index="19" unique_id=1123565850]
 layers = 33
 
-[node name="floorcol" parent="shack" index="21" unique_id=84004158]
+[node name="floorcol" parent="shack" index="20" unique_id=84004158]
 collision_layer = 17
 
-[node name="shackwalls" parent="shack" index="22" unique_id=844741644]
+[node name="shackwalls" parent="shack" index="21" unique_id=844741644]
 collision_layer = 17
 
 [node name="tablecol" parent="shack/Cube_050" parent_id_path=PackedInt32Array(986757192, 13925005) index="0" unique_id=1923148083]
@@ -791,8 +791,12 @@ collision_layer = 17
 [node name="chaircol" parent="shack/Cube_051" parent_id_path=PackedInt32Array(986757192, 2046599047) index="0" unique_id=1349390257]
 collision_layer = 17
 
-[node name="frontwall" parent="shack" index="26" unique_id=2106968179]
+[node name="frontwall" parent="shack" index="25" unique_id=2106968179]
 collision_layer = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shack" unique_id=1470506636]
+transform = Transform3D(1.5512239, 0, 0, 0, 1, 0, 0, 0, 2.7776062, 11.667524, 2.505452, -11.706516)
+shape = SubResource("BoxShape3D_to11x")
 
 [node name="tv2" parent="shack" unique_id=247881811 instance=ExtResource("21_6d0qa")]
 transform = Transform3D(0.92490894, 0, 0.008313718, 0, 0.9249464, 0, -0.008313718, 0, 0.92490894, 11.872177, 7.090897, -12.542211)
@@ -836,7 +840,7 @@ collision_layer = 17
 shape = SubResource("ConcavePolygonShape3D_ys7cj")
 
 [node name="WIN-CONDITION-PLACEHOLDER" type="MeshInstance3D" parent="cathedral/tmp_move/walkway2" unique_id=872977725]
-transform = Transform3D(9.903239, 0, 0, 0, 7.295411, 0, 0, 0, 3.6056914, -5.3819265, 7.5052, -2.0682986)
+transform = Transform3D(9.903239, 0, 0, 0, 7.295411, 0, 0, 0, 3.6056914, -19.850494, 5.2208786, -2.0682983)
 mesh = SubResource("BoxMesh_g3cd4")
 
 [node name="Chandalier" parent="cathedral/tmp_move" unique_id=276974892 instance=ExtResource("23_g3cd4")]
@@ -863,7 +867,7 @@ transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.
 transform = Transform3D(0.001980674, 0, -0.46130294, 0, 0.46130717, 0, 0.46130294, 0, 0.001980674, -3.1955957, 1.8812215, -6.2245474)
 
 [node name="Cabin" parent="." unique_id=915997769 instance=ExtResource("18_cbib2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.766846, 0.65539503, 71.56803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.78107, 0.6789012, 71.575584)
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
@@ -899,56 +903,108 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="@MultiMeshInstance3D@19144" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2082666973]
-multimesh = SubResource("MultiMesh_to11x")
-
-[node name="@MultiMeshInstance3D@19145" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=431130220]
-multimesh = SubResource("MultiMesh_e2h53")
-
-[node name="@MultiMeshInstance3D@19146" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1729546239]
-multimesh = SubResource("MultiMesh_kifxf")
-
-[node name="@MultiMeshInstance3D@19147" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=981154627]
+[node name="@MultiMeshInstance3D@48938" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1514882524]
 multimesh = SubResource("MultiMesh_vylct")
 
-[node name="@MultiMeshInstance3D@19148" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1157101402]
+[node name="@MultiMeshInstance3D@48939" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=627321197]
 multimesh = SubResource("MultiMesh_e213u")
 
-[node name="@MultiMeshInstance3D@19149" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=946105266]
+[node name="@MultiMeshInstance3D@48940" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=386218945]
 multimesh = SubResource("MultiMesh_b8xkx")
 
-[node name="@MultiMeshInstance3D@19150" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=440354448]
+[node name="@MultiMeshInstance3D@48941" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=899814542]
 multimesh = SubResource("MultiMesh_7wmbq")
 
-[node name="@MultiMeshInstance3D@19151" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=792215575]
+[node name="@MultiMeshInstance3D@48942" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=50866616]
 multimesh = SubResource("MultiMesh_myi7u")
 
+[node name="@MultiMeshInstance3D@48943" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=756380485]
+multimesh = SubResource("MultiMesh_0gmhp")
+
+[node name="@MultiMeshInstance3D@48944" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1417193549]
+multimesh = SubResource("MultiMesh_3td7c")
+
+[node name="@MultiMeshInstance3D@48945" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=683298959]
+multimesh = SubResource("MultiMesh_ynhmv")
+
 [node name="EndTheGameButton" parent="." unique_id=763199834 instance=ExtResource("23_e2h53")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -81.065384, 10.628149, 205.74083)
 
-[node name="ThingMoverExampleAnthony" type="Node3D" parent="." unique_id=10565107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1362057, 0, -3.8045676)
+[node name="redbutton" parent="EndTheGameButton" unique_id=1805479973 instance=ExtResource("26_vylct")]
+transform = Transform3D(2.632279e-16, -6.0219523e-09, -0.13776621, -0.13776621, -6.0219527e-09, 0, -6.0219527e-09, 0.13776621, -6.0219523e-09, 0.033325195, -0.013169289, 0.051185608)
 
-[node name="LiftSwitch" parent="ThingMoverExampleAnthony" unique_id=795092059 instance=ExtResource("24_kifxf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1996822, 0.9256623, 0)
+[node name="lift_cabin_1" type="Node3D" parent="." unique_id=10565107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.95307, 5.4578824, 71.84883)
 
-[node name="LiftMover" parent="ThingMoverExampleAnthony" unique_id=1946744826 instance=ExtResource("25_vylct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693765, 0)
+[node name="LiftSwitch" parent="lift_cabin_1" unique_id=795092059 instance=ExtResource("24_kifxf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2593, -0.20599318, 0)
+
+[node name="LiftMover" parent="lift_cabin_1" unique_id=1946744826 instance=ExtResource("25_vylct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.448772, 7.5701523)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
+
+[node name="Lift" type="CharacterBody3D" parent="lift_cabin_1/LiftMover" unique_id=1261480824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7997131, -1.0427346, -18.100227)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=1895123846]
+mesh = SubResource("BoxMesh_e213u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=1504530026]
+shape = SubResource("BoxShape3D_b8xkx")
+
+[node name="lift_cabin_2" type="Node3D" parent="." unique_id=750423856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.639126, -0.29358053, 98.61224)
+
+[node name="LiftSwitch" parent="lift_cabin_2" unique_id=1907149226 instance=ExtResource("24_kifxf")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -2.419098, 1.2952228, -5.1235504)
+
+[node name="LiftMover" parent="lift_cabin_2" unique_id=1641396487 instance=ExtResource("25_vylct")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21579742, 7.4268556, -2.932228)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21579742, -1.6498525, -1.9206009)
+end_transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21579742, 7.4268556, -2.932228)
+
+[node name="Lift" type="CharacterBody3D" parent="lift_cabin_2/LiftMover" unique_id=98452520]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.705288, 0.2832811, -9.852753)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=1237427634]
+transform = Transform3D(4.5108643, 0, 0, 0, 1, 0, 0, 0, 1.4883087, -0.1463623, 7.637024, -2.7302542)
+mesh = SubResource("BoxMesh_e213u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=1707123927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9271698, 7.581703, -2.5945895)
+shape = SubResource("BoxShape3D_vylct")
+
+[node name="lift_x2" type="Node3D" parent="." unique_id=1381125834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.785845, 5.4578824, 92.4453)
+
+[node name="LiftSwitch" parent="lift_x2" unique_id=1535240498 instance=ExtResource("24_kifxf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2593, 0.16187716, 0)
+
+[node name="LiftMover" parent="lift_x2" unique_id=2111650654 instance=ExtResource("25_vylct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
 start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693765, 0)
 end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5664216, 0)
 
-[node name="Lift" type="CharacterBody3D" parent="ThingMoverExampleAnthony/LiftMover" unique_id=1261480824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6088347)
+[node name="Lift" type="CharacterBody3D" parent="lift_x2/LiftMover" unique_id=843100591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7997131, 0, 3.0549316)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ThingMoverExampleAnthony/LiftMover/Lift" unique_id=1895123846]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_x2/LiftMover/Lift" unique_id=571166385]
 mesh = SubResource("BoxMesh_e213u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ThingMoverExampleAnthony/LiftMover/Lift" unique_id=1504530026]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_x2/LiftMover/Lift" unique_id=1832772066]
 shape = SubResource("BoxShape3D_b8xkx")
 
 [connection signal="switched_on" from="EndTheGameButton/Switch" to="." method="win"]
-[connection signal="switched_off" from="ThingMoverExampleAnthony/LiftSwitch" to="ThingMoverExampleAnthony/LiftMover" method="run"]
-[connection signal="switched_on" from="ThingMoverExampleAnthony/LiftSwitch" to="ThingMoverExampleAnthony/LiftMover" method="run"]
+[connection signal="switched_off" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
+[connection signal="switched_on" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
+[connection signal="switched_off" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
+[connection signal="switched_on" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
+[connection signal="switched_off" from="lift_x2/LiftSwitch" to="lift_x2/LiftMover" method="run"]
+[connection signal="switched_on" from="lift_x2/LiftSwitch" to="lift_x2/LiftMover" method="run"]
 
 [editable path="shack"]
 [editable path="cathedral"]
