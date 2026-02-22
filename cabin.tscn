@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://ft3r0pn8pdcw"]
 
 [ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin/cabin.glb" id="1_4gw7v"]
+[ext_resource type="PackedScene" uid="uid://1tthqufroxdf" path="res://open-world/end_the_game_button.tscn" id="2_ax1jf"]
 [ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="2_botwl"]
 [ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="3_gh8eb"]
+[ext_resource type="PackedScene" uid="uid://b4fj705pifm1s" path="res://assets/book.glb" id="3_tf4qc"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="5_m22p6"]
 [ext_resource type="Texture2D" uid="uid://cpywvfyly6mw6" path="res://assets/crate/crate_whnfbg3_1K_Albedo.jpg" id="6_rsij4"]
 [ext_resource type="Texture2D" uid="uid://161ivaogvbot" path="res://assets/crate/crate_whnfbg3_1K_Roughness.png" id="7_ap386"]
@@ -11,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cjjrfiroggycm" path="res://assets/crate/crate_sj0gcizc_1K_Roughness.png" id="10_3gvpd"]
 [ext_resource type="Texture2D" uid="uid://6e7kcygrnfxp" path="res://assets/crate/crate_sj0gcizc_1K_Normal.jpg" id="11_otbxh"]
 [ext_resource type="PackedScene" uid="uid://8pn3cerffbw2" path="res://flickering_tv.tscn" id="11_rsij4"]
+[ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="14_3gvpd"]
+[ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="15_otbxh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ykfyd"]
 points = PackedVector3Array(0.24387817, 4.5640683, 0.24387817, -0.33334208, -0.04112172, -0.33334208, -0.33334208, -0.04112172, 0.3280151, 0.3280151, -0.04112172, -0.33334208, -0.33334208, 4.586832, -0.33334208, -0.33334208, 4.586832, 0.3280151, 0.29659998, 0.18223086, 0.29659998, 0.3280151, 4.586832, -0.33334208, 0.29659998, 4.37052, 0.29659998)
@@ -135,8 +139,11 @@ shadow_mesh = SubResource("ArrayMesh_npkrp")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kkxua"]
 points = PackedVector3Array(-1.885, -1.885, -1.885, 1.885, 1.885, 1.885, 1.885, -1.885, 1.885, 1.885, 1.885, -1.885, -1.885, 1.885, 1.885, 1.885, -1.885, -1.885, -1.885, -1.885, 1.885, -1.885, 1.885, -1.885)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7kvk"]
+size = Vector3(1.2234926, 6.7533646, 1.1840768)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rsij4"]
-size = Vector3(1.2536173, 7.2857814, 1.0211468)
+size = Vector3(9.043385, 6.7533646, 4.470417)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tf4qc"]
 size = Vector3(4.4347954, 9.882149, 2.5039635)
@@ -158,6 +165,30 @@ size = Vector3(8.094984, 74.23902, 0.6473999)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4epuc"]
 size = Vector3(9.501343, 6.453865, 4.3825684)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykfyd"]
+albedo_color = Color(0.5743603, 0.5678333, 0.46531856, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xaxno"]
+material = SubResource("StandardMaterial3D_ykfyd")
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ingmx"]
+size = Vector3(16.524544, 0.25, 3.0752869)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gvpd"]
+albedo_color = Color(0.5743603, 0.5678333, 0.46531856, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_otbxh"]
+material = SubResource("StandardMaterial3D_3gvpd")
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaxno"]
+size = Vector3(4, 0.25, 2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_3gvpd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ykfyd"]
 
 [node name="Node3D" type="Node3D" unique_id=915997769]
 
@@ -220,6 +251,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13415384, -14.073026, -3.96
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/house_main/Cube_030/StaticBody3D" unique_id=245981258]
 shape = SubResource("ConvexPolygonShape3D_hvfct")
 
+[node name="Cube_052" parent="cabin/house_main" index="30" unique_id=837928436]
+transform = Transform3D(28.631588, 0, 0, 0, 8.649858, 0, 0, 0, 14.946701, 0.06039375, -0.3824792, -1.6842465)
+layers = 33
+
 [node name="fireplaceright" parent="cabin/house_main" index="78" unique_id=1758402512]
 transform = Transform3D(3.8482323, 0, 0, 0, -4.5874503e-07, -3.8482323, 0, 3.8482323, -4.5874503e-07, -24.411943, -0.8166589, -20.520735)
 visible = false
@@ -233,10 +268,16 @@ visible = false
 [node name="CollisionShape3D" parent="cabin/house_main/leftwall_001" index="0" unique_id=978862588]
 visible = false
 
+[node name="posts" parent="cabin/house_main" index="80" unique_id=1814342923]
+layers = 33
+
 [node name="StaticBody3D" type="StaticBody3D" parent="cabin/house_main/stairs" parent_id_path=PackedInt32Array(779131844, 840709816) index="0" unique_id=431487289]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/house_main/stairs/StaticBody3D" unique_id=918591284]
 shape = SubResource("ConvexPolygonShape3D_bkwdx")
+
+[node name="Suzanne_001" parent="cabin/house_main" index="82" unique_id=799180426]
+transform = Transform3D(-0.39364997, -0.009962232, -0.014298873, -0.006143495, 0.38187826, -0.096928895, 0.016308319, -0.09661111, -0.38165995, 0.025293827, 11.790293, 4.0022297)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="cabin/house_main" index="83" unique_id=367993978]
 transform = Transform3D(2.3171604, -4.371138e-08, -7.672433e-08, 1.0128629e-07, -4.37114e-08, 1.7552472, -1.0128628e-07, -1, -7.6724284e-08, -14.766594, 0, -15.310959)
@@ -258,7 +299,7 @@ mesh = SubResource("PlaneMesh_j4u7r")
 transform = Transform3D(-4.8543537e-08, 0, 1.1105474, 0, 1.1105474, 0, -1.1105474, 0, -4.8543537e-08, -27.394035, 19.209139, 0.69444275)
 
 [node name="cabin#StrangeThing" parent="cabin" unique_id=609394392 instance=ExtResource("3_gh8eb")]
-transform = Transform3D(-4.9311836e-08, 0, 1.1281239, 0, 1.1281239, 0, -1.1281239, 0, -4.9311836e-08, -26.668983, -1.0684757, 0.40402222)
+transform = Transform3D(-4.3711374e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.3711374e-08, -26.823542, -1.1735945, 0.40402222)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="cabin" unique_id=1179678511]
 
@@ -267,6 +308,7 @@ transform = Transform3D(-0.10072515, 0, 1.2280304, 0, 1.2321544, 0, -1.2280304, 
 
 [node name="Portal5" parent="cabin" unique_id=304780736 instance=ExtResource("5_m22p6")]
 transform = Transform3D(-0.017138898, 1.2320352, -2.0081831e-08, -1.9508044e-09, -9.0707374e-08, 1.2321544, 1.232035, 0.01713892, 9.180265e-09, 19.16384, -5.2271643, 3.6069808)
+start_closed = false
 
 [node name="crate_012" type="MeshInstance3D" parent="cabin" unique_id=779962832]
 transform = Transform3D(-1.0845629, 0, -0.02631674, 0, 1.0848823, 0, 0.02631674, 0, -1.0845629, -20.757763, -0.6905427, -4.2340584)
@@ -284,6 +326,24 @@ mesh = SubResource("ArrayMesh_p8yaw")
 [node name="StaticBody3D" type="StaticBody3D" parent="cabin/crate_013" unique_id=621192580]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/crate_013/StaticBody3D" unique_id=1231926468]
+shape = SubResource("ConvexPolygonShape3D_kkxua")
+
+[node name="crate_016" type="MeshInstance3D" parent="cabin" unique_id=602465200]
+transform = Transform3D(-1.0845628, 0, -0.026316725, 0, 1.0848823, 0, 0.026316725, 0, -1.0845628, 15.81874, -0.69054365, -3.942459)
+mesh = SubResource("ArrayMesh_p8yaw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cabin/crate_016" unique_id=672122001]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/crate_016/StaticBody3D" unique_id=526626596]
+shape = SubResource("ConvexPolygonShape3D_kkxua")
+
+[node name="crate_017" type="MeshInstance3D" parent="cabin" unique_id=56359607]
+transform = Transform3D(-1.0845628, 0, -0.026316721, 0, 1.0848823, 0, 0.026316721, 0, -1.0845628, 20.401354, -0.69054365, -3.942459)
+mesh = SubResource("ArrayMesh_p8yaw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cabin/crate_017" unique_id=84520953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/crate_017/StaticBody3D" unique_id=299046414]
 shape = SubResource("ConvexPolygonShape3D_kkxua")
 
 [node name="crate_018" type="MeshInstance3D" parent="cabin" unique_id=1451625466]
@@ -322,20 +382,29 @@ mesh = SubResource("ArrayMesh_p8yaw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/crate_015/StaticBody3D" unique_id=1953984146]
 shape = SubResource("ConvexPolygonShape3D_kkxua")
 
+[node name="Book_lodge" parent="cabin" unique_id=763199834 instance=ExtResource("2_ax1jf")]
+transform = Transform3D(7.364906e-09, 0.9857032, 0.16848934, -0.9999997, 3.110395e-29, 4.3711395e-08, 4.3086473e-08, -0.16848934, 0.9857032, 15.363716, 5.386273, -3.6033068)
+
+[node name="Switch" parent="cabin/Book_lodge" index="0" unique_id=795092059]
+transform = Transform3D(1, 1.409824e-08, -2.33597e-09, -1.4098241e-08, 0.9465593, -0.32253003, -2.3359665e-09, 0.32253003, 0.9465593, 0, 0, 0)
+
+[node name="book" parent="cabin/Book_lodge" unique_id=887440834 instance=ExtResource("3_tf4qc")]
+transform = Transform3D(0.24168243, 1.9713205e-08, -2.6410685e-08, -1.3015731e-08, -0.120841205, -0.20930311, -3.0277477e-08, 0.20930311, -0.120841205, -0.12812805, 0.116083145, 0.4370513)
+
 [node name="colliders" type="Node3D" parent="." unique_id=374719580]
 
 [node name="center post" type="StaticBody3D" parent="colliders" unique_id=1658750887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.969289, 4.0404425, 2.2849135)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="colliders/center post" unique_id=549095209]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3316393, 2.2674112, -1.734765)
-shape = SubResource("BoxShape3D_rsij4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3453817, 2.2674112, -1.7014086)
+shape = SubResource("BoxShape3D_k7kvk")
 
 [node name="fireplace-bottom" type="StaticBody3D" parent="colliders" unique_id=2065246233]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4294493, -20.184393)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="colliders/fireplace-bottom" unique_id=1062148687]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5412493, 1.8067863, -0.78214645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9199475, 1.5405777, -0.58046913)
 shape = SubResource("BoxShape3D_rsij4")
 
 [node name="fireplace-top" type="StaticBody3D" parent="colliders" unique_id=1482900280]
@@ -409,8 +478,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3220824, 5.1141777, 1.34338
 shape = SubResource("BoxShape3D_4epuc")
 
 [node name="Node3D" parent="." unique_id=2046248298 instance=ExtResource("11_rsij4")]
-transform = Transform3D(-0.20620926, 0, 0.76958346, 0, 0.7967314, 0, -0.76958346, 0, -0.20620926, -3.1125891, 3.8947916, 17.04129)
+transform = Transform3D(-0.7960172, 0, -0.033724815, 0, 0.79673135, 0, 0.033724815, 0, -0.7960172, 2.3469102, 7.3404865, 13.067271)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1997116168]
+transform = Transform3D(18.30703, -4.2351647e-22, 0, -1.8973538e-19, 1.4349082, 0, 0, 0, 4.621548, 2.1878092, 4.7474675, 23.51816)
+
+[node name="lift_cabin_2" type="Node3D" parent="." unique_id=1454830394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1554737, -1.6629031, 26.577923)
+
+[node name="LiftSwitch" parent="lift_cabin_2" unique_id=1971028386 instance=ExtResource("14_3gvpd")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -2.419098, 1.2952228, -5.1235504)
+
+[node name="LiftMover" parent="lift_cabin_2" unique_id=1946744826 instance=ExtResource("15_otbxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21579742, -1.6498525, -1.9206009)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21579742, -1.6498525, -1.9206009)
+end_transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21579742, 7.4268556, -2.932228)
+
+[node name="Lift" type="CharacterBody3D" parent="lift_cabin_2/LiftMover" unique_id=518855616]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.705288, 0.2832811, -9.852753)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=313651017]
+transform = Transform3D(4.5108643, 0, 0, 0, 1, 0, 0, 0, 1.4883087, -0.1463623, 7.637024, -2.7302542)
+mesh = SubResource("BoxMesh_xaxno")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=876016149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9271698, 7.581703, -2.5945895)
+shape = SubResource("BoxShape3D_ingmx")
+
+[node name="lift_cabin_1" type="Node3D" parent="." unique_id=1012372194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11079216, 4.872396, 0.47663498)
+
+[node name="LiftSwitch" parent="lift_cabin_1" unique_id=1784822541 instance=ExtResource("14_3gvpd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2593, -0.20599318, 0)
+
+[node name="LiftMover" parent="lift_cabin_1" unique_id=436073583 instance=ExtResource("15_otbxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.448772, 7.5701523)
+start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.448772, 7.5701523)
+end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
+
+[node name="Lift" type="CharacterBody3D" parent="lift_cabin_1/LiftMover" unique_id=345360209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7997131, -1.0427346, -18.100227)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=769884246]
+mesh = SubResource("BoxMesh_otbxh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=1430959191]
+shape = SubResource("BoxShape3D_xaxno")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=497150397]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 4.440892e-16, 0, -3.5527137e-15, 0.11470776, -6.210319, 1.1464611, 21.486015)
+mesh = SubResource("PrismMesh_3gvpd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D3" unique_id=1930948074]
+transform = Transform3D(0.24870461, 0, 0, 0, 0.9999998, 8.881784e-16, 0, -5.684342e-14, 0.9999998, 0, -0.94303894, 3.5936137e-07)
+mesh = SubResource("BoxMesh_ykfyd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=225450960]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.11470777, 0, 0.99999994, -5.014036e-09, -4.925142, 0.336757, 21.08226)
+mesh = SubResource("PrismMesh_3gvpd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D4" unique_id=1631666640]
+transform = Transform3D(0.24870461, 0, 0, 0, 0.9999998, 8.881784e-16, 0, -5.684342e-14, 0.9999998, 0, -0.94303894, 3.5936137e-07)
+mesh = SubResource("BoxMesh_ykfyd")
+
+[connection signal="fully_strange" from="cabin/cabin#StrangeThing/Pulsar" to="cabin/Portal4" method="open"]
+[connection signal="switched_off" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
+[connection signal="switched_on" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
+[connection signal="switched_off" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
+[connection signal="switched_on" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
 
 [editable path="cabin"]
 [editable path="cabin/cabin#StrangeThing"]
 [editable path="cabin/cabin#StrangeThing/trophy"]
+[editable path="cabin/Book_lodge"]
