@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://1tthqufroxdf"]
+
+[ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="1_4tlcu"]
+
+[node name="EndTheGameButton" type="Node3D" unique_id=763199834]
+
+[node name="Switch" parent="." unique_id=795092059 instance=ExtResource("1_4tlcu")]

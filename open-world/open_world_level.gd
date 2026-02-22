@@ -10,10 +10,10 @@ signal level_changed(level_path : String)
 
 var level_state : LevelState
 
-func _on_lose_button_pressed() -> void:
+func lose() -> void:
 	level_lost.emit()
 
-func _on_win_button_pressed() -> void:
+func win() -> void:
 	level_won.emit(next_level_path)
 
 #func open_tutorials() -> void:
