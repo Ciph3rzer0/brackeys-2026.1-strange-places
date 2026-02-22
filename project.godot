@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Brackeys - Strange Places"
+config/name="Refraction's Edge"
+config/version="1.0.0"
 run/main_scene="uid://bk80fxrac0p3i"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
@@ -32,6 +33,7 @@ GameWorld="*uid://c6y3pfu16dv7g"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

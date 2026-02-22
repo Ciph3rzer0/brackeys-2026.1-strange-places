@@ -1,4 +1,17 @@
 # Attribution
+
+## Authors
+
+### Code
+
+#### Ciph3rzer0
+[itch.io/profile/ciph3rzer0​](https://itch.io/profile/ciph3rzer0​)
+
+### Art, Music, SFX
+
+#### FRKatona
+[akatona.itch.io​​](https://akatona.itch.io​​)
+
 ## Collaborators
 
 ### Godot Game Template

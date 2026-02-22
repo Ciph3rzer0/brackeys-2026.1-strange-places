@@ -89,12 +89,12 @@ func _setup_shared_viewport() -> void:
 func _input(event: InputEvent) -> void:
 	# if event.is_action_pressed("ui_cancel"):
 	# 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	# elif event.is_action_pressed("left_click"):
-	# 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("left_click"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("pc_look"):
 		_set_look_mode(!_look_mode)
 		GameWorld.set_look_mode(_look_mode)
-	elif event.is_action_pressed("ui_text_caret_up"):
+	if event.is_action_pressed("ui_text_caret_up"):
 		position += (Vector3.UP * 3)
 
 

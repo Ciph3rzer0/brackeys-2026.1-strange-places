@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dnaejbfe1nvn1" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
 [ext_resource type="AudioStream" uid="uid://bdnb3uj1kc6o" path="res://assets/audio/music/slipping.wav" id="5_ixa71"]
+[ext_resource type="Script" uid="uid://b3v52hq42cqwi" path="res://scenes/menus/main_menu/background_texture_rect.gd" id="6_2k5l7"]
+[ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="7_xkrf4"]
+[ext_resource type="Shader" uid="uid://40obawwwvxcu" path="res://levels/portal_canvas_shader_no_depth.gdshader" id="8_x5bcm"]
+[ext_resource type="Shader" uid="uid://cscpy5rh3x7x4" path="res://levels/portal_canvas_shader.gdshader" id="9_672y5"]
+[ext_resource type="Shader" uid="uid://scd375l1dffi" path="res://levels/vortex_shader.gdshader" id="10_8dhfv"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -315,6 +320,62 @@ states/Start/position = Vector2(82, 123)
 transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "OpenSubMenu", SubResource("14"), "Start", "Intro", SubResource("AnimationNodeStateMachineTransition_j0orr"), "OpenSubMenu", "OpenMainMenu", SubResource("AnimationNodeStateMachineTransition_63dxc")]
 graph_offset = Vector2(-180.277, 49)
 
+[sub_resource type="Gradient" id="Gradient_xkrf4"]
+colors = PackedColorArray(0.08235294, 0.34901962, 0.20784314, 1, 0.13333334, 0.12941177, 0.3254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x31ro"]
+gradient = SubResource("Gradient_xkrf4")
+fill_from = Vector2(0.05698006, 0.03988604)
+fill_to = Vector2(0.8262108, 0.64387465)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkrf4"]
+viewport_path = NodePath("CenterContainer/Portal Texture/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j8onx"]
+viewport_path = NodePath("/root/DarkWorldView")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwise"]
+resource_local_to_scene = true
+render_priority = 127
+shader = ExtResource("8_x5bcm")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_j8onx")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r8ef7"]
+viewport_path = NodePath("/root/DarkWorldView")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwab6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_672y5")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_r8ef7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjmpq"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("10_8dhfv")
+shader_parameter/swirl_speed = 0.36600001412512
+shader_parameter/swirl_arms = 3.000000095
+shader_parameter/swirl_tightness = 3.68000015105
+shader_parameter/color_inner = Color(0.3, 0.1, 0.9, 1)
+shader_parameter/color_outer = Color(0, 0.6, 1, 1)
+shader_parameter/color_highlight = Color(0.8, 0.3, 1, 1)
+shader_parameter/center_radius = 0.1090000051775
+shader_parameter/center_fade = 0.13600000576148
+shader_parameter/edge_fade = 0.07200000342
+shader_parameter/noise_scale = 3.0030000951425
+shader_parameter/distortion_strength = 1.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/brightness = 2.202000080845
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5bcm"]
+font_size = 87
+font_color = Color(0.7647059, 0.972549, 0.84705883, 0.6392157)
+outline_size = 8
+outline_color = Color(0.36862746, 0.7647059, 0.5529412, 0.4862745)
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 0.31764707)
+shadow_offset = Vector2(5, 5)
+
 [node name="MainMenu" unique_id=455022277 instance=ExtResource("1_sr523")]
 script = ExtResource("2_ixa71")
 level_select_packed_scene = null
@@ -335,13 +396,67 @@ stream = ExtResource("5_ixa71")
 volume_db = -14.15
 mix_target = 2
 
+[node name="BackgroundTextureRect" parent="." index="4" unique_id=1940176448]
+process_mode = 3
+offset_left = -3481.0
+offset_top = -3798.0
+offset_right = 3239.0
+offset_bottom = 3482.0
+pivot_offset = Vector2(4431, 4313)
+texture = SubResource("GradientTexture2D_x31ro")
+stretch_mode = 1
+script = ExtResource("6_2k5l7")
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="5" unique_id=497482988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portal Texture" type="TextureRect" parent="CenterContainer" index="0" unique_id=1044071003]
+custom_minimum_size = Vector2(920, 920)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("ViewportTexture_xkrf4")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="CenterContainer/Portal Texture" index="0" unique_id=2145876849]
+transparent_bg = true
+size = Vector2i(1080, 1080)
+
+[node name="Portal" parent="CenterContainer/Portal Texture/SubViewport" index="0" unique_id=1880855438 instance=ExtResource("7_xkrf4")]
+start_closed = false
+
+[node name="PortalScreenFade" parent="CenterContainer/Portal Texture/SubViewport/Portal" index="0" unique_id=1495579399]
+material_override = SubResource("ShaderMaterial_gwise")
+
+[node name="PortalMesh" parent="CenterContainer/Portal Texture/SubViewport/Portal/PortalHole" parent_id_path=PackedInt32Array(1880855438, 762694627) index="0" unique_id=625196468]
+visible = false
+material_override = SubResource("ShaderMaterial_fwab6")
+
+[node name="VortexPlane" parent="CenterContainer/Portal Texture/SubViewport/Portal/PortalHole" parent_id_path=PackedInt32Array(1880855438, 762694627) index="1" unique_id=1112480645]
+material_override = SubResource("ShaderMaterial_hjmpq")
+
+[node name="Camera3D" type="Camera3D" parent="CenterContainer/Portal Texture/SubViewport" index="1" unique_id=1981246809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.429448)
+
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
-text = "Brackeys - Strange Places"
+offset_left = 2.0
+offset_top = 52.0
+offset_right = 2.0
+offset_bottom = 177.0
+text = "Refraction's Edge"
+label_settings = SubResource("LabelSettings_x5bcm")
 
-[node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" parent_id_path=PackedInt32Array(1510335937) index="0" unique_id=930520368]
+[node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(396616752) index="1" unique_id=1510335937]
+visible = false
+
+[node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0" unique_id=930520368]
 modulate = Color(1, 1, 1, 0)
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" parent_id_path=PackedInt32Array(210553886) index="0" unique_id=116448484]
@@ -365,7 +480,10 @@ text = "Level Select"
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(1732528471) index="0" unique_id=1603969262]
 modulate = Color(1, 1, 1, 0)
 
-[node name="NewGameConfirmation" parent="." index="7" unique_id=291913255 instance=ExtResource("5_6xh1d")]
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
+text = "v1.0.0"
+
+[node name="NewGameConfirmation" parent="." index="8" unique_id=291913255 instance=ExtResource("5_6xh1d")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(420, 200)
@@ -379,7 +497,7 @@ text = "Are you sure you want to start a new game?
 All progress in the current game will be lost."
 title = "New Game"
 
-[node name="MouseFilter" type="Control" parent="." index="8" unique_id=1554668260]
+[node name="MouseFilter" type="Control" parent="." index="9" unique_id=1554668260]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -392,3 +510,5 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmation_confirmed"]
+
+[editable path="CenterContainer/Portal Texture/SubViewport/Portal"]

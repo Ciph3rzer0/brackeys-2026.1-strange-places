@@ -5,17 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_bfvdl"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_1kqi1"]
 [ext_resource type="AudioStream" uid="uid://4b0cqsu0o5kj" path="res://assets/audio/music/curiouser.wav" id="4_2v40y"]
+[ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="5_bfvdl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1kqi1"]
+font_size = 87
+font_color = Color(0.7647059, 0.972549, 0.84705883, 0.6392157)
+outline_size = 8
+outline_color = Color(0.36862746, 0.7647059, 0.5529412, 0.4862745)
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 0.31764707)
+shadow_offset = Vector2(5, 5)
 
 [node name="EndCredits" unique_id=1459886603 instance=ExtResource("1_0sycx")]
 script = ExtResource("2_2v40y")
 main_menu_scene_path = ""
 force_mouse_mode_visible = false
-scroll_paused = true
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=694489322 instance=ExtResource("3_bfvdl")]
 stream = ExtResource("4_2v40y")
+volume_db = -18.0
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1" unique_id=1066796700]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,20 +35,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="." index="2" unique_id=750434571]
+[node name="ScrollContainer" parent="." index="2" unique_id=392334416]
+scroll_vertical = 1274
+
+[node name="TitleLabel" type="Label" parent="ScrollContainer/VBoxContainer/HeaderSpace" parent_id_path=PackedInt32Array(1563170036) index="0" unique_id=2099437417]
+z_index = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -361.0
+offset_top = 604.0
+offset_right = 362.0
+offset_bottom = 729.0
 grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
+theme_override_font_sizes/font_size = 48
+text = "Refraction's Edge"
+label_settings = SubResource("LabelSettings_1kqi1")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_bfvdl")
 
-[node name="ScrollContainer" parent="." index="3" unique_id=392334416]
-scroll_vertical = 2091
-
-[node name="CenterContainer" type="CenterContainer" parent="." index="4" unique_id=1359614302]
+[node name="CenterContainer" type="CenterContainer" parent="." index="3" unique_id=1359614302]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,6 +66,7 @@ mouse_filter = 2
 
 [node name="EndMessagePanel" type="Panel" parent="CenterContainer" index="0" unique_id=1272765948]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(360, 120)
 layout_mode = 2
 

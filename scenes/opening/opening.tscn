@@ -3,10 +3,31 @@
 [ext_resource type="PackedScene" uid="uid://sikc02ddepyt" path="res://addons/maaacks_game_template/base/nodes/opening/opening.tscn" id="1_ke3tw"]
 [ext_resource type="Texture2D" uid="uid://daput5j66exgu" path="res://assets/godot_engine_logo/logo_vertical_color_dark.png" id="2_yhkvs"]
 
+[sub_resource type="Gradient" id="Gradient_ub2bi"]
+offsets = PackedFloat32Array(0.3505618, 1)
+colors = PackedColorArray(0.1443936, 0.16452673, 0.34605908, 1, 0.13333334, 0.12941177, 0.3254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u6ao7"]
+gradient = SubResource("Gradient_ub2bi")
+fill_from = Vector2(0.05698006, 0.03988604)
+fill_to = Vector2(0.8262108, 0.64387465)
+
 [node name="Opening" unique_id=684202726 instance=ExtResource("1_ke3tw")]
 images = Array[Texture2D]([ExtResource("2_yhkvs")])
 
-[node name="ImagesContainer" parent="." index="1" unique_id=1471559661]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." index="1" unique_id=2028155631]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4431, 4313)
+texture = SubResource("GradientTexture2D_u6ao7")
+expand_mode = 1
+
+[node name="ImagesContainer" parent="." index="2" unique_id=1471559661]
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64

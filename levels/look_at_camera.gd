@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _find_camera() -> void:
 	_camera = get_tree().root.find_child("MainCamera3D", true, false)
-	assert(_camera != null, "No camera found in scene for LookAtCamera script.")
+	#assert(_camera != null, "No camera found in scene for LookAtCamera script.")
 	
 func _process(_delta: float) -> void:
 	if _camera:
@@ -117,5 +117,5 @@ func _process(_delta: float) -> void:
 					right = up.cross(target_axis).normalized()
 				global_transform.basis = Basis(right, up, target_axis)
 				scale = current_scale
-	else:
-		print("No player found for portal to billboard towards.")
+	# else:
+	# 	print("No player found for portal to billboard towards.")

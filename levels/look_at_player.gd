@@ -110,5 +110,5 @@ func _process(_delta: float) -> void:
 					up = Vector3.UP
 					right = up.cross(target_axis).normalized()
 				global_transform.basis = Basis(right, up, target_axis)
-	else:
-		print("No player found for portal to billboard towards.")
+	# else:
+	# 	print("No player found for portal to billboard towards.")

@@ -1,6 +1,6 @@
 extends Node
 
-const BACKGROUND_MUSIC_FADE_DISTANCE := 7.0
+const BACKGROUND_MUSIC_FADE_DISTANCE := 10.0
 
 var _all_portals: Array = []
 
