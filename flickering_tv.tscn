@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://8pn3cerffbw2"]
+
+[ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="1_d4pnd"]
+[ext_resource type="Shader" path="res://shaders/crt_static.gdshader" id="2_crt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+shader = ExtResource("2_crt")
+shader_parameter/noise_intensity = 0.85
+shader_parameter/scanline_strength = 0.35
+shader_parameter/scanline_count = 300.0
+shader_parameter/flicker_speed = 12.0
+shader_parameter/text_chance = 0.08
+shader_parameter/vignette_strength = 1.2
+shader_parameter/tint_color = Color(0.75, 0.82, 0.9, 1)
+shader_parameter/brightness = 0.7
+shader_parameter/text_flash_duration = 0.08
+shader_parameter/chromatic_aberration = 0.003
+
+[sub_resource type="QuadMesh" id="QuadMesh_d4pnd"]
+material = SubResource("ShaderMaterial_crt")
+
+[node name="Node3D" type="Node3D" unique_id=2046248298]
+
+[node name="tv2" parent="." unique_id=247881811 instance=ExtResource("1_d4pnd")]
+transform = Transform3D(-0.5827851, 0, 0.2763404, 0, 0.6449826, 0, -0.2763404, 0, -0.5827851, -0.24193296, -0.7766001, 0.092003465)
+
+[node name="flicker" type="MeshInstance3D" parent="." unique_id=1448509939]
+transform = Transform3D(-9.9019694e-08, 0, 2.2653065, 0, 2.2653065, 0, -2.2653065, 0, -9.9019694e-08, 1.2048967, -1.0193716, 0.33678687)
+mesh = SubResource("QuadMesh_d4pnd")
+surface_material_override/0 = SubResource("ShaderMaterial_crt")
