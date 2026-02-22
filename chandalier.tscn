@@ -3,15 +3,67 @@
 [ext_resource type="PackedScene" uid="uid://cuyu27255ari5" path="res://assets/chandalier/chandalier.glb" id="1_urr71"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="2_3q8xq"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3q8xq"]
+height = 0.335
+radius = 2.25
+
 [node name="Chandalier" type="Node3D" unique_id=276974892]
 
 [node name="chandalier2" parent="." unique_id=1167234320 instance=ExtResource("1_urr71")]
-transform = Transform3D(0.26180843, 0, 0, 0, 0.26180843, 0, 0, 0, 0.26180843, 1.4094337, -1.9549861, -0.1030163)
+transform = Transform3D(0.26180843, 0, 0, 0, 0.26180843, 0, 0, 0, 0.26180843, 0.79737365, -1.9549861, -0.1030163)
+
+[node name="chandalier" parent="chandalier2" index="0" unique_id=777644593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.114921, 6.952624, -0.08674312)
+layers = 32
 
 [node name="Node3D" parent="." unique_id=1837487766 instance=ExtResource("2_3q8xq")]
-transform = Transform3D(0.9227945, 0, 0.69638616, 0, 1.1560725, 0, -0.69638616, 0, 0.9227945, 1.1019202, -3.3417044, -0.1908095)
+transform = Transform3D(0.9227945, 0, 0.69638616, 0, 1.1560725, 0, -0.69638616, 0, 0.9227945, 0.3258828, -0.21582603, -0.082060814)
+
+[node name="Smoke_GPUParticle" parent="Node3D" index="0" unique_id=1753552170]
+layers = 32
+
+[node name="Fire_GPUParticle" parent="Node3D" index="1" unique_id=2034063614]
+layers = 32
+
+[node name="Sparks_GPUParticle" parent="Node3D" index="2" unique_id=149051145]
+layers = 32
+
+[node name="OmniLight3D" parent="Node3D" index="3" unique_id=1092845995]
+layers = 32
+
+[node name="Logs" parent="Node3D" index="5" unique_id=1941789832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12154629, 0)
+
+[node name="MeshInstance3D" parent="Node3D/Logs" index="0" unique_id=292444514]
+layers = 32
+
+[node name="MeshInstance3D2" parent="Node3D/Logs" index="1" unique_id=393252110]
+layers = 32
+
+[node name="MeshInstance3D3" parent="Node3D/Logs" index="2" unique_id=1650805778]
+layers = 32
+
+[node name="MeshInstance3D4" parent="Node3D/Logs" index="3" unique_id=1163001444]
+layers = 32
+
+[node name="Rocks" parent="Node3D" index="6" unique_id=1019609946]
+visible = false
+
+[node name="KshmrAmbianceScene06Fireplace" parent="Node3D" index="7" unique_id=792892530]
+area_mask = 16
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=802647890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711025, 0)
+layers = 32
 light_color = Color(0.7351563, 0.3455972, 0.26780427, 1)
 light_energy = 10.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=225514378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3841858e-07, 1.4901161e-08)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1685609256]
+shape = SubResource("CylinderShape3D_3q8xq")
+
+[editable path="chandalier2"]
+[editable path="Node3D"]

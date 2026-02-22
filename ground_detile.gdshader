@@ -14,7 +14,7 @@ uniform float roughness : hint_range(0.0, 1.0) = 0.97;
 uniform float normal_scale : hint_range(-2.0, 2.0) = 0.37;
 
 // De-tiling controls
-uniform float uv_scale : hint_frange(0.1, 50.0) = 1.0;
+uniform float uv_scale : hint_range(0.1, 50.0) = 1.0;
 uniform float detile_strength : hint_range(0.0, 10.0) = 0.6;
 uniform float color_variation : hint_range(0.0, 0.4) = 0.08;
 uniform float brightness_variation : hint_range(0.0, 0.3) = 0.06;

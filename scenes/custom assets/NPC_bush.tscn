@@ -43,4 +43,7 @@ bones/20/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071
 bones/21/position = Vector3(0.071919404, 0.93379205, 1.1955823)
 bones/21/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071068)
 
+[node name="Cube" parent="NPC_bush/Armature/Skeleton3D" index="0" unique_id=1330866140]
+layers = 32
+
 [editable path="NPC_bush"]

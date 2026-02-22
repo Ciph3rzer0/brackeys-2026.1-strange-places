@@ -3,6 +3,15 @@ extends Node3D
 ## Scatters environment prop meshes (trees, rocks, bushes) using MultiMeshInstance3D.
 ## Attach to a Node3D in the scene. It creates child MultiMeshInstance3D nodes at _ready().
 
+@export var num_conicaltrees : int = 100
+@export var num_roundtrees : int = 50
+@export var num_spreadingtrees : int = 20
+@export var num_bushes : int = 50
+@export var num_rocklarge : int = 50
+@export var num_rock_medium1 : int = 50
+@export var num_rock_medium2 : int = 50
+@export var num_rock_small : int = 50
+
 ## ──────── Scatter Area ────────
 
 ## Centre of the scatter rectangle in world XZ
@@ -50,15 +59,17 @@ class PropDef:
 
 
 func _get_prop_defs() -> Array:
+
+	
 	return [
-		PropDef.new("res://assets/environment/conical-tree.glb", 50, 0.8, 1.6, 0.0),
-		PropDef.new("res://assets/environment/round-tree.glb", 20, 0.9, 1.5, 0.0),
-		PropDef.new("res://assets/environment/spreading-tree.glb", 10, 0.7, 1.3, 0.0),
-		PropDef.new("res://assets/environment/bush.glb", 40, 0.6, 1.2, 0.0),
-		PropDef.new("res://assets/environment/rock-large.glb", 6, 0.8, 1.4, -0.3),
-		PropDef.new("res://assets/environment/rock-medium_1.glb", 15, 0.7, 1.3, -0.15),
-		PropDef.new("res://assets/environment/rock-medium_2.glb", 15, 0.7, 1.3, -0.15),
-		PropDef.new("res://assets/environment/rock-small.glb", 30, 0.5, 1.0, -0.05),
+		PropDef.new("res://assets/environment/conical-tree.glb", num_conicaltrees, 0.8, 1.6, 0.0),
+		PropDef.new("res://assets/environment/round-tree.glb", num_roundtrees, 0.9, 1.5, 0.0),
+		PropDef.new("res://assets/environment/spreading-tree.glb", num_spreadingtrees, 0.7, 1.3, 0.0),
+		PropDef.new("res://assets/environment/bush.glb", num_bushes, 0.6, 1.2, 0.0),
+		PropDef.new("res://assets/environment/rock-large.glb", num_rocklarge, 0.8, 1.4, -0.3),
+		PropDef.new("res://assets/environment/rock-medium_1.glb", num_rock_medium1, 0.7, 1.3, -0.15),
+		PropDef.new("res://assets/environment/rock-medium_2.glb", num_rock_medium2, 0.7, 1.3, -0.15),
+		PropDef.new("res://assets/environment/rock-small.glb", num_rock_small, 0.5, 1.0, -0.05),
 	]
 
 
