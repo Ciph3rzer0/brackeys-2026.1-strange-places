@@ -22,6 +22,7 @@ shape = SubResource("CylinderShape3D_jt580")
 script = ExtResource("2_hstt7")
 mesh = NodePath("../trophy/trophy")
 outline_color = Color(0.6862745, 0.6862745, 0, 0.41568628)
+fully_strange_color = Color(0.41844305, 0.7824386, 0.10346202, 1)
 
 [node name="NearbyWeirdness" type="AudioStreamPlayer3D" parent="." unique_id=1119511895]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000105559826, 1.179944, -0.09206283)

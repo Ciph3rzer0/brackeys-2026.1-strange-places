@@ -1,7 +1,12 @@
 extends Node3D
 
+signal fully_strange()
+
+const PORTAL_MAX_STRANGENESS: float = 3.0
+
 @export var mesh: MeshInstance3D
 @export var outline_color: Color = Color(1, 0.5, 0.5)
+@export var fully_strange_color: Color = Color(1, 0.5, 0.5)
 
 var _strangeness: float = 0.0
 var _materials: Array[StandardMaterial3D] = []
@@ -24,12 +29,18 @@ func _setup_material() -> void:
 				mesh.set_surface_override_material(i, duplicated)
 
 func get_stranger(delta: float) -> void:
-	_set_strangeness(min(1.5, _strangeness + delta))
+	if _strangeness >= PORTAL_MAX_STRANGENESS:
+		emit_signal("fully_strange")
+	else:
+		_strangeness = min(PORTAL_MAX_STRANGENESS, _strangeness + delta)
 
 
 func _process(delta: float) -> void:
-	_set_strangeness(max(0, _strangeness - delta * 0.5))
-	# print("Setting strangeness to: ", _strangeness)
+	if _strangeness < PORTAL_MAX_STRANGENESS:
+		_set_strangeness(max(0, _strangeness - delta * 0.5))
+	else:
+		for material in _materials:
+			material.stencil_color = fully_strange_color
 
 
 func _set_strangeness(value: float) -> void:
