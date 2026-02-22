@@ -79,7 +79,7 @@ func _process(_delta: float) -> void:
 		var progress = 0.0
 		if _portal_screen_fade_anim_player.is_playing():
 			var current_time = _portal_screen_fade_anim_player.current_animation_position
-			var total_time = _portal_screen_fade_anim_player.current_animation_length / 2
+			var total_time = _portal_screen_fade_anim_player.current_animation_length / 3
 			progress = clamp(current_time / total_time, 0.0, 1.0)
 		
 		# Lerp between portal position and camera position

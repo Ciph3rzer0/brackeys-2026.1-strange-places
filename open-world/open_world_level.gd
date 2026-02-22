@@ -26,5 +26,9 @@ func _ready() -> void:
 	#if not level_state.tutorial_read:
 		#open_tutorials()
 
+func _process(_delta: float) -> void:
+	if (Input.is_key_pressed(Key.KEY_C) and Input.is_key_pressed(Key.KEY_G)):
+		win()
+
 #func _on_tutorial_button_pressed() -> void:
 	#open_tutorials()

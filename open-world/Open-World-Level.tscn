@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b4fj705pifm1s" path="res://assets/book.glb" id="25_e213u"]
 
 [sub_resource type="Curve" id="Curve_scb53"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.35559565, 0.5165747), 2.3976057, 2.3976057, 0, 0, Vector2(0.99819493, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.001941748, 0.014925361), 0.0, 1.7538365, 0, 0, Vector2(0.35559565, 0.5165747), 1.5769403, 1.5769403, 0, 0, Vector2(0.99819493, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ui33"]
@@ -674,13 +674,14 @@ track_fade_curve = SubResource("Curve_scb53")
 
 [node name="BackgroundMusicMainWorld" type="AudioStreamPlayer" parent="BackgroundMusic" unique_id=1812676622]
 stream = ExtResource("11_78gt3")
-volume_db = -10.338
+volume_db = -16.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
 [node name="BackgroundMusicDarkWorld" type="AudioStreamPlayer" parent="BackgroundMusic" unique_id=1194908260]
 stream = ExtResource("2_4fnnd")
+volume_db = -8.0
 autoplay = true
 bus = &"_DarkMusic"
 parameters/looping = true
@@ -835,7 +836,10 @@ collision_layer = 17
 [node name="shackwalls" parent="shack" index="21" unique_id=1721503358]
 collision_layer = 17
 
-[node name="tablecol" parent="shack/Cube_050" parent_id_path=PackedInt32Array(986757192, 94898642) index="0" unique_id=1819900406]
+[node name="Cube_050" parent="shack" index="23" unique_id=94898642]
+layers = 33
+
+[node name="tablecol" parent="shack/Cube_050" index="0" unique_id=1819900406]
 collision_layer = 17
 
 [node name="chaircol" parent="shack/Cube_051" parent_id_path=PackedInt32Array(986757192, 398467334) index="0" unique_id=2136305994]

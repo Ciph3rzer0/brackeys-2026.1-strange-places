@@ -1,10 +1,65 @@
 [gd_scene format=3 uid="uid://jljc733whdom"]
 
+[ext_resource type="Script" uid="uid://dq3007va6qmx6" path="res://scenes/credits/background_gradient_fade.gd" id="1_qukly"]
 [ext_resource type="Script" uid="uid://cc2wtqasev7le" path="res://addons/maaacks_game_template/base/nodes/labels/credits_label.gd" id="1_yhcaj"]
 
-[node name="CreditsLabel" type="RichTextLabel" unique_id=1997651144]
-custom_minimum_size = Vector2(1280, 0)
+[sub_resource type="Gradient" id="Gradient_xkrf4"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yhcaj"]
+gradient = SubResource("Gradient_xkrf4")
+fill_from = Vector2(0.05698006, 0.03988604)
+fill_to = Vector2(0.8262108, 0.64387465)
+
+[sub_resource type="Gradient" id="Gradient_4c57p"]
+colors = PackedColorArray(0.08235294, 0.34901962, 0.20784314, 1, 0.13333334, 0.12941177, 0.3254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0k1b"]
+gradient = SubResource("Gradient_4c57p")
+fill_from = Vector2(0.05698006, 0.03988604)
+fill_to = Vector2(0.8262108, 0.64387465)
+
+[node name="CreditsLabel" type="Control" unique_id=1101258612]
+custom_minimum_size = Vector2(1280, 1857)
+layout_mode = 3
 anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background Black" type="TextureRect" parent="." unique_id=166379351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -943.5
+offset_bottom = 962.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_yhcaj")
+expand_mode = 1
+
+[node name="BackgroundGradientFade" type="TextureRect" parent="." unique_id=357231832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -943.5
+offset_bottom = 962.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_l0k1b")
+expand_mode = 1
+script = ExtResource("1_qukly")
+
+[node name="CreditsLabel" type="RichTextLabel" parent="." unique_id=1997651144]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -12,7 +67,20 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 bbcode_enabled = true
-text = "[font_size=48]Collaborators[/font_size]
+text = "
+[font_size=48]Authors[/font_size]
+
+[font_size=32]Code[/font_size]
+
+[font_size=24]Ciph3rzer0[/font_size]
+[url=https://itch.io/profile/ciph3rzer0​]itch.io/profile/ciph3rzer0​[/url]
+
+[font_size=32]Art, Music, SFX[/font_size]
+
+[font_size=24]FRKatona[/font_size]
+[url=https://akatona.itch.io​​]akatona.itch.io​​[/url]
+
+[font_size=48]Collaborators[/font_size]
 
 [font_size=32]Godot Game Template[/font_size]
 [img=80]res:///assets/plugin_logo/logo.png[/img]  
