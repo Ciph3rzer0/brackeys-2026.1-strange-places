@@ -56,7 +56,10 @@ var _is_moving: bool = false
 func _set_start():
 	if not Engine.is_editor_hint():
 		return
-	var undo = EditorInterface.get_editor_undo_redo()
+
+	var editor_interface = Engine.get_singleton("EditorInterface")
+	var undo = editor_interface.get_editor_undo_redo()
+	
 	undo.create_action("Set start")
 	undo.add_do_property(self, "start_transform", transform)
 	undo.add_undo_property(self, "start_transform", start_transform)
@@ -66,7 +69,10 @@ func _set_start():
 func _set_end():
 	if not Engine.is_editor_hint():
 		return
-	var undo = EditorInterface.get_editor_undo_redo()
+	
+	var editor_interface = Engine.get_singleton("EditorInterface")
+	var undo = editor_interface.get_editor_undo_redo()
+
 	undo.create_action("Set end")
 	undo.add_do_property(self, "end_transform", transform)
 	undo.add_undo_property(self, "end_transform", end_transform)
