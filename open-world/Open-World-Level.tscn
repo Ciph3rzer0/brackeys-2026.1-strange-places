@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 [ext_resource type="Texture2D" uid="uid://dx11lov20rahc" path="res://assets/cathedral/cathedral_vjxmchvo_1K_Albedo.jpg" id="13_g3cd4"]
 [ext_resource type="Texture2D" uid="uid://djsvhj25c2pt" path="res://assets/cathedral/cathedral_vjxmchvo_1K_Roughness.png" id="14_4fnnd"]
+[ext_resource type="PackedScene" uid="uid://csw1bbxqu2m0s" path="res://scenes/custom assets/strange_thing.tscn" id="14_b8xkx"]
 [ext_resource type="PackedScene" uid="uid://dvf3o7cawtyq0" path="res://scenes/custom assets/player3D.tscn" id="14_b81o8"]
 [ext_resource type="PackedScene" uid="uid://cy4r2hqn2kvhp" path="res://ground.tscn" id="15_1csix"]
 [ext_resource type="PackedScene" uid="uid://cu1hypoa4fiqw" path="res://levels/portal.tscn" id="15_cg6i3"]
@@ -24,8 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bk2qflu7wb2x8" path="res://chandalier.tscn" id="23_g3cd4"]
 [ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="24_kifxf"]
 [ext_resource type="Script" uid="uid://0sq0eqjp57cn" path="res://mesh_scatter.gd" id="24_scatter"]
+[ext_resource type="PackedScene" uid="uid://b4fj705pifm1s" path="res://assets/book.glb" id="25_e213u"]
 [ext_resource type="PackedScene" uid="uid://bkqdelq0ggow3" path="res://levels/widgets/thing_mover.tscn" id="25_vylct"]
-[ext_resource type="PackedScene" uid="uid://0m7jj04vra0q" path="res://assets/redbutton.glb" id="26_vylct"]
 
 [sub_resource type="Curve" id="Curve_scb53"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.35559565, 0.5165747), 2.3976057, 2.3976057, 0, 0, Vector2(0.99819493, 1), 0.0, 0.0, 0, 0]
@@ -59,9 +60,6 @@ font_size = 32
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fnnd"]
 size = Vector3(1, 15.05127, 8.464447)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_to11x"]
-size = Vector3(4.658936, 4.371827, 4.6589355)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4fnnd"]
 
@@ -114,8 +112,6 @@ shadow_mesh = SubResource("ArrayMesh_kqq3a")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ys7cj"]
 data = PackedVector3Array(-26.881903, -1, 4.226983, -26.881903, 1, -7.0932097, -26.881903, 1, 4.226983, -26.881903, -1, 4.226983, -26.881903, -1, -7.0932097, -26.881903, 1, -7.0932097, -26.881903, -1, -7.0932097, 190.97495, 1, -7.0932097, -26.881903, 1, -7.0932097, -26.881903, -1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, 1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, 1, 4.226983, 190.97495, 1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, -1, 4.226983, 190.97495, 1, 4.226983, 190.97495, -1, 4.226983, -26.881903, 1, 4.226983, 190.97495, 1, 4.226983, 190.97495, -1, 4.226983, -26.881903, -1, 4.226983, -26.881903, 1, 4.226983, -26.881903, -1, -7.0932097, 190.97495, -1, 4.226983, 190.97495, -1, -7.0932097, -26.881903, -1, -7.0932097, -26.881903, -1, 4.226983, 190.97495, -1, 4.226983, 190.97495, 1, -7.0932097, -26.881903, 1, 4.226983, -26.881903, 1, -7.0932097, 190.97495, 1, -7.0932097, 190.97495, 1, 4.226983, -26.881903, 1, 4.226983)
-
-[sub_resource type="BoxMesh" id="BoxMesh_g3cd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q33g8"]
 resource_name = "tree-bark"
@@ -187,7 +183,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
+[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
 transform_format = 1
 instance_count = 160
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -263,7 +259,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
+[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -339,7 +335,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
+[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_lihn7")
@@ -413,7 +409,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
+[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
 transform_format = 1
 instance_count = 80
 mesh = SubResource("ArrayMesh_7psg4")
@@ -459,7 +455,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
+[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
 transform_format = 1
 instance_count = 13
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -503,7 +499,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
+[sub_resource type="MultiMesh" id="MultiMesh_ynhmv"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -549,7 +545,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
+[sub_resource type="MultiMesh" id="MultiMesh_tb6lf"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -595,24 +591,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_ynhmv"]
+[sub_resource type="MultiMesh" id="MultiMesh_ro38j"]
 transform_format = 1
 instance_count = 64
 mesh = SubResource("ArrayMesh_scirn")
 buffer = PackedFloat32Array(0.754603, -0.91706836, -1.6413516, 62.225323, 0.7064986, 1.7773058, -0.6682206, -0.55, 1.7423861, -0.32348835, 0.9817949, 160.61989, 1.2591498, 0.32893604, 1.3150388, -4.7207365, 0.104197, 1.7660376, -0.5415149, -0.55, -1.3515431, 0.44260192, 1.1833929, 165.4487, -0.71954757, -0.55736834, -1.9375826, 24.937435, 0.011295962, 2.0561345, -0.59566605, -0.55, 2.0161247, -0.21044287, -0.6881788, 13.488882, 0.55841726, 0.28327006, -2.0909739, 49.654644, 0.33990866, 2.1226325, 0.37833524, -0.55, 2.082517, -0.42241386, 0.4989331, 166.20872, -2.00013, 0.5270882, -0.31476593, -40.79388, 0.5558926, 2.0101674, -0.16622485, -0.55, 0.26054373, -0.24253918, -2.0617251, 166.79404, -0.4444752, 0.8002222, -1.5453819, -71.41411, 0.2914919, 1.6066896, 0.74813086, -0.55, 1.7156904, -0.0656634, -0.52746, 27.532265, -0.6758889, -0.18791814, -1.974789, 3.5724, 0.21412838, 2.0671675, -0.26999608, -0.55, 1.9721191, -0.28885224, -0.64748836, 23.116207, 0.97001004, 0.51075613, -1.6931638, 60.109386, 0.28177714, 1.8618209, 0.72306246, -0.55, 1.7459316, -0.58424807, 0.82399756, 83.72253, -1.5160849, -0.93530643, -1.128557, -71.32485, -0.7764671, 1.8895998, -0.5229376, -0.55, 1.2431967, 0.039581914, -1.702894, 3.6256618, -1.7006168, 0.5437469, 0.5378108, 38.318203, 0.33206987, 1.7061995, -0.6749901, -0.55, -0.6889345, -0.5198283, -1.6529207, 52.61447, -2.0526679, 0.06337803, -0.27479994, 9.600446, -0.0103715295, 2.000619, 0.5388814, -0.55, 0.28182304, 0.53524196, -1.9816831, 32.56184, -0.78092885, -0.32912925, -2.126538, 31.169262, -0.30384517, 2.256444, -0.23765397, -0.55, 2.130298, 0.20118459, -0.81344736, 6.742491, -2.2791834, 0.57619023, 0.1174177, -45.49085, 0.49034593, 2.121703, -0.89353037, -0.55, -0.3245659, -0.840738, -2.1744597, 66.67569, 0.8914648, -0.051966846, -1.3844233, 25.719181, 0.57035154, 1.5140574, 0.31043082, -0.55, 1.2625479, -0.6472771, 0.8372831, -4.18792, 2.0563946, -0.36665416, 1.0321947, -45.208187, 0.6358098, 2.1873627, -0.48970428, -0.55, -0.89196813, 0.71388316, 2.0306115, 111.907295, -2.2447298, -0.56992006, -0.4304028, -83.645645, -0.49965873, 2.2675655, -0.39668024, -0.55, 0.51029074, -0.2867144, -2.2817242, 156.58458, -1.5212415, -0.6172726, 0.38927633, 25.508404, -0.5036996, 1.5393782, 0.4725876, -0.55, -0.5280608, 0.30988201, -1.5722157, 127.18846, 0.80842173, 0.5211357, -1.3182027, -39.9994, -0.35763204, 1.5434144, 0.39084324, -0.55, 1.3716197, 0.095272064, 0.87884563, -5.7754583, -2.1568446, -0.8677093, -0.42831135, 56.253017, -0.84266293, 2.1986046, -0.21072654, -0.55, 0.47569856, -0.03958695, -2.3152738, 63.231712, 1.8713763, -0.22258376, -1.3061543, 6.9847536, 0.44757634, 2.2336938, 0.2606122, -0.55, 1.2470999, -0.46765345, 1.8664602, 87.38477, -1.4765881, 0.1621493, 1.0655583, 2.8958712, 0.0017082993, 1.8076631, -0.2727104, -0.55, -1.0778238, -0.21927492, -1.4602171, 69.873535, 0.06527369, 0.89077973, -1.9035858, -23.617275, 0.47741058, 1.848433, 0.88134146, -0.55, 2.046755, -0.4595596, -0.1448672, 72.832924, -0.9794158, 0.06505542, 1.4512366, -71.68927, -0.070125744, 1.7461048, -0.12560037, -0.55, -1.4510003, -0.1282999, -0.973505, 155.43364, 1.690549, 0.5925209, -1.5446525, 67.429596, -0.90090376, 2.1820087, -0.14898893, -0.55, 1.3875895, 0.694798, 1.7851721, 31.840034, 1.9915495, 0.4598508, -0.87641823, -46.969624, -0.35704327, 2.1705058, 0.32751423, -0.55, 0.92308825, -0.15258676, 2.0175395, 76.50313, 1.5435766, -0.77055144, -1.3295265, 4.1255465, 0.4447894, 2.027826, -0.65886456, -0.55, 1.4709018, 0.195424, 1.5944515, 76.81032, 1.9847372, -0.31514645, 0.53771955, 58.514553, 0.19944294, 2.0215328, 0.44862995, -0.55, -0.5904931, -0.37646917, 1.9588848, 107.40065, -2.2152405, -0.5961354, 0.03609414, -50.91724, -0.5657563, 2.0502553, -0.86043197, -0.55, 0.19131114, -0.8396702, -2.1265757, 129.86237, -1.6766206, -0.5323361, 0.4246266, 15.204343, -0.64685625, 1.597671, -0.55115366, -0.55, -0.21275923, -0.66242856, -1.6705292, 156.62961, 1.7323201, 0.07419563, 0.7874757, -85.514854, -0.39190206, 1.7273831, 0.69936824, -0.55, -0.6870487, -0.7982469, 1.586607, 133.11366, 1.0438272, -0.17698638, 1.2228125, -28.273975, 0.34526297, 1.5787903, -0.06621658, -0.55, -1.1863339, 0.30375478, 1.0566527, 129.7557, 1.5089546, 0.35725895, 0.4815381, -46.332947, -0.32169753, 1.5828239, -0.1662403, -0.55, -0.5059877, 0.05908632, 1.5417334, 67.71814, -1.1161268, -0.2133373, -2.0403132, 63.259228, 0.011722486, 2.322044, -0.249208, -0.55, 2.051403, -0.12934154, -1.1086692, 18.67167, 2.085569, -0.01517607, 0.94627047, 65.41203, 0.2308823, 2.228926, -0.47311476, -0.55, -0.9177971, 0.5262261, 2.0312533, 18.467796, 1.0644077, 0.21034206, 1.4063514, -74.61127, 0.068744905, 1.7470353, -0.31332684, -0.55, -1.4203317, 0.24218956, 1.0387657, 85.10549, -1.5904369, -0.572897, 0.050686963, -31.457378, -0.5749902, 1.5805061, -0.1779222, -0.55, 0.012901859, -0.18455087, -1.6810842, 164.51587, -1.815822, 0.68677294, -0.5357686, -33.01139, 0.7633561, 1.8513194, -0.2140528, -0.55, 0.41951466, -0.39607334, -1.92952, 3.7682905, 0.548258, 0.7947998, -1.4711094, -89.987656, -0.3069729, 1.5697014, 0.7336628, -0.55, 1.6436657, 0.028047351, 0.6277201, 142.93271, -1.3851593, 0.13172092, 1.1598806, 50.474895, 0.40033796, 1.7443247, 0.2800011, -0.55, -1.0965414, 0.47044733, -1.3629439, 91.35129, -1.6408887, 0.7510684, 0.604212, -65.43071, 0.7857866, 1.7331517, -0.020401953, -0.55, -0.5583147, 0.23189025, -1.8044953, 69.247856, -1.6264899, -0.16985089, 1.1618543, -9.094974, 0.2628848, 1.8818882, 0.64312696, -0.55, -1.1443977, 0.6736998, -1.5035644, 64.259445, 1.4927312, -0.0077700303, 1.1421542, -21.17815, -0.17655666, 1.8553761, 0.24337171, -0.55, -1.1284521, -0.3005689, 1.4727787, 56.35264, -1.4363483, 0.3254105, -1.4536848, 36.53256, 0.5161553, 2.0029914, -0.061625727, -0.55, 1.3973815, -0.40536648, -1.4714589, 84.691345, -0.3189908, 0.8379816, -2.1534708, 13.631909, 0.26308024, 2.172928, 0.8065833, -0.55, 2.2957435, -0.13256969, -0.3916524, 65.368034, -1.2692362, -0.4866013, 1.7219075, 50.350918, -0.69601464, 2.0791152, 0.074506365, -0.55, -1.6484265, -0.50319654, -1.3572731, 104.29136, -0.75891584, -0.5191034, 2.0522885, -18.278965, -0.8914689, 2.0558121, 0.1903384, -0.55, -1.9200624, -0.7493178, -0.8995515, 47.476585, -1.0480124, -0.83120817, -1.8137661, 13.670743, -0.15027396, 2.0758326, -0.8644775, -0.55, 1.9894905, -0.28106335, -1.0207427, 116.788155, 0.9018124, 0.078116305, 2.1442425, -65.36903, 0.09063373, 2.32247, -0.12272744, -0.55, -2.1437497, 0.1310509, 0.8968309, 130.81816, 1.4741176, -0.29412496, 1.1171228, -0.80582714, 0.73549527, 1.6355537, -0.53991324, -0.55, -0.8907972, 0.86368406, 1.4028634, 57.096283, -1.8746095, 0.71537477, -0.7212569, -40.32185, 0.68768275, 2.0078716, 0.20414945, -0.55, 0.74770653, -0.05313626, -1.9960573, 91.948715, 1.1008554, -0.48231858, 1.5736675, -59.19, 0.7427178, 1.8350683, 0.042869724, -0.55, -1.4688195, 0.56642413, 1.2011145, 123.11154, -1.122033, -0.5556666, 1.4487767, -72.75751, -0.14270067, 1.8172413, 0.586471, -0.55, -1.5451071, 0.23568258, -1.1062438, 66.97594, -1.5764236, -0.32457095, -0.034675732, -40.47581, -0.2995393, 1.5063866, -0.48242658, -0.55, 0.12971082, -0.4659538, -1.5354877, 64.69185, -1.4517727, -0.7076104, 1.400827, 11.460858, -0.73344487, 1.9929672, 0.24660368, -0.55, -1.3874751, -0.3131169, -1.5961026, -5.9299335, 1.2893965, -0.26675537, 1.039181, 66.85246, 0.34940827, 1.6405361, -0.012417448, -0.55, -1.0143813, 0.22601303, 1.3166426, 163.82927, -1.2015015, -0.13168555, 1.7977656, 56.542675, 0.014845288, 2.1597276, 0.16812067, -0.55, -1.8025209, 0.10556447, -1.1969471, 126.783936, -0.044830915, 0.25908118, 1.7043816, -40.510536, -0.40508053, 1.6556401, -0.26232702, -0.55, -1.6756938, -0.40716413, 0.01781625, 98.54695, 1.3143429, -0.81942385, 1.7100894, -41.77248, 0.58678854, 2.154329, 0.58129543, -0.55, -1.8032029, 0.103777386, 1.4356352, 24.516357, 0.114717625, -0.6705216, -1.5761333, -70.80462, -0.15277694, 1.5693625, -0.67876095, -0.55, 1.7060053, 0.1856284, 0.045199882, 107.20882, -1.4883283, 0.8263218, -1.3853244, -4.5067625, 0.7964616, 2.0155852, 0.34658, -0.55, 1.4027046, -0.26769572, -1.6666768, 13.854502, -1.2509494, 0.100292146, -1.6874692, 41.36346, -0.06596652, 2.094771, 0.17340161, -0.55, 1.6891594, 0.1560807, -1.2429259, 181.6441, -1.1212198, -0.3224843, -1.6257403, -72.4005, 0.66446817, 1.7106959, -0.7975981, -0.55, 1.5183905, -0.9867546, -0.85144997, -2.8159456, 0.40456676, -0.66094095, 1.8511704, -63.932407, -0.02034522, 1.8884643, 0.67870283, -0.55, -1.9655179, -0.15559053, 0.37400508, 133.53006, 1.7558384, -0.5296913, 1.0132, 4.0817537, 0.5709208, 2.0149608, 0.064017355, -0.55, -0.9905538, 0.22243199, 1.8328784, 47.06112)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5emr2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tb6lf"]
 albedo_color = Color(0.5743603, 0.5678333, 0.46531856, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e213u"]
-material = SubResource("StandardMaterial3D_5emr2")
+material = SubResource("StandardMaterial3D_tb6lf")
 size = Vector3(4, 0.25, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8xkx"]
 size = Vector3(4, 0.25, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vylct"]
-size = Vector3(16.524544, 0.25, 3.0752869)
 
 [node name="Node3D" type="Node3D" unique_id=1764087103]
 script = ExtResource("1_to11x")
@@ -672,7 +665,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.045773, 2.3435657, -13.300839)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7147975, 1.0712185, -13.923359)
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -3.962234, -0.36236104, 4.32555)
@@ -797,6 +790,9 @@ collision_layer = 17
 [node name="StrangeTV" parent="shack" unique_id=1173675129 instance=ExtResource("12_kifxf")]
 transform = Transform3D(0.9204877, 0, -0.090708755, 0, 0.92494637, 0, 0.090708755, 0, 0.9204877, 13.431332, 6.1677423, -13.626336)
 
+[node name="tv" parent="shack/StrangeTV" index="0" unique_id=669523926]
+transform = Transform3D(-1.878061, 0, -1.2303526, 0, 1.9931029, 0, 0.85426337, 0, -2.7048774, -2.1344833, 0.73663235, 1.1041002)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="shack" unique_id=518210069]
 transform = Transform3D(3.0130174, 0, 0, 0, 8.911187, 0, 8.66426e-15, 0, 10.187842, 31.203396, 6.076813, -0.080318674)
 layers = 32
@@ -815,11 +811,18 @@ transform = Transform3D(0.2653966, 0, 0, 0, 0.2653966, 0, 0, 0, 0.2653966, -60.0
 [node name="outside poles" parent="cathedral" index="1" unique_id=1592598998]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 127.528595, 25.73504, 284.08807)
 
+[node name="cabin#StrangeThing" parent="cathedral/Cube_032" parent_id_path=PackedInt32Array(1922042881, 1241083009) index="1" unique_id=1519823853 instance=ExtResource("14_b8xkx")]
+transform = Transform3D(-1.3288265e-07, 0, 3.04, 0, 3.04, 0, -3.04, 0, -1.3288265e-07, 1.019165, 10.365116, 0.40405273)
+visible = false
+
 [node name="walkway" parent="cathedral" index="5" unique_id=1288362878]
 layers = 33
 
 [node name="walkwaycol" parent="cathedral/walkway" index="0" unique_id=1693991983]
 collision_layer = 17
+
+[node name="cathedral_main" parent="cathedral" index="7" unique_id=10468925]
+transform = Transform3D(0.99969584, 0, 0, 0, 0.99969584, 0, 0, 0, 0.99969584, 0, 18.426588, 223.93243)
 
 [node name="tmp_move" type="Node3D" parent="cathedral" unique_id=1589394926]
 transform = Transform3D(3.7679453, 0, 0, 0, 3.7679453, 0, 0, 0, 3.7679453, 364.06656, -1.8248328, -548.16406)
@@ -835,10 +838,6 @@ collision_layer = 17
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cathedral/tmp_move/walkway2/walkwaycol" unique_id=1150308830]
 shape = SubResource("ConcavePolygonShape3D_ys7cj")
 
-[node name="WIN-CONDITION-PLACEHOLDER" type="MeshInstance3D" parent="cathedral/tmp_move/walkway2" unique_id=872977725]
-transform = Transform3D(9.903239, 0, 0, 0, 7.295411, 0, 0, 0, 3.6056914, -19.850494, 5.2208786, -2.0682983)
-mesh = SubResource("BoxMesh_g3cd4")
-
 [node name="Chandalier" parent="cathedral/tmp_move" unique_id=276974892 instance=ExtResource("23_g3cd4")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1.377298, 0, 0, 0, 0.9999999, -93.7135, 7.9037504, 210.54237)
 
@@ -847,12 +846,14 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1.377298, 0, 0, 0, 0.9999999, -93.71
 
 [node name="Portal" parent="cathedral/tmp_move" unique_id=1880855438 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(-0.52413446, 0, -0.85163546, 0, 0.99999994, 0, 0.85163546, 0, -0.52413446, -110.89412, 10.21663, 216.42256)
+start_closed = false
 
 [node name="Chandalier3" parent="cathedral/tmp_move" unique_id=1438088076 instance=ExtResource("23_g3cd4")]
 transform = Transform3D(-0.9999999, 0, 8.742276e-08, 0, 1.377298, 0, -8.742276e-08, 0, -0.9999999, -93.7135, 9.537487, 198.05745)
 
 [node name="Portal6" parent="cathedral/tmp_move" unique_id=2092814828 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(-0.028096048, 0, -0.9996052, 0, 0.99999994, 0, 0.9996052, 0, -0.028096048, -105.35091, 11.08979, 192.82823)
+start_closed = false
 
 [node name="Portals" type="Node3D" parent="." unique_id=34436433]
 
@@ -861,9 +862,19 @@ transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.
 
 [node name="Portal3" parent="Portals" unique_id=830755206 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(0.001980674, 0, -0.46130294, 0, 0.46130717, 0, 0.46130294, 0, 0.001980674, -3.1955957, 1.8812215, -6.2245474)
+start_closed = false
 
 [node name="Cabin" parent="." unique_id=915997769 instance=ExtResource("18_cbib2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.78107, 0.6789012, 71.575584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.76099, 0.67639256, 71.57734)
+
+[node name="Book_cathedral" parent="Cabin" unique_id=763199834 instance=ExtResource("23_e2h53")]
+transform = Transform3D(4.2667143e-08, 0.21727423, 0.97611004, -0.9999994, -8.7548e-16, 4.3711392e-08, 9.497367e-09, -0.97611004, 0.21727423, -150.97978, 10.088151, 135.98178)
+
+[node name="Switch" parent="Cabin/Book_cathedral" index="0" unique_id=795092059]
+transform = Transform3D(1, 1.409824e-08, -2.33597e-09, -1.4098241e-08, 0.9465593, -0.32253003, -2.3359665e-09, 0.32253003, 0.9465593, 0, 0, 0)
+
+[node name="book" parent="Cabin/Book_cathedral" unique_id=887440834 instance=ExtResource("25_e213u")]
+transform = Transform3D(0.2416824, 1.9713204e-08, -2.6410682e-08, -1.301573e-08, -0.1208412, -0.2093031, -3.0277473e-08, 0.2093031, -0.1208412, -0.12812805, 0.74520874, 0.29701614)
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
@@ -899,82 +910,32 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="@MultiMeshInstance3D@48938" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1514882524]
-multimesh = SubResource("MultiMesh_vylct")
-
-[node name="@MultiMeshInstance3D@48939" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=627321197]
-multimesh = SubResource("MultiMesh_e213u")
-
-[node name="@MultiMeshInstance3D@48940" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=386218945]
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1235577342]
 multimesh = SubResource("MultiMesh_b8xkx")
 
-[node name="@MultiMeshInstance3D@48941" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=899814542]
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1301967515]
 multimesh = SubResource("MultiMesh_7wmbq")
 
-[node name="@MultiMeshInstance3D@48942" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=50866616]
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=6064272]
 multimesh = SubResource("MultiMesh_myi7u")
 
-[node name="@MultiMeshInstance3D@48943" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=756380485]
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=167954610]
 multimesh = SubResource("MultiMesh_0gmhp")
 
-[node name="@MultiMeshInstance3D@48944" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1417193549]
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=245560496]
 multimesh = SubResource("MultiMesh_3td7c")
 
-[node name="@MultiMeshInstance3D@48945" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=683298959]
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1469550846]
 multimesh = SubResource("MultiMesh_ynhmv")
 
-[node name="EndTheGameButton" parent="." unique_id=763199834 instance=ExtResource("23_e2h53")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -81.065384, 10.628149, 205.74083)
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=377578578]
+multimesh = SubResource("MultiMesh_tb6lf")
 
-[node name="redbutton" parent="EndTheGameButton" unique_id=1805479973 instance=ExtResource("26_vylct")]
-transform = Transform3D(2.632279e-16, -6.0219523e-09, -0.13776621, -0.13776621, -6.0219527e-09, 0, -6.0219527e-09, 0.13776621, -6.0219523e-09, 0.033325195, -0.013169289, 0.051185608)
-
-[node name="lift_cabin_1" type="Node3D" parent="." unique_id=10565107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.95307, 5.4578824, 71.84883)
-
-[node name="LiftSwitch" parent="lift_cabin_1" unique_id=795092059 instance=ExtResource("24_kifxf")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2593, -0.20599318, 0)
-
-[node name="LiftMover" parent="lift_cabin_1" unique_id=1946744826 instance=ExtResource("25_vylct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
-start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.448772, 7.5701523)
-end_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22693777, 7.5701523)
-
-[node name="Lift" type="CharacterBody3D" parent="lift_cabin_1/LiftMover" unique_id=1261480824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7997131, -1.0427346, -18.100227)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=1895123846]
-mesh = SubResource("BoxMesh_e213u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_1/LiftMover/Lift" unique_id=1504530026]
-shape = SubResource("BoxShape3D_b8xkx")
-
-[node name="lift_cabin_2" type="Node3D" parent="." unique_id=750423856]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.639126, -0.29358053, 98.61224)
-
-[node name="LiftSwitch" parent="lift_cabin_2" unique_id=1907149226 instance=ExtResource("24_kifxf")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -2.419098, 1.2952228, -5.1235504)
-
-[node name="LiftMover" parent="lift_cabin_2" unique_id=1641396487 instance=ExtResource("25_vylct")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21579742, 7.4268556, -2.932228)
-start_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21579742, -1.6498525, -1.9206009)
-end_transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21579742, 7.4268556, -2.932228)
-
-[node name="Lift" type="CharacterBody3D" parent="lift_cabin_2/LiftMover" unique_id=98452520]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.705288, 0.2832811, -9.852753)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=1237427634]
-transform = Transform3D(4.5108643, 0, 0, 0, 1, 0, 0, 0, 1.4883087, -0.1463623, 7.637024, -2.7302542)
-mesh = SubResource("BoxMesh_e213u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lift_cabin_2/LiftMover/Lift" unique_id=1707123927]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9271698, 7.581703, -2.5945895)
-shape = SubResource("BoxShape3D_vylct")
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=249212677]
+multimesh = SubResource("MultiMesh_ro38j")
 
 [node name="lift_x2" type="Node3D" parent="." unique_id=1381125834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.785845, 5.4578824, 92.4453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.83004, 3.4972472, 213.29536)
 
 [node name="LiftSwitch" parent="lift_x2" unique_id=1535240498 instance=ExtResource("24_kifxf")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2593, 0.16187716, 0)
@@ -995,15 +956,12 @@ mesh = SubResource("BoxMesh_e213u")
 shape = SubResource("BoxShape3D_b8xkx")
 
 [connection signal="fully_strange" from="shack/StrangeTV/Pulsar" to="Portals/Portal2" method="open"]
-[connection signal="switched_on" from="EndTheGameButton/Switch" to="." method="win"]
-[connection signal="switched_off" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
-[connection signal="switched_on" from="lift_cabin_1/LiftSwitch" to="lift_cabin_1/LiftMover" method="run"]
-[connection signal="switched_off" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
-[connection signal="switched_on" from="lift_cabin_2/LiftSwitch" to="lift_cabin_2/LiftMover" method="run"]
 [connection signal="switched_off" from="lift_x2/LiftSwitch" to="lift_x2/LiftMover" method="run"]
 [connection signal="switched_on" from="lift_x2/LiftSwitch" to="lift_x2/LiftMover" method="run"]
 
 [editable path="shack"]
 [editable path="shack/StrangeTV"]
 [editable path="cathedral"]
-[editable path="EndTheGameButton"]
+[editable path="cathedral/Cube_032/cabin#StrangeThing"]
+[editable path="cathedral/Cube_032/cabin#StrangeThing/trophy"]
+[editable path="Cabin/Book_cathedral"]
