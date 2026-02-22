@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cnovwqlh5c8x"]
 
+[ext_resource type="Script" uid="uid://bvp8cgcb755va" path="res://open-world/open_world_level.gd" id="1_0gmhp"]
 [ext_resource type="Texture2D" uid="uid://cun7fm03002md" path="res://assets/kenney_particle/circle_02.png" id="1_0mevk"]
 [ext_resource type="Script" uid="uid://bdg14esfnahjk" path="res://fps-label.gd" id="1_3c8je"]
 [ext_resource type="Script" uid="uid://bnffvc4kw0okx" path="res://scenes/crosshairs.gd" id="1_myc21"]
@@ -117,25 +118,25 @@ data = PackedVector3Array(-26.881903, -1, 4.226983, -26.881903, 1, -7.0932097, -
 
 [sub_resource type="BoxMesh" id="BoxMesh_g3cd4"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3td7c"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7wmbq"]
 viewport_path = NodePath("/root/DarkWorldView")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynhmv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_myi7u"]
 resource_local_to_scene = true
 render_priority = 127
 shader = ExtResource("22_7wmbq")
-shader_parameter/mirror_texture = SubResource("ViewportTexture_3td7c")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_7wmbq")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tb6lf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0gmhp"]
 viewport_path = NodePath("/root/DarkWorldView")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro38j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3td7c"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("23_myi7u")
-shader_parameter/mirror_texture = SubResource("ViewportTexture_tb6lf")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_0gmhp")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqku3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynhmv"]
 resource_local_to_scene = true
 render_priority = 1
 shader = ExtResource("24_0gmhp")
@@ -223,7 +224,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e2h53"]
+[sub_resource type="MultiMesh" id="MultiMesh_tb6lf"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -299,7 +300,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_kifxf"]
+[sub_resource type="MultiMesh" id="MultiMesh_ro38j"]
 transform_format = 1
 instance_count = 1000
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -375,7 +376,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
+[sub_resource type="MultiMesh" id="MultiMesh_aqku3"]
 transform_format = 1
 instance_count = 300
 mesh = SubResource("ArrayMesh_lihn7")
@@ -449,7 +450,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
+[sub_resource type="MultiMesh" id="MultiMesh_3tgtp"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_7psg4")
@@ -495,7 +496,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
+[sub_resource type="MultiMesh" id="MultiMesh_0byb5"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -539,7 +540,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
+[sub_resource type="MultiMesh" id="MultiMesh_673ad"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -585,7 +586,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
+[sub_resource type="MultiMesh" id="MultiMesh_gr5f1"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -631,7 +632,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
+[sub_resource type="MultiMesh" id="MultiMesh_gblt1"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_scirn")
@@ -648,6 +649,7 @@ size = Vector3(4, 0.25, 2)
 size = Vector3(4, 0.25, 2)
 
 [node name="Node3D" type="Node3D" unique_id=1764087103]
+script = ExtResource("1_0gmhp")
 
 [node name="BackgroundMusic" type="Node" parent="." unique_id=977668485]
 script = ExtResource("1_scb53")
@@ -939,16 +941,16 @@ transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.
 transform = Transform3D(0.0042936234, 0, -0.99999076, 0, 1, 0, 0.99999076, 0, 0.0042936234, -3.1955957, 1.8812215, -6.2245474)
 
 [node name="PortalScreenFade" parent="Portals/Portal3" index="0" unique_id=1495579399]
-material_override = SubResource("ShaderMaterial_ynhmv")
+material_override = SubResource("ShaderMaterial_myi7u")
 
 [node name="PortalHole" parent="Portals/Portal3" index="1" unique_id=762694627]
 transform = Transform3D(0.6000001, 0, 0, 0, 0.6, 0, 0, 0, 0.6000001, -0.26771688, 0, -0.0011496544)
 
 [node name="PortalMesh" parent="Portals/Portal3/PortalHole" index="0" unique_id=625196468]
-material_override = SubResource("ShaderMaterial_ro38j")
+material_override = SubResource("ShaderMaterial_3td7c")
 
 [node name="VortexPlane" parent="Portals/Portal3/PortalHole" index="1" unique_id=1112480645]
-material_override = SubResource("ShaderMaterial_aqku3")
+material_override = SubResource("ShaderMaterial_ynhmv")
 
 [node name="TraversalDetectors" parent="Portals/Portal3" index="2" unique_id=1495642184]
 transform = Transform3D(0.6000001, 0, 0, 0, 0.6, 0, 0, 0, 0.6000001, -0.26771688, 0, -0.0011496544)
@@ -974,29 +976,29 @@ scatter_center = Vector2(0, 200)
 scatter_half_extents = Vector2(200, 250)
 ground_y = -0.4
 
-[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1504634469]
-multimesh = SubResource("MultiMesh_e2h53")
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1463960212]
+multimesh = SubResource("MultiMesh_tb6lf")
 
-[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1128054478]
-multimesh = SubResource("MultiMesh_kifxf")
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=437284657]
+multimesh = SubResource("MultiMesh_ro38j")
 
-[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1760653885]
-multimesh = SubResource("MultiMesh_vylct")
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=491517706]
+multimesh = SubResource("MultiMesh_aqku3")
 
-[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2143029181]
-multimesh = SubResource("MultiMesh_e213u")
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=651259609]
+multimesh = SubResource("MultiMesh_3tgtp")
 
-[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=15245498]
-multimesh = SubResource("MultiMesh_b8xkx")
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1941350015]
+multimesh = SubResource("MultiMesh_0byb5")
 
-[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1114655900]
-multimesh = SubResource("MultiMesh_7wmbq")
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1543898071]
+multimesh = SubResource("MultiMesh_673ad")
 
-[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2023948706]
-multimesh = SubResource("MultiMesh_myi7u")
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1212402342]
+multimesh = SubResource("MultiMesh_gr5f1")
 
-[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1040683654]
-multimesh = SubResource("MultiMesh_0gmhp")
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2045276888]
+multimesh = SubResource("MultiMesh_gblt1")
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
@@ -1033,8 +1035,13 @@ mesh = SubResource("BoxMesh_b8xkx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ThingMoverExampleForAnthony/LiftMover/Lift" unique_id=2077586802]
 shape = SubResource("BoxShape3D_7wmbq")
 
+[node name="EndTheGameButton" type="Node3D" parent="." unique_id=1919519589]
+
+[node name="Switch" parent="EndTheGameButton" unique_id=1053527406 instance=ExtResource("25_vylct")]
+
 [connection signal="switched_off" from="ThingMoverExampleForAnthony/LiftSwitch" to="ThingMoverExampleForAnthony/LiftMover" method="run"]
 [connection signal="switched_on" from="ThingMoverExampleForAnthony/LiftSwitch" to="ThingMoverExampleForAnthony/LiftMover" method="run"]
+[connection signal="switched_on" from="EndTheGameButton/Switch" to="." method="_on_win_button_pressed"]
 
 [editable path="shack"]
 [editable path="cathedral"]
