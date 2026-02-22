@@ -608,10 +608,13 @@ stream = ExtResource("11_78gt3")
 volume_db = -10.338
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="BackgroundMusicDarkWorld" type="AudioStreamPlayer" parent="BackgroundMusic" unique_id=1194908260]
 stream = ExtResource("2_4fnnd")
 autoplay = true
+bus = &"_DarkMusic"
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222359090]
 environment = SubResource("Environment_lny1m")
@@ -651,15 +654,6 @@ light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.042793, 0.57875574, 207.03918)
-
-[node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
-stream = ExtResource("11_78gt3")
-attenuation_model = 3
-volume_db = -10.0
-panning_strength = 0.0
-bus = &"Music"
-attenuation_filter_cutoff_hz = 20500.0
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -6.3990784, -0.36236104, 4.32555)
