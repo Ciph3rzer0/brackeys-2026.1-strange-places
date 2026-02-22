@@ -650,7 +650,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.759296, 0.57875574, 72.910904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.638, 4.904194, 72.910904)
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -3.962234, -0.36236104, 4.32555)
@@ -841,7 +841,7 @@ transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.
 transform = Transform3D(0.001980674, 0, -0.46130294, 0, 0.46130717, 0, 0.46130294, 0, 0.001980674, -3.1955957, 1.8812215, -6.2245474)
 
 [node name="Cabin" parent="." unique_id=915997769 instance=ExtResource("18_cbib2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.76845, 0.66312504, 71.56555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.766846, 0.65539503, 71.56803)
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
@@ -877,28 +877,28 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="@MultiMeshInstance3D@19144" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1198377048]
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=794392855]
 multimesh = SubResource("MultiMesh_cbib2")
 
-[node name="@MultiMeshInstance3D@19145" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=651436277]
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1270386931]
 multimesh = SubResource("MultiMesh_sym4i")
 
-[node name="@MultiMeshInstance3D@19146" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=468371836]
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1146567228]
 multimesh = SubResource("MultiMesh_to11x")
 
-[node name="@MultiMeshInstance3D@19147" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=504468937]
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=165412645]
 multimesh = SubResource("MultiMesh_e2h53")
 
-[node name="@MultiMeshInstance3D@19148" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=876135906]
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1958712320]
 multimesh = SubResource("MultiMesh_kifxf")
 
-[node name="@MultiMeshInstance3D@19149" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2062367670]
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=278195733]
 multimesh = SubResource("MultiMesh_vylct")
 
-[node name="@MultiMeshInstance3D@19150" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1470952739]
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1690263658]
 multimesh = SubResource("MultiMesh_e213u")
 
-[node name="@MultiMeshInstance3D@19151" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1911926064]
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=569025959]
 multimesh = SubResource("MultiMesh_b8xkx")
 
 [editable path="shack"]

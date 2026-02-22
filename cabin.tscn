@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgk7yk6vnq2o7" path="res://assets/crate/crate_sj0gcizc_1K_Albedo.jpg" id="9_tf4qc"]
 [ext_resource type="Texture2D" uid="uid://cjjrfiroggycm" path="res://assets/crate/crate_sj0gcizc_1K_Roughness.png" id="10_3gvpd"]
 [ext_resource type="Texture2D" uid="uid://6e7kcygrnfxp" path="res://assets/crate/crate_sj0gcizc_1K_Normal.jpg" id="11_otbxh"]
-[ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="11_rsij4"]
+[ext_resource type="PackedScene" uid="uid://8pn3cerffbw2" path="res://flickering_tv.tscn" id="11_rsij4"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ykfyd"]
 points = PackedVector3Array(0.24387817, 4.5640683, 0.24387817, -0.33334208, -0.04112172, -0.33334208, -0.33334208, -0.04112172, 0.3280151, 0.3280151, -0.04112172, -0.33334208, -0.33334208, 4.586832, -0.33334208, -0.33334208, 4.586832, 0.3280151, 0.29659998, 0.18223086, 0.29659998, 0.3280151, 4.586832, -0.33334208, 0.29659998, 4.37052, 0.29659998)
@@ -322,9 +322,6 @@ mesh = SubResource("ArrayMesh_p8yaw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cabin/crate_015/StaticBody3D" unique_id=1953984146]
 shape = SubResource("ConvexPolygonShape3D_kkxua")
 
-[node name="tv2" parent="cabin" unique_id=247881811 instance=ExtResource("11_rsij4")]
-transform = Transform3D(0.4292639, 0, -0.02260947, 0, 0.42985892, 0, 0.02260947, 0, 0.4292639, 19.463104, -1.7274365, 2.456788)
-
 [node name="colliders" type="Node3D" parent="." unique_id=374719580]
 
 [node name="center post" type="StaticBody3D" parent="colliders" unique_id=1658750887]
@@ -410,6 +407,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90999734, 0, -22.08612)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="colliders/StaticBody3D" unique_id=695052093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3220824, 5.1141777, 1.3433838)
 shape = SubResource("BoxShape3D_4epuc")
+
+[node name="Node3D" parent="." unique_id=2046248298 instance=ExtResource("11_rsij4")]
+transform = Transform3D(-0.20620926, 0, 0.76958346, 0, 0.7967314, 0, -0.76958346, 0, -0.20620926, -3.1125891, 3.8947916, 17.04129)
 
 [editable path="cabin"]
 [editable path="cabin/cabin#StrangeThing"]
