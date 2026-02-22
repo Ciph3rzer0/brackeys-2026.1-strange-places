@@ -1,20 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://8pn3cerffbw2"]
+[gd_scene format=3 uid="uid://8pn3cerffbw2"]
 
 [ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="1_d4pnd"]
-[ext_resource type="Shader" path="res://shaders/crt_static.gdshader" id="2_crt"]
+[ext_resource type="Shader" uid="uid://mr44uoyecw6v" path="res://shaders/crt_static.gdshader" id="2_crt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+render_priority = 0
 shader = ExtResource("2_crt")
-shader_parameter/noise_intensity = 0.85
-shader_parameter/scanline_strength = 0.35
-shader_parameter/scanline_count = 300.0
-shader_parameter/flicker_speed = 12.0
-shader_parameter/text_chance = 0.08
-shader_parameter/vignette_strength = 1.2
-shader_parameter/tint_color = Color(0.75, 0.82, 0.9, 1)
-shader_parameter/brightness = 0.7
-shader_parameter/text_flash_duration = 0.08
-shader_parameter/chromatic_aberration = 0.003
 
 [sub_resource type="QuadMesh" id="QuadMesh_d4pnd"]
 material = SubResource("ShaderMaterial_crt")
