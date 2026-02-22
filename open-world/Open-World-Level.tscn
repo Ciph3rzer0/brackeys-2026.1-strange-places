@@ -181,7 +181,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_kifxf"]
+[sub_resource type="MultiMesh" id="MultiMesh_to11x"]
 transform_format = 1
 instance_count = 160
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -257,7 +257,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
+[sub_resource type="MultiMesh" id="MultiMesh_e2h53"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -333,7 +333,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
+[sub_resource type="MultiMesh" id="MultiMesh_kifxf"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_lihn7")
@@ -407,7 +407,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
+[sub_resource type="MultiMesh" id="MultiMesh_vylct"]
 transform_format = 1
 instance_count = 80
 mesh = SubResource("ArrayMesh_7psg4")
@@ -453,7 +453,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
+[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
 transform_format = 1
 instance_count = 13
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -497,7 +497,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
+[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -543,7 +543,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
+[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -589,7 +589,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
+[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
 transform_format = 1
 instance_count = 64
 mesh = SubResource("ArrayMesh_scirn")
@@ -694,58 +694,58 @@ speed = -0.2
 [node name="shack" parent="." unique_id=986757192 instance=ExtResource("22_v38h5")]
 transform = Transform3D(-1.1563079e-08, 0, -0.26453242, 0, 0.26453242, 0, 0.26453242, 0, -1.1563079e-08, -6.140105, -0.11217451, -12.884933)
 
-[node name="cabin_main" parent="shack" index="0" unique_id=102768333]
+[node name="cabin_main" parent="shack" index="0" unique_id=1515789163]
 layers = 33
 
-[node name="cabin_porch" parent="shack" index="1" unique_id=777937190]
+[node name="cabin_porch" parent="shack" index="1" unique_id=1413434746]
 layers = 33
 
-[node name="cabin_table" parent="shack" index="2" unique_id=989497178]
+[node name="cabin_table" parent="shack" index="2" unique_id=2083156855]
 layers = 33
 
-[node name="Cube_028" parent="shack" index="3" unique_id=1536469522]
+[node name="Cube_028" parent="shack" index="3" unique_id=1007735516]
 layers = 33
 
-[node name="Cube_029" parent="shack" index="4" unique_id=319530894]
+[node name="Cube_029" parent="shack" index="4" unique_id=1872134428]
 layers = 33
 
-[node name="Cube_031" parent="shack" index="5" unique_id=1410853088]
+[node name="Cube_031" parent="shack" index="5" unique_id=2025439183]
 layers = 33
 
-[node name="Cube_034" parent="shack" index="6" unique_id=276984025]
+[node name="Cube_034" parent="shack" index="6" unique_id=449020154]
 layers = 33
 
-[node name="Cube_035" parent="shack" index="7" unique_id=1362889766]
+[node name="Cube_035" parent="shack" index="7" unique_id=1981206121]
 layers = 33
 
-[node name="Cube_036" parent="shack" index="8" unique_id=963723295]
+[node name="Cube_036" parent="shack" index="8" unique_id=273690409]
 layers = 33
 
-[node name="Cube_037" parent="shack" index="9" unique_id=492743565]
+[node name="Cube_037" parent="shack" index="9" unique_id=637960385]
 layers = 33
 
-[node name="Cube_038" parent="shack" index="10" unique_id=1393608699]
+[node name="Cube_038" parent="shack" index="10" unique_id=1601251359]
 layers = 33
 
-[node name="Cube_039" parent="shack" index="11" unique_id=597809995]
+[node name="Cube_039" parent="shack" index="11" unique_id=1780291747]
 layers = 33
 
-[node name="Cube_040" parent="shack" index="12" unique_id=270030384]
+[node name="Cube_040" parent="shack" index="12" unique_id=535171079]
 layers = 33
 
-[node name="Cube_041" parent="shack" index="13" unique_id=1591708700]
+[node name="Cube_041" parent="shack" index="13" unique_id=810557207]
 layers = 33
 
-[node name="Cube_042" parent="shack" index="14" unique_id=814477828]
+[node name="Cube_042" parent="shack" index="14" unique_id=709954438]
 layers = 33
 
-[node name="Cube_043" parent="shack" index="15" unique_id=969098521]
+[node name="Cube_043" parent="shack" index="15" unique_id=1314928810]
 layers = 33
 
-[node name="Cube_044" parent="shack" index="16" unique_id=128304383]
+[node name="Cube_044" parent="shack" index="16" unique_id=1927239133]
 layers = 33
 
-[node name="Cube_045" parent="shack" index="17" unique_id=1040566396]
+[node name="Cube_045" parent="shack" index="17" unique_id=1193795095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.480518, 8.485352, 4.770109)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="shack/Cube_045" index="2" unique_id=1504627356]
@@ -754,25 +754,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.480518, 8.485352, 4.770109
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77319527, 0.042215347)
 shape = SubResource("BoxShape3D_4fnnd")
 
-[node name="Cube_047" parent="shack" index="18" unique_id=11645954]
+[node name="Cube_047" parent="shack" index="18" unique_id=344044489]
 layers = 33
 
-[node name="Cube_048" parent="shack" index="19" unique_id=1651940454]
+[node name="Cube_048" parent="shack" index="19" unique_id=1123565850]
 layers = 33
 
-[node name="floorcol" parent="shack" index="20" unique_id=188352039]
+[node name="floorcol" parent="shack" index="20" unique_id=84004158]
 collision_layer = 17
 
-[node name="shackwalls" parent="shack" index="21" unique_id=1721503358]
+[node name="shackwalls" parent="shack" index="21" unique_id=844741644]
 collision_layer = 17
 
-[node name="tablecol" parent="shack/Cube_050" parent_id_path=PackedInt32Array(986757192, 94898642) index="0" unique_id=1819900406]
+[node name="tablecol" parent="shack/Cube_050" parent_id_path=PackedInt32Array(986757192, 13925005) index="0" unique_id=1923148083]
 collision_layer = 17
 
-[node name="chaircol" parent="shack/Cube_051" parent_id_path=PackedInt32Array(986757192, 398467334) index="0" unique_id=2136305994]
+[node name="chaircol" parent="shack/Cube_051" parent_id_path=PackedInt32Array(986757192, 2046599047) index="0" unique_id=1349390257]
 collision_layer = 17
 
-[node name="frontwall" parent="shack" index="25" unique_id=2015429500]
+[node name="frontwall" parent="shack" index="25" unique_id=2106968179]
 collision_layer = 17
 
 [node name="tv2" parent="shack" unique_id=247881811 instance=ExtResource("21_6d0qa")]
@@ -793,13 +793,13 @@ shape = SubResource("BoxShape3D_g3cd4")
 [node name="cathedral" parent="." unique_id=1922042881 instance=ExtResource("22_g3cd4")]
 transform = Transform3D(0.2653966, 0, 0, 0, 0.2653966, 0, 0, 0, 0.2653966, -60.02768, 0.48428923, 159.28998)
 
-[node name="outside poles" parent="cathedral" index="1" unique_id=2146901571]
+[node name="outside poles" parent="cathedral" index="1" unique_id=1592598998]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 127.528595, 25.73504, 284.08807)
 
-[node name="walkway" parent="cathedral" index="5" unique_id=1762083443]
+[node name="walkway" parent="cathedral" index="5" unique_id=1288362878]
 layers = 33
 
-[node name="walkwaycol" parent="cathedral/walkway" index="0" unique_id=1976918755]
+[node name="walkwaycol" parent="cathedral/walkway" index="0" unique_id=1693991983]
 collision_layer = 17
 
 [node name="tmp_move" type="Node3D" parent="cathedral" unique_id=1589394926]
@@ -880,29 +880,29 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="@MultiMeshInstance3D@19409" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=862640431]
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2138374336]
+multimesh = SubResource("MultiMesh_to11x")
+
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1669466297]
+multimesh = SubResource("MultiMesh_e2h53")
+
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=916791696]
 multimesh = SubResource("MultiMesh_kifxf")
 
-[node name="@MultiMeshInstance3D@19410" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1134301146]
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=503225153]
 multimesh = SubResource("MultiMesh_vylct")
 
-[node name="@MultiMeshInstance3D@19411" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=557791993]
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=821519639]
 multimesh = SubResource("MultiMesh_e213u")
 
-[node name="@MultiMeshInstance3D@19412" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=899224295]
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=178325540]
 multimesh = SubResource("MultiMesh_b8xkx")
 
-[node name="@MultiMeshInstance3D@19413" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=837489121]
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=320324179]
 multimesh = SubResource("MultiMesh_7wmbq")
 
-[node name="@MultiMeshInstance3D@19414" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1083906534]
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1729234186]
 multimesh = SubResource("MultiMesh_myi7u")
-
-[node name="@MultiMeshInstance3D@19415" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1716342631]
-multimesh = SubResource("MultiMesh_0gmhp")
-
-[node name="@MultiMeshInstance3D@19416" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1384584861]
-multimesh = SubResource("MultiMesh_3td7c")
 
 [node name="EndTheGameButton" parent="." unique_id=763199834 instance=ExtResource("23_e2h53")]
 
