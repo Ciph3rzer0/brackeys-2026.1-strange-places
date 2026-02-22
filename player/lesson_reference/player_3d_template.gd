@@ -23,7 +23,8 @@ class_name Player
 @export var glide_horizontal_drag := 0.98
 
 @export_group("Camera")
-@export_range(0.0, 1.0) var mouse_sensitivity := 0.25
+@export_range(0.0, 2.0) var main_mouse_sensitivity := 0.2
+@export_range(0.0, 20.0) var main_joy_sensitivity := 10.0
 @export var tilt_upper_limit := PI / 3.0
 @export var tilt_lower_limit := -PI / 8.0
 
@@ -58,6 +59,7 @@ var _is_gliding := false
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_setup_shared_viewport()
 
 	GameWorld.set_player(self)
@@ -85,11 +87,11 @@ func _setup_shared_viewport() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event.is_action_pressed("left_click"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event.is_action_pressed("pc_look"):
+	# if event.is_action_pressed("ui_cancel"):
+	# 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	# elif event.is_action_pressed("left_click"):
+	# 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("pc_look"):
 		_set_look_mode(!_look_mode)
 		GameWorld.set_look_mode(_look_mode)
 	elif event.is_action_pressed("ui_text_caret_up"):
@@ -100,9 +102,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	)
+
+	var mouse_sensitivity : float = PlayerConfig.get_config(AppSettings.INPUT_SECTION, "MouseSensitivity", 0.6)
 	if player_is_using_mouse:
-		_camera_input_direction.x = - event.relative.x * mouse_sensitivity
-		_camera_input_direction.y = event.relative.y * mouse_sensitivity
+		_camera_input_direction.x = - event.relative.x * main_mouse_sensitivity * mouse_sensitivity
+		_camera_input_direction.y = event.relative.y * main_mouse_sensitivity * mouse_sensitivity
 
 func _set_look_mode(enabled: bool) -> void:
 	_look_mode = enabled
@@ -113,33 +117,44 @@ func _set_look_mode(enabled: bool) -> void:
 	else:
 		%SpringArm.spring_length = _original_spring_arm_length
 
+# func _process(delta: float) -> void:
+# 	var controller_camera_input = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down", 0.2)
+
+
 func _physics_process(delta: float) -> void:
 	if %StrangeThingRay.is_colliding():
 		var collider = %StrangeThingRay.get_collider()
 		collider.get_parent().find_child('Pulsar').get_stranger(delta)
 		print("Ray hit: ", collider.name if collider else "null")
 
-	_camera_pivot.rotation.x += _camera_input_direction.y * delta
-	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
-	_camera_pivot.rotation.y += _camera_input_direction.x * delta
+	if _camera_input_direction != Vector2.ZERO:
+		_camera_pivot.rotation.x += _camera_input_direction.y * delta
+		_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
+		_camera_pivot.rotation.y += _camera_input_direction.x * delta
 
-	_camera_input_direction = Vector2.ZERO
+		_camera_input_direction = Vector2.ZERO
+	
+	var joy_sensitivity : float = PlayerConfig.get_config(AppSettings.INPUT_SECTION, "JoypadSensitivity", 1.0)
+	var controller_camera_input = Input.get_vector("camera_right", "camera_left", "camera_up", "camera_down", 0.2)
+	_camera_pivot.rotation.x += controller_camera_input.y * delta * joy_sensitivity * main_joy_sensitivity
+	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
+	_camera_pivot.rotation.y += controller_camera_input.x * delta * joy_sensitivity * main_joy_sensitivity
 
 	# Calculate movement input and align it to the camera's direction.
-	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.4)
+	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.2)
 
 	# Should be projected onto the ground plane.
 	var forward := _camera.global_basis.z
 	var right := _camera.global_basis.x
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized() * (0.35 if _look_mode else 1.0)
+	move_direction = move_direction * (0.35 if _look_mode else 1.0)
 
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized
 	# direction for the rotation basis.
 	if move_direction.length() > 0.2:
-		_last_input_direction = move_direction.normalized()
+		_last_input_direction = move_direction
 	var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
 	_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
 
