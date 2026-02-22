@@ -877,28 +877,28 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=882978750]
+[node name="@MultiMeshInstance3D@19144" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1198377048]
 multimesh = SubResource("MultiMesh_cbib2")
 
-[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1649013294]
+[node name="@MultiMeshInstance3D@19145" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=651436277]
 multimesh = SubResource("MultiMesh_sym4i")
 
-[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1199939266]
+[node name="@MultiMeshInstance3D@19146" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=468371836]
 multimesh = SubResource("MultiMesh_to11x")
 
-[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=839787513]
+[node name="@MultiMeshInstance3D@19147" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=504468937]
 multimesh = SubResource("MultiMesh_e2h53")
 
-[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=430318871]
+[node name="@MultiMeshInstance3D@19148" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=876135906]
 multimesh = SubResource("MultiMesh_kifxf")
 
-[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=726818632]
+[node name="@MultiMeshInstance3D@19149" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2062367670]
 multimesh = SubResource("MultiMesh_vylct")
 
-[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=967738630]
+[node name="@MultiMeshInstance3D@19150" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1470952739]
 multimesh = SubResource("MultiMesh_e213u")
 
-[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=736847573]
+[node name="@MultiMeshInstance3D@19151" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1911926064]
 multimesh = SubResource("MultiMesh_b8xkx")
 
 [editable path="shack"]
