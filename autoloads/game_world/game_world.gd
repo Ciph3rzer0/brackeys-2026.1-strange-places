@@ -49,6 +49,7 @@ func set_active_portal(node: Node3D, should_enable: bool):
 			_active_portal = null
 
 func set_player(player: Player):
+	_in_mirror_world = false
 	_player = player
 
 func set_background_music_player(music: Node):
@@ -57,10 +58,10 @@ func set_background_music_player(music: Node):
 
 func _process(_delta: float) -> void:
 	if !(_player and _active_portal):
-		if !_player:
-			print("game_world.gd: No player set.")
-		if !_active_portal:
-			print("game_world.gd: No active portal.")
+		# if !_player:
+		# 	print("game_world.gd: No player set.")
+		# if !_active_portal:
+		# 	print("game_world.gd: No active portal.")
 		return
 
 	var pre_active_portal = _active_portal
