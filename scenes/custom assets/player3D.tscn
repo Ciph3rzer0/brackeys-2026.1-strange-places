@@ -93,6 +93,9 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_eiqoa")
 acceleration = 30.0
+main_joy_sensitivity = 6.0
+tilt_upper_limit = 0.831
+tilt_lower_limit = -1.17
 main_world_collision = 5
 dark_world_collision = 240
 
