@@ -43,7 +43,7 @@ func set_active_portal(node: Node3D, should_enable: bool):
 		_active_portal = node
 	else:
 		print("Deactivating portal: ", node.name)
-		assert(node in _all_portals, "Trying to deactivate a portal that is not in the list of active portals.")
+		#assert(node in _all_portals, "Trying to deactivate a portal that is not in the list of active portals.")
 		_all_portals.erase(node)
 		if _active_portal == node:
 			_active_portal = null
@@ -82,7 +82,8 @@ func _process(_delta: float) -> void:
 	var fade = clampf(1 - (portal_to_player_distance / BACKGROUND_MUSIC_FADE_DISTANCE), 0, 0.5)
 	if _in_mirror_world:
 		fade = 1 - fade
-	_background_music_player.track_fade = fade
+	if _background_music_player:
+		_background_music_player.track_fade = fade
 
 func _find_closest_portal_to_camera() -> Node3D:
 	if not _player:

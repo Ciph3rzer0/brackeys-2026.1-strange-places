@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dw84ihy4n6oiu" path="res://assets/audio/music/mirror.mp3" id="2_4fnnd"]
 [ext_resource type="PackedScene" uid="uid://do02er7me81ue" path="res://scenes/custom assets/bonfire.tscn" id="5_s05ou"]
 [ext_resource type="AudioStream" uid="uid://4vpjsuc3vtj3" path="res://assets/audio/music/micahs-grove.mp3" id="11_78gt3"]
+[ext_resource type="PackedScene" uid="uid://cd3qcttcnr3yd" path="res://open-world/strange_tv.tscn" id="12_kifxf"]
 [ext_resource type="PackedScene" uid="uid://do2wxuxl4hon1" path="res://scenes/custom assets/NPC_bush.tscn" id="13_fsif2"]
 [ext_resource type="Texture2D" uid="uid://dx11lov20rahc" path="res://assets/cathedral/cathedral_vjxmchvo_1K_Albedo.jpg" id="13_g3cd4"]
 [ext_resource type="Texture2D" uid="uid://djsvhj25c2pt" path="res://assets/cathedral/cathedral_vjxmchvo_1K_Roughness.png" id="14_4fnnd"]
@@ -17,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://byb2mqjor2di8" path="res://assets/cathedral/cathedral_vjxmchvo_1K_Normal.jpg" id="15_scb53"]
 [ext_resource type="PackedScene" uid="uid://bakjadi6reff5" path="res://wall.tscn" id="16_1csix"]
 [ext_resource type="PackedScene" uid="uid://ft3r0pn8pdcw" path="res://cabin.tscn" id="18_cbib2"]
-[ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="21_6d0qa"]
 [ext_resource type="PackedScene" uid="uid://cntgyoidl5p00" path="res://assets/cathedral/cathedral.glb" id="22_g3cd4"]
 [ext_resource type="PackedScene" uid="uid://d0e71emmc740b" path="res://assets/shack/shack.glb" id="22_v38h5"]
 [ext_resource type="PackedScene" uid="uid://1tthqufroxdf" path="res://open-world/end_the_game_button.tscn" id="23_e2h53"]
@@ -665,7 +665,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25774914, 2.3435657, 3.8052645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.045773, 2.3435657, -13.300839)
 
 [node name="Bonfire" parent="." unique_id=1837487766 instance=ExtResource("5_s05ou")]
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -3.962234, -0.36236104, 4.32555)
@@ -787,8 +787,8 @@ collision_layer = 17
 [node name="frontwall" parent="shack" index="25" unique_id=2015429500]
 collision_layer = 17
 
-[node name="tv2" parent="shack" unique_id=247881811 instance=ExtResource("21_6d0qa")]
-transform = Transform3D(0.9204877, 0, -0.09070875, 0, 0.9249463, 0, 0.09070875, 0, 0.9204877, 13.431328, 6.1677423, -13.626337)
+[node name="StrangeTV" parent="shack" unique_id=1173675129 instance=ExtResource("12_kifxf")]
+transform = Transform3D(0.9204877, 0, -0.090708755, 0, 0.92494637, 0, 0.090708755, 0, 0.9204877, 13.431332, 6.1677423, -13.626336)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="shack" unique_id=518210069]
 transform = Transform3D(3.0130174, 0, 0, 0, 8.911187, 0, 8.66426e-15, 0, 10.187842, 31.203396, 6.076813, -0.080318674)
@@ -892,28 +892,28 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="@MultiMeshInstance3D@19409" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=862640431]
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1383842780]
 multimesh = SubResource("MultiMesh_kifxf")
 
-[node name="@MultiMeshInstance3D@19410" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1134301146]
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1581246623]
 multimesh = SubResource("MultiMesh_vylct")
 
-[node name="@MultiMeshInstance3D@19411" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=557791993]
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1037756816]
 multimesh = SubResource("MultiMesh_e213u")
 
-[node name="@MultiMeshInstance3D@19412" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=899224295]
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1465659923]
 multimesh = SubResource("MultiMesh_b8xkx")
 
-[node name="@MultiMeshInstance3D@19413" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=837489121]
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1241896127]
 multimesh = SubResource("MultiMesh_7wmbq")
 
-[node name="@MultiMeshInstance3D@19414" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1083906534]
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2096915325]
 multimesh = SubResource("MultiMesh_myi7u")
 
-[node name="@MultiMeshInstance3D@19415" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1716342631]
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1199366015]
 multimesh = SubResource("MultiMesh_0gmhp")
 
-[node name="@MultiMeshInstance3D@19416" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1384584861]
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1143853254]
 multimesh = SubResource("MultiMesh_3td7c")
 
 [node name="EndTheGameButton" parent="." unique_id=763199834 instance=ExtResource("23_e2h53")]
@@ -939,10 +939,12 @@ mesh = SubResource("BoxMesh_e213u")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ThingMoverExampleAnthony/LiftMover/Lift" unique_id=1504530026]
 shape = SubResource("BoxShape3D_b8xkx")
 
+[connection signal="fully_strange" from="shack/StrangeTV/Pulsar" to="Portals/Portal2" method="open"]
 [connection signal="switched_on" from="EndTheGameButton/Switch" to="." method="win"]
 [connection signal="switched_off" from="ThingMoverExampleAnthony/LiftSwitch" to="ThingMoverExampleAnthony/LiftMover" method="run"]
 [connection signal="switched_on" from="ThingMoverExampleAnthony/LiftSwitch" to="ThingMoverExampleAnthony/LiftMover" method="run"]
 
 [editable path="shack"]
+[editable path="shack/StrangeTV"]
 [editable path="cathedral"]
 [editable path="EndTheGameButton"]

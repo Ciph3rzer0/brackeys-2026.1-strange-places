@@ -13,13 +13,23 @@ var _last_collision_enabled: bool = true
 @onready var _portal_screen_fade: Node3D = %PortalScreenFade
 @onready var _portal_screen_fade_anim_player = %PortalScreenFadeAnimationPlayer
 
+@export var start_closed: bool = true
+
+var open_continuously: bool = false
+var open_continuously_progress: float = 0.0
+
+func open() -> void:
+	open_continuously = true
 
 func set_portal_open_progress(val: float):
-	var size =  Vector3.ONE * max(0.001, val)
+	var EASE = 0.05
+	var portal_scale = ease(clampf(val, 0.0, 1.0) * 1.0 / 2, EASE)
+	
+	var size =  Vector3.ONE * max(0.001, portal_scale)
 	$PortalHole.scale = size
 	%TraversalDetectors.scale = Vector3(size.x, size.y, 1.0)
 	# Only update collision when state changes
-	var should_enable = val > 0.001
+	var should_enable = portal_scale > 0.001
 	if should_enable != _last_collision_enabled:
 		_last_collision_enabled = should_enable
 		_set_collision_recursive($PortalHole, should_enable)
@@ -37,6 +47,8 @@ func _ready() -> void:
 	GameWorld.set_active_portal(self, true)
 	_find_player()
 	_find_camera()
+	if start_closed:
+		set_portal_open_progress(0.0)
 
 func _exit_tree() -> void:
 	GameWorld.set_active_portal(self, false)
@@ -57,6 +69,10 @@ func _find_player() -> void:
 		_player = get_tree().root.find_child("Player*", true, false)
 
 func _process(_delta: float) -> void:
+	if open_continuously:
+		open_continuously_progress += _delta / 2
+		set_portal_open_progress(open_continuously_progress)
+
 	# During animation, position PortalScreenFade in front of camera
 	if _is_animating and _camera and _portal_screen_fade:
 		# Get animation progress
