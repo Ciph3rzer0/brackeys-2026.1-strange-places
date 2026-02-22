@@ -19,9 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://cpf40g30nrwma" path="res://scenes/custom assets/chimneysmoke.tscn" id="18_0mevk"]
 [ext_resource type="PackedScene" uid="uid://dobkrdl5c5dk0" path="res://assets/cabin/cabin.glb" id="20_v38h5"]
 [ext_resource type="PackedScene" uid="uid://d1c2y2tcutr78" path="res://assets/tv/tv.glb" id="21_6d0qa"]
+[ext_resource type="Shader" uid="uid://40obawwwvxcu" path="res://levels/portal_canvas_shader_no_depth.gdshader" id="22_7wmbq"]
 [ext_resource type="PackedScene" uid="uid://cntgyoidl5p00" path="res://assets/cathedral/cathedral.glb" id="22_g3cd4"]
 [ext_resource type="PackedScene" uid="uid://d0e71emmc740b" path="res://assets/shack/shack.glb" id="22_v38h5"]
 [ext_resource type="PackedScene" uid="uid://bk2qflu7wb2x8" path="res://chandalier.tscn" id="23_g3cd4"]
+[ext_resource type="Shader" uid="uid://cscpy5rh3x7x4" path="res://levels/portal_canvas_shader.gdshader" id="23_myi7u"]
+[ext_resource type="Shader" uid="uid://scd375l1dffi" path="res://levels/vortex_shader.gdshader" id="24_0gmhp"]
 [ext_resource type="PackedScene" uid="uid://b2qnjmxmcwrnb" path="res://assets/crate/crate.glb" id="24_4fnnd"]
 [ext_resource type="Script" path="res://mesh_scatter.gd" id="24_scatter"]
 [ext_resource type="PackedScene" uid="uid://bqyy6pvvnaago" path="res://levels/widgets/act_switch.tscn" id="25_vylct"]
@@ -113,6 +116,42 @@ shadow_mesh = SubResource("ArrayMesh_kqq3a")
 data = PackedVector3Array(-26.881903, -1, 4.226983, -26.881903, 1, -7.0932097, -26.881903, 1, 4.226983, -26.881903, -1, 4.226983, -26.881903, -1, -7.0932097, -26.881903, 1, -7.0932097, -26.881903, -1, -7.0932097, 190.97495, 1, -7.0932097, -26.881903, 1, -7.0932097, -26.881903, -1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, 1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, 1, 4.226983, 190.97495, 1, -7.0932097, 190.97495, -1, -7.0932097, 190.97495, -1, 4.226983, 190.97495, 1, 4.226983, 190.97495, -1, 4.226983, -26.881903, 1, 4.226983, 190.97495, 1, 4.226983, 190.97495, -1, 4.226983, -26.881903, -1, 4.226983, -26.881903, 1, 4.226983, -26.881903, -1, -7.0932097, 190.97495, -1, 4.226983, 190.97495, -1, -7.0932097, -26.881903, -1, -7.0932097, -26.881903, -1, 4.226983, 190.97495, -1, 4.226983, 190.97495, 1, -7.0932097, -26.881903, 1, 4.226983, -26.881903, 1, -7.0932097, 190.97495, 1, -7.0932097, 190.97495, 1, 4.226983, -26.881903, 1, 4.226983)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g3cd4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3td7c"]
+viewport_path = NodePath("/root/DarkWorldView")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynhmv"]
+resource_local_to_scene = true
+render_priority = 127
+shader = ExtResource("22_7wmbq")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_3td7c")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tb6lf"]
+viewport_path = NodePath("/root/DarkWorldView")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro38j"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("23_myi7u")
+shader_parameter/mirror_texture = SubResource("ViewportTexture_tb6lf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqku3"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("24_0gmhp")
+shader_parameter/swirl_speed = 0.36600001412512
+shader_parameter/swirl_arms = 3.000000095
+shader_parameter/swirl_tightness = 3.68000015105
+shader_parameter/color_inner = Color(0.3, 0.1, 0.9, 1)
+shader_parameter/color_outer = Color(0, 0.6, 1, 1)
+shader_parameter/color_highlight = Color(0.8, 0.3, 1, 1)
+shader_parameter/center_radius = 0.1090000051775
+shader_parameter/center_fade = 0.13600000576148
+shader_parameter/edge_fade = 0.07200000342
+shader_parameter/noise_scale = 3.0030000951425
+shader_parameter/distortion_strength = 1.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/brightness = 2.202000080845
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q33g8"]
 resource_name = "tree-bark"
@@ -897,7 +936,22 @@ transform = Transform3D(0.5386315, 0, 0.0050484277, 0, 0.5386552, 0, -0.00504842
 transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.98385066, -6.1154995, 3.6865044, -17.480734)
 
 [node name="Portal3" parent="Portals" unique_id=830755206 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(0.001980674, 0, -0.46130294, 0, 0.46130717, 0, 0.46130294, 0, 0.001980674, -3.1955957, 1.8812215, -6.2245474)
+transform = Transform3D(0.0042936234, 0, -0.99999076, 0, 1, 0, 0.99999076, 0, 0.0042936234, -3.1955957, 1.8812215, -6.2245474)
+
+[node name="PortalScreenFade" parent="Portals/Portal3" index="0" unique_id=1495579399]
+material_override = SubResource("ShaderMaterial_ynhmv")
+
+[node name="PortalHole" parent="Portals/Portal3" index="1" unique_id=762694627]
+transform = Transform3D(0.6000001, 0, 0, 0, 0.6, 0, 0, 0, 0.6000001, -0.26771688, 0, -0.0011496544)
+
+[node name="PortalMesh" parent="Portals/Portal3/PortalHole" index="0" unique_id=625196468]
+material_override = SubResource("ShaderMaterial_ro38j")
+
+[node name="VortexPlane" parent="Portals/Portal3/PortalHole" index="1" unique_id=1112480645]
+material_override = SubResource("ShaderMaterial_aqku3")
+
+[node name="TraversalDetectors" parent="Portals/Portal3" index="2" unique_id=1495642184]
+transform = Transform3D(0.6000001, 0, 0, 0, 0.6, 0, 0, 0, 0.6000001, -0.26771688, 0, -0.0011496544)
 
 [node name="Portal4" parent="Portals" unique_id=630165375 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 110.33999, 8.283076, 61.96779)
@@ -985,3 +1039,4 @@ shape = SubResource("BoxShape3D_7wmbq")
 [editable path="shack"]
 [editable path="cathedral"]
 [editable path="cabin"]
+[editable path="Portals/Portal3"]
