@@ -38,6 +38,9 @@ func _ready() -> void:
 	_find_player()
 	_find_camera()
 
+func _exit_tree() -> void:
+	GameWorld.set_active_portal(self, false)
+
 func _find_camera() -> void:
 	# Find the main camera
 	var camera_node = get_tree().root.find_child("MainCamera3D", true, false)

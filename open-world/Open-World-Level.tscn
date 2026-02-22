@@ -600,7 +600,6 @@ buffer = PackedFloat32Array(0.3126856, 0, -0.6940926, -175.66508, 0, 0.76127315,
 
 [node name="BackgroundMusic" type="Node" parent="." unique_id=977668485]
 script = ExtResource("1_scb53")
-fade_background_tracks = false
 track_fade = 1.0
 track_fade_curve = SubResource("Curve_scb53")
 
