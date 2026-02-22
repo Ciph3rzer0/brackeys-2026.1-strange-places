@@ -47,10 +47,10 @@ float white_noise(vec2 uv, float t) {
 // Each character is encoded as 5 columns × 7 rows packed into 35 bits of an int.
 // Bit index = col * 7 + row  (row 0 = top)
 
-int char_D = 0x1F11111E;  // D
-int char_O = 0x0E11110E;  // O
-int char_W = 0x111B1511;  // W
-int char_N = 0x1113151911; // N – needs trimming, see below
+const int char_D = 0x1F11111E;  // D
+const int char_O = 0x0E11110E;  // O
+const int char_W = 0x111B1511;  // W
+const int char_N = 0x11131519; // N – needs trimming, see below
 
 // We'll store the 5×7 bitmaps as arrays. Encoding: column-major, 7 bits per column.
 // D: columns  11111  10001  10001  10001  01110
