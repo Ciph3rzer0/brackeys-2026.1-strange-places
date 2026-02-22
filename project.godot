@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brackeys - Strange Places"
-run/main_scene="uid://cnovwqlh5c8x"
+run/main_scene="uid://bk80fxrac0p3i"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
