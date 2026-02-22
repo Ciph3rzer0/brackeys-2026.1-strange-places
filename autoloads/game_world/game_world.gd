@@ -21,6 +21,10 @@ signal portal_traversal_started(mirror_world: bool)
 signal portal_traversal_finished(mirror_world: bool)
 
 func start_portal_traversal():
+	if _portal_traversal_in_progress:
+		print("Portal traversal already in progress. Ignoring new traversal start.")
+		return
+
 	print("Start Portal Traversal --- Emitting signal.")
 	_in_mirror_world = !_in_mirror_world
 	_portal_traversal_in_progress = true
