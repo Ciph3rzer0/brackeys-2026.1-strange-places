@@ -183,7 +183,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
+[sub_resource type="MultiMesh" id="MultiMesh_e213u"]
 transform_format = 1
 instance_count = 160
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -259,7 +259,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
+[sub_resource type="MultiMesh" id="MultiMesh_b8xkx"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -335,7 +335,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
+[sub_resource type="MultiMesh" id="MultiMesh_7wmbq"]
 transform_format = 1
 instance_count = 96
 mesh = SubResource("ArrayMesh_lihn7")
@@ -409,7 +409,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
+[sub_resource type="MultiMesh" id="MultiMesh_myi7u"]
 transform_format = 1
 instance_count = 80
 mesh = SubResource("ArrayMesh_7psg4")
@@ -455,7 +455,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
+[sub_resource type="MultiMesh" id="MultiMesh_0gmhp"]
 transform_format = 1
 instance_count = 13
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -499,7 +499,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_ynhmv"]
+[sub_resource type="MultiMesh" id="MultiMesh_3td7c"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -545,7 +545,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_tb6lf"]
+[sub_resource type="MultiMesh" id="MultiMesh_ynhmv"]
 transform_format = 1
 instance_count = 32
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -591,7 +591,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_ro38j"]
+[sub_resource type="MultiMesh" id="MultiMesh_tb6lf"]
 transform_format = 1
 instance_count = 64
 mesh = SubResource("ArrayMesh_scirn")
@@ -910,29 +910,29 @@ scale_rock_medium2 = 2.0
 scale_rock_small = 2.0
 ground_y = -0.5
 
-[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1235577342]
+[node name="@MultiMeshInstance3D@19144" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=331127813]
+multimesh = SubResource("MultiMesh_e213u")
+
+[node name="@MultiMeshInstance3D@19145" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=876925686]
 multimesh = SubResource("MultiMesh_b8xkx")
 
-[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1301967515]
+[node name="@MultiMeshInstance3D@19146" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=805310156]
 multimesh = SubResource("MultiMesh_7wmbq")
 
-[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=6064272]
+[node name="@MultiMeshInstance3D@19147" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1026913668]
 multimesh = SubResource("MultiMesh_myi7u")
 
-[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=167954610]
+[node name="@MultiMeshInstance3D@19148" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=21901949]
 multimesh = SubResource("MultiMesh_0gmhp")
 
-[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=245560496]
+[node name="@MultiMeshInstance3D@19149" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=2831606]
 multimesh = SubResource("MultiMesh_3td7c")
 
-[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1469550846]
+[node name="@MultiMeshInstance3D@19150" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=1618792897]
 multimesh = SubResource("MultiMesh_ynhmv")
 
-[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=377578578]
+[node name="@MultiMeshInstance3D@19151" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=199185727]
 multimesh = SubResource("MultiMesh_tb6lf")
-
-[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentScatterer" unique_id=249212677]
-multimesh = SubResource("MultiMesh_ro38j")
 
 [node name="lift_x2" type="Node3D" parent="." unique_id=1381125834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.83004, 3.4972472, 213.29536)
