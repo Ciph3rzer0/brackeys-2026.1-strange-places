@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1fusx7ij70hu" path="res://scripts/NPC_bush.gd" id="1_hmgwx"]
 [ext_resource type="PackedScene" uid="uid://f54vgqi7juwk" path="res://assets/NPCs/NPC_bush.glb" id="2_xgesp"]
+[ext_resource type="AudioStream" uid="uid://dyxqymh5npni7" path="res://assets/audio/sfx/rhinosounds.mp3" id="3_xxr4h"]
 
 [node name="Node3D" type="Node3D" unique_id=1956852423]
 script = ExtResource("1_hmgwx")
@@ -45,5 +46,17 @@ bones/21/rotation = Quaternion(0.7071068, -5.3385087e-08, -5.3385087e-08, 0.7071
 
 [node name="Cube" parent="NPC_bush/Armature/Skeleton3D" index="0" unique_id=1330866140]
 layers = 32
+
+[node name="Rhinosounds" type="AudioStreamPlayer3D" parent="." unique_id=472808614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27313662, 0.5626426, -0.12883687)
+stream = ExtResource("3_xxr4h")
+volume_db = 15.798
+max_db = 1.0
+pitch_scale = 2.5
+autoplay = true
+max_distance = 15.0
+panning_strength = 2.0
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 17066.0
 
 [editable path="NPC_bush"]

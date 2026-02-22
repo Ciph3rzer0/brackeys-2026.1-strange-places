@@ -182,7 +182,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wsoie")
 
-[sub_resource type="MultiMesh" id="MultiMesh_g3cd4"]
+[sub_resource type="MultiMesh" id="MultiMesh_4fnnd"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_dtrxu")
@@ -258,7 +258,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th37s")
 
-[sub_resource type="MultiMesh" id="MultiMesh_4fnnd"]
+[sub_resource type="MultiMesh" id="MultiMesh_scb53"]
 transform_format = 1
 instance_count = 1000
 mesh = SubResource("ArrayMesh_hp8cn")
@@ -334,7 +334,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jwlvp")
 
-[sub_resource type="MultiMesh" id="MultiMesh_scb53"]
+[sub_resource type="MultiMesh" id="MultiMesh_uqe84"]
 transform_format = 1
 instance_count = 300
 mesh = SubResource("ArrayMesh_lihn7")
@@ -408,7 +408,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7uful")
 
-[sub_resource type="MultiMesh" id="MultiMesh_uqe84"]
+[sub_resource type="MultiMesh" id="MultiMesh_0t2qu"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_7psg4")
@@ -454,7 +454,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4k75")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0t2qu"]
+[sub_resource type="MultiMesh" id="MultiMesh_joapl"]
 transform_format = 1
 instance_count = 500
 mesh = SubResource("ArrayMesh_i4wsq")
@@ -498,7 +498,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxjw2")
 
-[sub_resource type="MultiMesh" id="MultiMesh_joapl"]
+[sub_resource type="MultiMesh" id="MultiMesh_x17ri"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_f5yxh")
@@ -544,7 +544,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4oln3")
 
-[sub_resource type="MultiMesh" id="MultiMesh_x17ri"]
+[sub_resource type="MultiMesh" id="MultiMesh_0rakj"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_2ph4y")
@@ -590,7 +590,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qu1vx")
 
-[sub_resource type="MultiMesh" id="MultiMesh_0rakj"]
+[sub_resource type="MultiMesh" id="MultiMesh_gi036"]
 transform_format = 1
 instance_count = 200
 mesh = SubResource("ArrayMesh_scirn")
@@ -650,7 +650,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.99474, 0.57875574, 250.31532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.99474, 0.57875574, 246.36617)
 
 [node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
@@ -665,7 +665,7 @@ attenuation_filter_cutoff_hz = 20500.0
 transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.010747624, 0, 0.8469882, -6.3990784, -0.36236104, 4.32555)
 
 [node name="NPC_Bushes" type="Node3D" parent="." unique_id=1881117726]
-transform = Transform3D(1.9529052, 0, 0, 0, 1.9529052, 0, 0, 0, 1.9529052, -76.59545, 0, 238.1904)
+transform = Transform3D(1.9529052, 0, 0, 0, 1.9529052, 0, 0, 0, 1.9529052, -76.59545, -0.61115175, 238.1904)
 
 [node name="NPC_Bush" parent="NPC_Bushes" unique_id=1956852423 instance=ExtResource("13_fsif2")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
@@ -796,38 +796,50 @@ collision_layer = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9073486e-06)
 shape = SubResource("BoxShape3D_g3cd4")
 
-[node name="cathedral" parent="." unique_id=962320876 instance=ExtResource("22_g3cd4")]
-transform = Transform3D(0.26539662, 0, 0, 0, 0.26539662, 0, 0, 0, 0.26539662, -124.085526, 0.4843045, 252.05956)
+[node name="cathedral" parent="." unique_id=1922042881 instance=ExtResource("22_g3cd4")]
+transform = Transform3D(0.26539662, 0, 0, 0, 0.26539662, 0, 0, 0, 0.26539662, -124.085526, 0.4843045, 194.96982)
 
-[node name="walkway" parent="cathedral" index="5" unique_id=718261497]
+[node name="outside poles" parent="cathedral" index="1" unique_id=1592598998]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 127.528595, 25.73504, 284.08807)
+
+[node name="walkway" parent="cathedral" index="5" unique_id=1288362878]
 layers = 33
 
-[node name="walkwaycol" parent="cathedral/walkway" index="0" unique_id=1049366685]
+[node name="walkwaycol" parent="cathedral/walkway" index="0" unique_id=1693991983]
 collision_layer = 17
 
-[node name="walkway2" type="MeshInstance3D" parent="cathedral" unique_id=2066866340]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1978383, -64.63451, 30.653028, -40.063683)
+[node name="tmp_move" type="Node3D" parent="cathedral" unique_id=1589394926]
+transform = Transform3D(3.7679453, 0, 0, 0, 3.7679453, 0, 0, 0, 3.7679453, 364.06656, -1.8248328, -548.16406)
+
+[node name="walkway2" type="MeshInstance3D" parent="cathedral/tmp_move" unique_id=2066866340]
+transform = Transform3D(0.2653966, 0, 0, 0, 0.2653966, 0, 0, 0, 0.58329886, -113.7758, 8.619514, 193.0283)
 layers = 33
 mesh = SubResource("ArrayMesh_lql84")
 
-[node name="walkwaycol" type="StaticBody3D" parent="cathedral/walkway2" unique_id=404278716]
+[node name="walkwaycol" type="StaticBody3D" parent="cathedral/tmp_move/walkway2" unique_id=404278716]
 collision_layer = 17
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cathedral/walkway2/walkwaycol" unique_id=1150308830]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cathedral/tmp_move/walkway2/walkwaycol" unique_id=1150308830]
 shape = SubResource("ConcavePolygonShape3D_ys7cj")
 
-[node name="WIN-CONDITION-PLACEHOLDER" type="MeshInstance3D" parent="cathedral/walkway2" unique_id=872977725]
+[node name="WIN-CONDITION-PLACEHOLDER" type="MeshInstance3D" parent="cathedral/tmp_move/walkway2" unique_id=872977725]
 transform = Transform3D(9.903239, 0, 0, 0, 7.295411, 0, 0, 0, 3.6056914, -5.3819265, 7.5052, -2.0682986)
 mesh = SubResource("BoxMesh_g3cd4")
 
-[node name="Chandalier" parent="cathedral" unique_id=276974892 instance=ExtResource("23_g3cd4")]
-transform = Transform3D(3.7679453, 0, 0, 0, 5.1895843, 0, 0, 0, 3.7679453, 10.9592285, 27.95607, 25.928345)
+[node name="Chandalier" parent="cathedral/tmp_move" unique_id=276974892 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1.377298, 0, 0, 0, 0.9999999, -93.7135, 7.9037504, 210.54237)
 
-[node name="Chandalier2" parent="cathedral" unique_id=139985178 instance=ExtResource("23_g3cd4")]
-transform = Transform3D(3.7679453, 0, 0, 0, 5.1895843, 0, 0, 0, 3.7679453, 10.9592285, 33.145657, 3.3206787)
+[node name="Chandalier2" parent="cathedral/tmp_move" unique_id=139985178 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1.377298, 0, 0, 0, 0.9999999, -93.7135, 9.28105, 204.54237)
 
-[node name="Chandalier3" parent="cathedral" unique_id=1438088076 instance=ExtResource("23_g3cd4")]
-transform = Transform3D(-3.7679453, 0, 3.2940423e-07, 0, 5.1895843, 0, -3.2940423e-07, 0, -3.7679453, 10.9592285, 34.111897, -21.114258)
+[node name="Portal" parent="cathedral/tmp_move" unique_id=1880855438 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.52413446, 0, -0.85163546, 0, 0.99999994, 0, 0.85163546, 0, -0.52413446, -110.89412, 10.21663, 216.42256)
+
+[node name="Chandalier3" parent="cathedral/tmp_move" unique_id=1438088076 instance=ExtResource("23_g3cd4")]
+transform = Transform3D(-0.9999999, 0, 8.742276e-08, 0, 1.377298, 0, -8.742276e-08, 0, -0.9999999, -93.7135, 9.537487, 198.05745)
+
+[node name="Portal6" parent="cathedral/tmp_move" unique_id=2092814828 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.028096048, 0, -0.9996052, 0, 0.99999994, 0, 0.9996052, 0, -0.028096048, -105.35091, 11.08979, 192.82823)
 
 [node name="cabin" parent="." unique_id=1148901433 instance=ExtResource("20_v38h5")]
 transform = Transform3D(-3.5475573e-08, 0, -0.81158656, 0, 0.81158656, 0, 0.81158656, 0, -3.5475573e-08, 118.827255, 4.2814703, 82.30679)
@@ -875,12 +887,6 @@ transform = Transform3D(0.5386315, 0, 0.0050484277, 0, 0.5386552, 0, -0.00504842
 
 [node name="Portals" type="Node3D" parent="." unique_id=34436433]
 
-[node name="Portal" parent="Portals" unique_id=1880855438 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.5241345, 0, -0.8516355, 0, 1, 0, 0.8516355, 0, -0.5241345, -138.3576, 10.21663, 264.82104)
-
-[node name="Portal6" parent="Portals" unique_id=2092814828 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.02809605, 0, -0.99960524, 0, 1, 0, 0.99960524, 0, -0.02809605, -132.81439, 11.08979, 241.22668)
-
 [node name="Portal2" parent="Portals" unique_id=1143058973 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.98385066, -6.1154995, 3.6865044, -17.480734)
 
@@ -908,29 +914,29 @@ scatter_center = Vector2(0, 200)
 scatter_half_extents = Vector2(200, 250)
 ground_y = -0.4
 
-[node name="@MultiMeshInstance3D@120472" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1661110911]
-multimesh = SubResource("MultiMesh_g3cd4")
-
-[node name="@MultiMeshInstance3D@120473" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=532865455]
+[node name="@MultiMeshInstance3D@39945" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1724581972]
 multimesh = SubResource("MultiMesh_4fnnd")
 
-[node name="@MultiMeshInstance3D@120474" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=431382106]
+[node name="@MultiMeshInstance3D@39946" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1455106866]
 multimesh = SubResource("MultiMesh_scb53")
 
-[node name="@MultiMeshInstance3D@120475" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=349492304]
+[node name="@MultiMeshInstance3D@39947" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=490220020]
 multimesh = SubResource("MultiMesh_uqe84")
 
-[node name="@MultiMeshInstance3D@120476" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1343081549]
+[node name="@MultiMeshInstance3D@39948" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2055556731]
 multimesh = SubResource("MultiMesh_0t2qu")
 
-[node name="@MultiMeshInstance3D@120477" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2013511371]
+[node name="@MultiMeshInstance3D@39949" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=290696236]
 multimesh = SubResource("MultiMesh_joapl")
 
-[node name="@MultiMeshInstance3D@120478" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=311955593]
+[node name="@MultiMeshInstance3D@39950" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2084214351]
 multimesh = SubResource("MultiMesh_x17ri")
 
-[node name="@MultiMeshInstance3D@120479" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=636066076]
+[node name="@MultiMeshInstance3D@39951" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1351887938]
 multimesh = SubResource("MultiMesh_0rakj")
+
+[node name="@MultiMeshInstance3D@39952" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=926968259]
+multimesh = SubResource("MultiMesh_gi036")
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)

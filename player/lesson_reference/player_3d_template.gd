@@ -92,6 +92,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("pc_look"):
 		_set_look_mode(!_look_mode)
 		GameWorld.set_look_mode(_look_mode)
+	elif event.is_action_pressed("ui_text_caret_up"):
+		position += (Vector3.UP * 3)
 
 
 func _unhandled_input(event: InputEvent) -> void:
