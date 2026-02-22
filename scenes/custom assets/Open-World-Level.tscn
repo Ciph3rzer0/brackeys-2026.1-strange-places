@@ -650,7 +650,7 @@ light_color = Color(0.8563655, 0.654806, 0.54206914, 1)
 light_energy = 0.3
 
 [node name="Player" parent="." unique_id=1826751568 instance=ExtResource("14_b81o8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.99474, 0.57875574, 246.36617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.042793, 0.57875574, 207.03918)
 
 [node name="MicahsGrove" type="AudioStreamPlayer3D" parent="." unique_id=967782533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.24066, 15.188143, 89.293915)
@@ -668,7 +668,7 @@ transform = Transform3D(0.8469882, 0, 0.010747624, 0, 0.84705645, 0, -0.01074762
 transform = Transform3D(1.9529052, 0, 0, 0, 1.9529052, 0, 0, 0, 1.9529052, -76.59545, -0.61115175, 238.1904)
 
 [node name="NPC_Bush" parent="NPC_Bushes" unique_id=1956852423 instance=ExtResource("13_fsif2")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 66.99978, 0, -35.65507)
 radius = 2.0
 speed = -0.2
 
@@ -678,17 +678,17 @@ radius = 2.0
 speed = -0.2
 
 [node name="NPC_Bush2" parent="NPC_Bushes" unique_id=1251034683 instance=ExtResource("13_fsif2")]
-transform = Transform3D(0.8719756, 0, -0.48955002, 0, 1.0000004, 0, 0.48955002, 0, 0.8719756, -15.292711, 0, -9.905848)
+transform = Transform3D(0.8719756, 0, -0.48955002, 0, 1.0000004, 0, 0.48955002, 0, 0.8719756, 19.10217, 0, -85.235535)
 radius = 2.0
 speed = -0.2
 
 [node name="NPC_Bush6" parent="NPC_Bushes" unique_id=674192544 instance=ExtResource("13_fsif2")]
-transform = Transform3D(0.8719756, 0, -0.48955002, 0, 1.0000004, 0, 0.48955002, 0, 0.8719756, 20.631243, 3.9066895e-06, -100.41098)
+transform = Transform3D(0.8719756, 0, -0.48955002, 0, 1.0000004, 0, 0.48955002, 0, 0.8719756, 69.02853, 3.9066895e-06, -85.758865)
 radius = 2.0
 speed = -0.2
 
 [node name="NPC_Bush3" parent="NPC_Bushes" unique_id=337882757 instance=ExtResource("13_fsif2")]
-transform = Transform3D(0.49339563, 0, 0.8698054, 0, 1.0000004, 0, -0.8698054, 0, 0.49339563, -7.201922, 0, 24.849771)
+transform = Transform3D(0.49339563, 0, 0.8698054, 0, 1.0000004, 0, -0.8698054, 0, 0.49339563, 16.654383, 0, -14.080641)
 radius = 2.0
 speed = -0.2
 
@@ -797,7 +797,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9073486e-06)
 shape = SubResource("BoxShape3D_g3cd4")
 
 [node name="cathedral" parent="." unique_id=1922042881 instance=ExtResource("22_g3cd4")]
-transform = Transform3D(0.26539662, 0, 0, 0, 0.26539662, 0, 0, 0, 0.26539662, -124.085526, 0.4843045, 194.96982)
+transform = Transform3D(-1.16008545e-08, 0, 0.26539662, 0, 0.26539662, 0, -0.26539662, 0, -1.16008545e-08, -80.316216, 0.48428923, 204.9979)
 
 [node name="outside poles" parent="cathedral" index="1" unique_id=1592598998]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 127.528595, 25.73504, 284.08807)
@@ -842,7 +842,7 @@ transform = Transform3D(-0.9999999, 0, 8.742276e-08, 0, 1.377298, 0, -8.742276e-
 transform = Transform3D(-0.028096048, 0, -0.9996052, 0, 0.99999994, 0, 0.9996052, 0, -0.028096048, -105.35091, 11.08979, 192.82823)
 
 [node name="cabin" parent="." unique_id=1148901433 instance=ExtResource("20_v38h5")]
-transform = Transform3D(-3.5475573e-08, 0, -0.81158656, 0, 0.81158656, 0, 0.81158656, 0, -3.5475573e-08, 118.827255, 4.2814703, 82.30679)
+transform = Transform3D(-3.5475573e-08, 0, -0.81158656, 0, 0.81158656, 0, 0.81158656, 0, -3.5475573e-08, 49.26101, 4.2814703, 82.30679)
 
 [node name="house_main" parent="cabin" index="0" unique_id=1936182359]
 layers = 33
@@ -885,6 +885,12 @@ transform = Transform3D(0.5386315, 0, 0.0050484277, 0, 0.5386552, 0, -0.00504842
 [node name="crate5" parent="cabin/crates" unique_id=1079547371 instance=ExtResource("24_4fnnd")]
 transform = Transform3D(0.5386315, 0, 0.0050484277, 0, 0.5386552, 0, -0.0050484277, 0, 0.5386315, 110.41682, 5.4275885, 65.46084)
 
+[node name="Portal4" parent="cabin" unique_id=630165375 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(-0.10072515, 0, 1.2280304, 0, 1.2321544, 0, -1.2280304, 0, -0.10072515, -25.060791, 4.930597, 10.457626)
+
+[node name="Portal5" parent="cabin" unique_id=1054371744 instance=ExtResource("15_cg6i3")]
+transform = Transform3D(0.10072526, 1.2280304, -2.0081831e-08, 0, -8.9894485e-08, 1.2321544, 1.2280303, -0.100725256, 9.180266e-09, -10.912498, -4.814067, 3.3886719)
+
 [node name="Portals" type="Node3D" parent="." unique_id=34436433]
 
 [node name="Portal2" parent="Portals" unique_id=1143058973 instance=ExtResource("15_cg6i3")]
@@ -892,12 +898,6 @@ transform = Transform3D(-0.98385066, 0, 0.17899111, 0, 1, 0, -0.17899111, 0, -0.
 
 [node name="Portal3" parent="Portals" unique_id=830755206 instance=ExtResource("15_cg6i3")]
 transform = Transform3D(0.001980674, 0, -0.46130294, 0, 0.46130717, 0, 0.46130294, 0, 0.001980674, -3.1955957, 1.8812215, -6.2245474)
-
-[node name="Portal4" parent="Portals" unique_id=630165375 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(0.9966531, 0, 0.081747144, 0, 1, 0, -0.081747144, 0, 0.9966531, 110.33999, 8.283076, 61.96779)
-
-[node name="Portal5" parent="Portals" unique_id=1054371744 instance=ExtResource("15_cg6i3")]
-transform = Transform3D(-0.996653, 0.08174723, -7.450581e-09, 0, -7.2957164e-08, 1, 0.081747234, 0.9966531, -1.6298145e-08, 116.07706, 0.37443775, 73.450356)
 
 [node name="EnvironmentProps" type="Node3D" parent="." unique_id=2034288416]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 164.72552)
@@ -913,47 +913,49 @@ num_rock_small = 200
 scatter_center = Vector2(0, 200)
 scatter_half_extents = Vector2(200, 250)
 ground_y = -0.4
+exclusion_zones = Array[Vector3]([Vector3(106.8, 82.3, 15), Vector3(-6.14, -12.9, 8), Vector3(-124, 252, 30), Vector3(65.25, 102.2, 5)])
 
-[node name="@MultiMeshInstance3D@39945" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1724581972]
+[node name="ConicalTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=977499150]
 multimesh = SubResource("MultiMesh_4fnnd")
 
-[node name="@MultiMeshInstance3D@39946" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1455106866]
+[node name="RoundTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=305109254]
 multimesh = SubResource("MultiMesh_scb53")
 
-[node name="@MultiMeshInstance3D@39947" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=490220020]
+[node name="SpreadingTree" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=319991868]
 multimesh = SubResource("MultiMesh_uqe84")
 
-[node name="@MultiMeshInstance3D@39948" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2055556731]
+[node name="Bush" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1131627011]
 multimesh = SubResource("MultiMesh_0t2qu")
 
-[node name="@MultiMeshInstance3D@39949" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=290696236]
+[node name="RockLarge" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=723028120]
 multimesh = SubResource("MultiMesh_joapl")
 
-[node name="@MultiMeshInstance3D@39950" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=2084214351]
+[node name="RockMedium1" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=296015840]
 multimesh = SubResource("MultiMesh_x17ri")
 
-[node name="@MultiMeshInstance3D@39951" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1351887938]
+[node name="RockMedium2" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=1155955678]
 multimesh = SubResource("MultiMesh_0rakj")
 
-[node name="@MultiMeshInstance3D@39952" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=926968259]
+[node name="RockSmall" type="MultiMeshInstance3D" parent="EnvironmentProps" unique_id=89361407]
 multimesh = SubResource("MultiMesh_gi036")
 
 [node name="WorldBoundaries" type="Node3D" parent="." unique_id=2091001157]
 transform = Transform3D(-3.5843217e-07, -8.199972, 0, 8.199972, -3.5843217e-07, 0, 0, 0, 36.13922, 172.84732, 42.27925, 166.59622)
 
 [node name="wall1" parent="WorldBoundaries" unique_id=1391670647 instance=ExtResource("16_1csix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.842171e-14, 11.540702, 0)
 
 [node name="wall2" parent="WorldBoundaries" unique_id=2123180911 instance=ExtResource("16_1csix")]
-transform = Transform3D(1, -1.9106857e-15, 1.4210855e-14, -3.5527137e-15, -4.3711392e-08, -4.407237, 0, 0.22689953, -4.3711392e-08, -2.861023e-06, 16.860275, -5.4958906)
+transform = Transform3D(1, -1.9106859e-15, 2.842171e-14, -3.5527137e-15, -4.3711395e-08, -4.407237, 0, 0.22689953, -4.3711395e-08, 0.03208065, 16.871798, -5.4928994)
 
 [node name="wall3" parent="WorldBoundaries" unique_id=263752837 instance=ExtResource("16_1csix")]
-transform = Transform3D(1, -1.9106857e-15, 0, -3.5527137e-15, -4.3711392e-08, 3.7616098, 0, -0.22689953, -3.7308e-08, -2.861023e-06, 21.308836, 6.2032228)
+transform = Transform3D(1, -1.9106857e-15, 0, -3.5527137e-15, -4.3711392e-08, 3.7616098, 0, -0.22689953, -3.7308e-08, -2.861023e-06, 21.308836, 2.0817957)
 
 [node name="wall4" parent="WorldBoundaries" unique_id=1964435203 instance=ExtResource("16_1csix")]
-transform = Transform3D(1, 0, 0, 0, -1, 3.8757773e-07, 0, -1.9836188e-08, -1.0059302, 0, 39.921844, -0.007115841)
+transform = Transform3D(1, 0, 0, 0, -1, 3.8757773e-07, 0, -1.9836188e-08, -1.0059302, -5.684342e-14, 31.97806, -0.0071159983)
 
 [node name="ground" parent="WorldBoundaries" unique_id=1535883914 instance=ExtResource("15_1csix")]
-transform = Transform3D(-2.2255725e-07, 3.5974793, 0, -5.091517, -1.5725082e-07, 0, 0, 0, 1.304663, -5.8011484, 24.020824, -2.0851746)
+transform = Transform3D(-2.2255725e-07, 3.5974796, 0, -5.0915174, -1.5725082e-07, 0, 0, 0, 1.304663, -5.8011484, 23.997194, -2.08515)
 
 [editable path="shack"]
 [editable path="cathedral"]
